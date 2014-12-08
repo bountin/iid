@@ -40,82 +40,145 @@
                 <label class="control-label col-md-2" for="uni">Bildungseinrichtung:</label>
                 <div class="col-md-8">
                     <select class="form-control" id="uni">
-                        <option>HTL Hollabrunn</option>
-                        <option>Technikum Wien</option>
-                        <option>TU Wien</option>
-                        <option>Uni Wien</option>
+                        <option selected="selected" disabled="disabled">&lt;Bildungseinrichtung auswählen&gt;</option>
+                        <option onclick="$('#lva').removeAttr('disabled');">HTL Hollabrunn</option>
+                        <option onclick="$('#lva').removeAttr('disabled');">Technikum Wien</option>
+                        <option onclick="$('#lva').removeAttr('disabled');">TU Wien</option>
+                        <option onclick="$('#lva').removeAttr('disabled');">Uni Wien</option>
                     </select>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2" for="lva">Lehrveranstaltung:</label>
                 <div class="col-md-8">
-                    <select class="form-control" id="lva">
-                        <option>Objektorientierte Programmiertechniken</option>
-                        <option>Interface and Interaction Design</option>
-                        <option>Programmkonstruktion</option>
-                        <option>Funktionale Programmierung</option>
-                        <option>Software Engineering & Projekt Management</option>
-                        <option onclick="confirm('neue LVA!');">&lt;neue Lehrveranstaltung&gt;</option>
+                    <!--<input type="text" name="product" list="productName"/>-->
+                    <!--<datalist id="productName">-->
+                        <!--<option value="Pen">Pen</option>-->
+                        <!--<option value="Pencil">Pencil</option>-->
+                        <!--<option value="Paper">Paper</option>-->
+                    <!--</datalist>-->
+                    <select class="form-control disabled" id="lva" disabled="disabled">
+                        <option selected="selected" disabled="disabled">&lt;LVA auswählen&gt;</option>
+                        <option onclick="$('#new_lva').addClass('hidden'); $('#semester').removeAttr('disabled');">Objektorientierte Programmiertechniken</option>
+                        <option onclick="$('#new_lva').addClass('hidden'); $('#semester').removeAttr('disabled');">Interface and Interaction Design</option>
+                        <option onclick="$('#new_lva').addClass('hidden'); $('#semester').removeAttr('disabled');">Programmkonstruktion</option>
+                        <option onclick="$('#new_lva').addClass('hidden'); $('#semester').removeAttr('disabled');">Funktionale Programmierung</option>
+                        <option onclick="$('#new_lva').addClass('hidden'); $('#semester').removeAttr('disabled');">Software Engineering & Projekt Management</option>
+                        <option onclick="$('#new_lva').removeClass('hidden'); $('#semester').removeAttr('disabled');">&lt;neue Lehrveranstaltung&gt;</option>
                     </select>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-8" style="border-style: solid; border-width: 1px; border-radius: 5px; border-color: lightgrey;">
+            <div id="new_lva" class="form-group hidden text-muted">
+                <div class="col-md-offset-2 col-md-8" style="border-style: none; border-width: 1px; border-radius: 5px; border-color: lightgrey;">
                     <div class="form-group">
-                        <label class="control-label col-md-2" for="lva_name">Name:</label>
-                        <div class="col-md-6">
+                        <label class="control-label col-sm-offset-1 col-md-2 col-md-offset-0" for="lva_name">Name:</label>
+                        <div class="col-sm-offset-1 col-md-6 col-md-offset-0">
                             <input type="text" class="form-control" id="lva_name">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-2" for="lva_kurzName">Kurzname:</label>
-                        <div class="col-md-2">
+                        <label class="control-label col-sm-offset-1 col-md-2 col-md-offset-0" for="lva_kurzName">Kurzname:</label>
+                        <div class="col-sm-offset-1 col-md-2 col-md-offset-0">
                             <input type="text" class="form-control" id="lva_kurzName">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-2" for="lva_nummer">Nummer:</label>
-                        <div class="col-md-3">
+                        <label class="control-label col-sm-offset-1 col-md-2 col-md-offset-0" for="lva_nummer">Nummer:</label>
+                        <div class="col-sm-offset-1 col-md-3 col-md-offset-0">
                             <input type="text" class="form-control" id="lva_nummer">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-2" for="lva_institut">Institut:</label>
-                        <div class="col-md-8">
+                        <label class="control-label col-sm-offset-1 col-md-2 col-md-offset-0" for="lva_institut">Institut:</label>
+                        <div class="col-sm-offset-1 col-md-8 col-md-offset-0">
                             <input type="text" class="form-control" id="lva_institut">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-2" for="lva_website">Website:</label>
-                        <div class="col-md-10">
+                        <label class="control-label col-sm-offset-1 col-md-2 col-md-offset-0" for="lva_website">Website:</label>
+                        <div class="col-sm-offset-1 col-md-10 col-md-offset-0">
                             <input type="text" class="form-control" id="lva_website">
                         </div>
                     </div>
+                    <hr />
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2" for="semester">Semester:</label>
                 <div class="col-md-8">
-                    <select class="form-control" id="semester">
-                        <option>WS14</option>
-                        <option>SS14</option>
-                        <option>WS13</option>
-                        <option>SS13</option>
-                        <option onclick="confirm('neues Semester!');">&lt;neues Semester&gt;</option>
+                    <select class="form-control" id="semester" disabled="disabled">
+                        <option selected="selected" disabled="disabled">&lt;Semester auswählen&gt;</option>
+                        <option onclick="$('#new_semester').addClass('hidden'); $('#beispiel').removeAttr('disabled');">WS14</option>
+                        <option onclick="$('#new_semester').addClass('hidden'); $('#beispiel').removeAttr('disabled');">SS14</option>
+                        <option onclick="$('#new_semester').addClass('hidden'); $('#beispiel').removeAttr('disabled');">WS13</option>
+                        <option onclick="$('#new_semester').addClass('hidden'); $('#beispiel').removeAttr('disabled');">SS13</option>
+                        <option onclick="$('#new_semester').removeClass('hidden'); $('#beispiel').removeAttr('disabled');">&lt;neues Semester&gt;</option>
                     </select>
+                </div>
+            </div>
+            <div id="new_semester" class="form-group hidden text-muted">
+                <div class="col-md-offset-2 col-md-8" style="border-style: none; border-width: 1px; border-radius: 5px; border-color: lightgrey;">
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="semester_name">Bezeichnung:</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="semester_name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="semester_start">Startdatum:</label>
+                        <div class="col-md-3">
+                            <input type="date" class="form-control" id="semester_start" placeholder="dd.MM.yyyy"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="semester_ende">Enddatum:</label>
+                        <div class="col-md-3">
+                            <input type="date" class="form-control" id="semester_ende" />
+                        </div>
+                    </div>
+                    <hr />
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2" for="beispiel">Beispiel:</label>
                 <div class="col-md-8">
-                    <select class="form-control" id="beispiel">
-                        <option>Beispiel 1</option>
-                        <option>Beispiel 2</option>
-                        <option>Beispiel 3</option>
-                        <option>Beispiel 4</option>
-                        <option onclick="confirm('neues Beispiel!');">&lt;neues Beispiel&gt;</option>
+                    <select class="form-control" id="beispiel" disabled="disabled">
+                        <option selected="selected" disabled="disabled">&lt;Beispiel auswählen&gt;</option>
+                        <option onclick="$('#new_beispiel').addClass('hidden');">Beispiel 4</option>
+                        <option onclick="$('#new_beispiel').addClass('hidden');">Beispiel 3</option>
+                        <option onclick="$('#new_beispiel').addClass('hidden');">Beispiel 2</option>
+                        <option onclick="$('#new_beispiel').addClass('hidden');">Beispiel 1</option>
+                        <option onclick="$('#new_beispiel').removeClass('hidden');">&lt;neues Beispiel&gt;</option>
                     </select>
+                </div>
+            </div>
+            <div id="new_beispiel" class="form-group hidden text-muted">
+                <div class="col-md-offset-2 col-md-8" style="border-style: none; border-width: 1px; border-radius: 5px; border-color: lightgrey;">
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="beispiel_name">Bezeichnung:</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="beispiel_name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="beispiel_angabe">Angabe:</label>
+                        <div class="col-md-3">
+                            <input type="file" id="beispiel_angabe">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="beispiel_deadline">Deadline:</label>
+                        <div class="col-md-3">
+                            <input type="date" class="form-control" id="beispiel_deadline" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="beispiel_url">URL:</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="beispiel_url">
+                        </div>
+                    </div>
+                    <hr />
                 </div>
             </div>
         </div>
