@@ -14,6 +14,9 @@ iid.config(function($routeProvider) {
             templateUrl: 'templates/testfile_add.html',
             controller: 'TestfileAddController',
         }).
+        when('/testfile/details', {
+            templateUrl: 'templates/testfile_details.html',
+        }).
         otherwise({
             redirectTo: '/home'
         });
