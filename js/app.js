@@ -17,6 +17,12 @@ iid.config(function($routeProvider) {
         when('/testfile/details', {
             templateUrl: 'templates/testfile_details.html',
         }).
+        when('/nav/testfiles', {
+            templateUrl: 'templates/navigation_testfiles.html',
+        }).
+        when('/user/profile', {
+            templateUrl: 'templates/user_profile.html',
+        }).
         otherwise({
             redirectTo: '/home'
         });
