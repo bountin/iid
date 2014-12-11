@@ -7,10 +7,10 @@
         </span>
     </div>
 
-    <!--{{ selectedUni.name }} <br />-->
-    <!--{{ selectedLVA.name }} <br />-->
-    <!--{{ selectedSemester.name }} <br/>-->
-    <!--{{ selectedBeispiel.name }} <br />-->
+    {{ selectedUni.name }} <br />
+    {{ selectedLVA }} <br />
+    {{ selectedSemester }} <br/>
+    {{ selectedBeispiel }} <br />
     <form class="form-horizontal" role="form">
         <div class="row-fluid">
             <div class="form-group">
@@ -32,13 +32,16 @@
                     <!--<datalist id="_lvas">-->
                         <!--<select ng-model="selectedLVA" ng-options="lva.name for lva in selectedUni.lvas"></select>-->
                     <!--</datalist>-->
-                    <select ng-disabled="selectedUni == null" ng-model="selectedLVA" ng-options="lva.name for lva in selectedUni.lvas" class="form-control disabled" id="lva" />
+                    <select ng-disabled="selectedUni == null" ng-model="selectedLVA" class="form-control disabled" id="lva"> <!-- ng-options="lva.name for lva in selectedUni.lvas" -->
+                        <option ng-repeat="lva in lvas">{{lva.name}}</option>
+                        <option>{{newLVA}}</option>
+                    </select>
                         <!--<option ng-repeat="l in selectedUni.lvas">{{ l.name }}</option>-->
                         <!--<option onclick="$('#new_lva').removeClass('hidden'); $('#semester').removeAttr('disabled');">&lt;neue Lehrveranstaltung&gt;</option>-->
                     <!--</select>-->
                 </div>
             </div>
-            <div id="new_lva" class="form-group hidden text-muted">
+            <div id="new_lva" class="form-group text-muted" ng-show="selectedLVA == newLVA">
                 <div class="col-md-offset-2 col-md-8" style="border-style: none; border-width: 1px; border-radius: 5px; border-color: lightgrey;">
                     <div class="form-group">
                         <label class="control-label col-sm-offset-1 col-md-2 col-md-offset-0" for="lva_name">Name:</label>
@@ -76,10 +79,13 @@
             <div class="form-group">
                 <label class="control-label col-md-2" for="semester">Semester:</label>
                 <div class="col-md-8">
-                    <select ng-disabled="selectedLVA == null" ng-model="selectedSemester" ng-options="semester.name for semester in selectedLVA.semester" class="form-control" id="semester" />
+                    <select ng-disabled="selectedLVA == null" ng-model="selectedSemester" class="form-control" id="semester"> <!-- ng-options="semester.name for semester in selectedLVA.semester" -->
+                        <option ng-repeat="sem in semester" ng-hide="selectedLVA == newLVA">{{ sem.name }}</option>
+                        <option ng-select="selectedLVA == newLVA">{{newSemester}}</option>
+                    </select>
                 </div>
             </div>
-            <div id="new_semester" class="form-group hidden text-muted">
+            <div id="new_semester" class="form-group text-muted" ng-show="selectedSemester == newSemester">
                 <div class="col-md-offset-2 col-md-8" style="border-style: none; border-width: 1px; border-radius: 5px; border-color: lightgrey;">
                     <div class="form-group">
                         <label class="control-label col-md-2" for="semester_name">Bezeichnung:</label>
@@ -105,10 +111,13 @@
             <div class="form-group">
                 <label class="control-label col-md-2" for="beispiel">Beispiel:</label>
                 <div class="col-md-8">
-                    <select ng-disabled="selectedSemester == null" ng-model="selectedBeispiel" ng-options="beispiel.name for beispiel in selectedSemester.beispiele" class="form-control" id="beispiel" disabled="disabled" />
+                    <select ng-disabled="selectedSemester == null" ng-model="selectedBeispiel" class="form-control" id="beispiel" disabled="disabled"> <!-- ng-options="beispiel.name for beispiel in selectedSemester.beispiele" -->
+                        <option ng-repeat="beispiel in beispiele" ng-hide="selectedSemester == newSemester">{{ beispiel.name }}</option>
+                        <option ng-select="selectedSemester == newSemester">{{newBeispiel}}</option>
+                    </select>
                 </div>
             </div>
-            <div id="new_beispiel" class="form-group hidden text-muted">
+            <div id="new_beispiel" class="form-group text-muted" ng-show="selectedBeispiel == newBeispiel">
                 <div class="col-md-offset-2 col-md-8" style="border-style: none; border-width: 1px; border-radius: 5px; border-color: lightgrey;">
                     <div class="form-group">
                         <label class="control-label col-md-2" for="beispiel_name">Bezeichnung:</label>
