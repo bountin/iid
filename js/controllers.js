@@ -1,5 +1,82 @@
 
 var iidControllers = angular.module('iidControllers', []);
 iidControllers.controller('TestfileAddController', function($scope) {
+    $scope.saved = false;
+    $scope.unis = [
+        {name: 'HTL Hollabrunn', lvas: [
+            {name: 'VU Objektorientierte Programmiertechniken', kurzname: 'OOP', nummer: '311.294', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/oop', semester: [
+                {name: 'WS14', startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
+                    {name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '17.11.2014', url: ''},
+                    {name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '02.12.2014', url: ''},
+                    {name: 'Beispiel 3', angabe: 'oop3.pdf', deadline: '19.12.2014', url: ''}
+                ]},
+                {name: 'WS13', startDatum: '01.10.2013', endDatum: '30.01.2014', beispiele: [
+                    {name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '15.11.2013', url: ''},
+                    {name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '22.11.2013', url: ''},
+                    {name: 'Beispiel 3', angabe: 'oop1.pdf', deadline: '29.11.2013', url: ''},
+                    {name: 'Beispiel 4', angabe: 'oop2.pdf', deadline: '05.12.2013', url: ''},
+                    {name: 'Beispiel 5', angabe: 'oop1.pdf', deadline: '12.12.2013', url: ''},
+                    {name: 'Beispiel 6', angabe: 'oop2.pdf', deadline: '19.12.2013', url: ''},
+                    {name: 'Beispiel 7', angabe: 'oop3.pdf', deadline: '09.01.2014', url: ''}
+                ]}
+            ]}
+        ]},
+        {name: 'Technikum Wien', lvas: [
+            {name: 'LVA 1', kurzname: '', nummer: '', institut: '', website: ''},
+            {name: 'LVA 2', kurzname: '', nummer: '', institut: '', website: ''},
+            {name: 'LVA 3', kurzname: '', nummer: '', institut: '', website: ''}
+        ]},
+        {name: 'TU Wien', lvas: [
+            {name: 'VU Objektorientierte Programmiertechniken', kurzname: 'OOP', nummer: '311.294', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/oop', semester: [
+                {name: 'WS14', startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
+                    {name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '17.11.2014', url: ''},
+                    {name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '02.12.2014', url: ''},
+                    {name: 'Beispiel 3', angabe: 'oop3.pdf', deadline: '19.12.2014', url: ''}
+                ]},
+                {name: 'WS13', startDatum: '01.10.2013', endDatum: '30.01.2014', beispiele: [
+                    {name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '15.11.2013', url: ''},
+                    {name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '22.11.2013', url: ''},
+                    {name: 'Beispiel 3', angabe: 'oop1.pdf', deadline: '29.11.2013', url: ''},
+                    {name: 'Beispiel 4', angabe: 'oop2.pdf', deadline: '05.12.2013', url: ''},
+                    {name: 'Beispiel 5', angabe: 'oop1.pdf', deadline: '12.12.2013', url: ''},
+                    {name: 'Beispiel 6', angabe: 'oop2.pdf', deadline: '19.12.2013', url: ''},
+                    {name: 'Beispiel 7', angabe: 'oop3.pdf', deadline: '09.01.2014', url: ''}
+                ]}
+            ]},
+            {name: 'VU Interface and Interaction Design', kurzname: 'IIXD', nummer: '183.289', institut: 'Institut für Rechnergestützte Automation', website: 'http://www.inso.tuwien.ac.at/lectures/iixd/', semester: [
+                {name: 'WS14', startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
+                    {name: 'Übung 1', angabe: 'iixd1.pdf', deadline: '17.11.2014', url: ''},
+                    {name: 'Übung 2', angabe: 'iixd2.pdf', deadline: '02.12.2014', url: ''}
+                ]},
+                {name: 'WS13', startDatum: '01.10.2013', endDatum: '30.01.2014', beispiele: [
+                    {name: 'Übung 1', angabe: 'iixd1.pdf', deadline: '15.11.2013', url: ''},
+                    {name: 'Übung 2', angabe: 'iixd2.pdf', deadline: '30.11.2013', url: ''},
+                    {name: 'Übung 3', angabe: 'iixd3.pdf', deadline: '17.12.2013', url: ''}
+                ]}
+            ]},
+            {name: 'VU Funktionale Programmierung', kurzname: 'FUNCPROG', nummer: '311.813', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/funcprog', semester: [
+                {name: 'WS14', startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
+                    {name: 'Beispiel 1', angabe: 'fprog1.pdf', deadline: '17.11.2014', url: ''},
+                    {name: 'Beispiel 2', angabe: 'fprog2.pdf', deadline: '02.12.2014', url: ''},
+                    {name: 'Beispiel 3', angabe: 'fprog3.pdf', deadline: '19.12.2014', url: ''}
+                ]}
+            ]},
+            {name: 'UE Software Engineering & Projekt Management', kurzname: 'SEPM', nummer: '346.952', institut: 'QSE', website: 'http://qse.tuwien.ac.at', semester: [
+                {name: 'WS14', startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
+                    {name: 'Einzelbeispiel', angabe: 'einzelbeispiel.pdf', deadline: '17.11.2014', url: ''},
+                    {name: 'Gruppenbeispiel', angabe: 'gruppenbeispiel.pdf', deadline: '02.01.2014', url: ''}
+                ]},
+                {name: 'SS14', startDatum: '01.10.2013', endDatum: '30.01.2014', beispiele: [
+                    {name: 'Einzelbeispiel', angabe: 'einzelbeispiel.pdf', deadline: '01.04.2014', url: ''},
+                    {name: 'Gruppenbeispiel', angabe: 'gruppenbeispiel.pdf', deadline: '23.06.2014', url: ''}
+                ]}
+            ]}
+        ]},
+        {name: 'Uni Wien', lvas: [
+            {name: 'LVA 1', kurzname: '', nummer: '', institut: '', website: ''},
+            {name: 'LVA 2', kurzname: '', nummer: '', institut: '', website: ''}
+        ]}
+
+    ];
 
 });
