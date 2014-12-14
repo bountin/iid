@@ -17,3 +17,23 @@ Resultate Globale Suche (??)
 Änderungen von Abgabegespräch
  * Passwörter doppelt abfragen
  * Volltextsuche im Header / Filter nur auf lokaler Ebene
+
+
+
+Konkrete Usecases:
+
+1. Volltextsuche		Michael
+2. Testfall anlegen		Michael
+3. Testfiles downloaden (einzelner Testfile downloaden)		Flo
+4. Testfile kommentieren	Flo
+5. Up- und downvoten von Testfiles (auch Bulk update)		Flo
+6. Favoriten setzen		Jotschi
+7. User profil ändern		Flo
+8. User registrieren		
+9. LVAs filtern auf LVA Seite	Jotschi
+10. Notification verfolgen	Martin
+
+//fehlt noch:
+Notification anzeige, z.B. neue Testfiles bei Beispiel
+Vernünftiger Text
+Veränderungen zu Wireframes
