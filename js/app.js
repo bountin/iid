@@ -20,6 +20,9 @@ iid.config(function($routeProvider) {
         when('/nav/testfiles', {
             templateUrl: 'templates/navigation_testfiles.html',
         }).
+        when('/nav/beispiele', {
+            templateUrl: 'templates/navigation_beispiele.html',
+        }).		
         when('/user/profile', {
             templateUrl: 'templates/user_profile.html',
         }).

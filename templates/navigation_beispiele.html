@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="css/jquery.treegrid.css">
+<link rel="stylesheet" href="css/styles.css">
+
+<script type="text/javascript" src="js/jquery.treegrid.js"></script>
+<script type="text/javascript" src="js/jquery.treegrid.bootstrap3.js"></script>
+<script type="text/javascript">
+      $(document).ready(function() {
+        $('.tree').treegrid({
+          'initialState': 'collapsed',
+        });
+      });
+    </script>
+
+    <div class="row-fluid">
+	<ul class="breadcrumb">
+	<li class="active">TU Wien</li>
+	</ul>
+    </div>
+	
+	<div class="row-fluid">
+		<div class="col-md-12">
+			<div class="col-md-6">
+				<div class="col-md-4">
+					<div class="checkbox pull-left">
+						<label>
+							<input type="checkbox" value=""/>
+								Filter Favorite		
+						</label>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<input type="text" class="form-control" id="local_filter">
+				</div>		
+			</div>
+			<div class="col-md-4"/>
+			<div class="col-md-2">
+				<a href="#/testfile/add"><button type="button" class="btn btn-primary pull-right btn-block">Add Testfile</button></a>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row-fluid">
+		<div class="col-md-12">
+			<div class="col-md-6">
+				<table class="tree">
+					<tr>
+						<th><font size="5"> Lehrveranstaltungen</font></th>
+					</tr>
+					<tr class="treegrid-1">
+						<td>Interface and Interaction Design</td>
+						<td><img src="images/star.png" class="img-responsive pull-right" alt="Favorite"></td>
+					</tr>
+					<tr class="treegrid-2 treegrid-parent-1">
+						<td><font size="4"><a href="#">WS14</a></font></td>
+						<td><img src="images/star.png" class="img-responsive pull-right" alt="Favorite"></td>
+					</tr>
+					<tr class="treegrid-3 treegrid-parent-1">
+						<td><font size="4"><a href="#">WS13</a></font></td>
+						<td><img src="images/star_grey.png" class="img-responsive pull-right" alt="Favorite"></td>
+					</tr>					
+				</table>
+			</div>
+			<div class="col-md-6">
+				<font size="5">Verfügbare Beispiele</font>
+				<div class="list-group">
+				  <a href="#/nav/testfiles" class="list-group-item">
+					<span class="badge">14</span>
+					<p class="list-group-item-text"> Beispiel 1 </p>
+				  </a>
+				  <a href="#/nav/testfiles" class="list-group-item"><span class="badge">4</span>Beispiel 2</a>
+				  <a href="#/nav/testfiles" class="list-group-item"><span class="badge">0</span>Beispiel 3</a>
+				  <a href="#/nav/testfiles" class="list-group-item"><span class="badge">7</span>Beispiel 4</a>
+				</div>
+			</div>
+		</div>	
+	</div>
