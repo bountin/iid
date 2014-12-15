@@ -1,12 +1,13 @@
 
 var iidControllers = angular.module('iidControllers', []);
 iidControllers.controller('TestfileAddController', function($scope) {
+//    $scope.searchString = ($location.search()).searchString;
     $scope.saved = false;
     $scope.newLVA = '<neue Lehrveranstaltung>';
     $scope.newSemester = '<neues Semester>';
     $scope.newBeispiel = '<neues Beispiel>';
     $scope.lvas = [
-        {name: 'VU Objektorientierte Programmiertechniken', kurzname: 'OOP', nummer: '311.294', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/oop', semester: [
+        {name: 'VU Objektorientierte Programmiertechniken', kurzname: 'OOP', nummer: '311.294', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/oop', uni: "TU Wien", semester: [
             {name: 'WS14', startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
                 {name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '17.11.2014', url: ''},
                 {name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '02.12.2014', url: ''},
@@ -22,7 +23,7 @@ iidControllers.controller('TestfileAddController', function($scope) {
                 {name: 'Beispiel 7', angabe: 'oop3.pdf', deadline: '09.01.2014', url: ''}
             ]}
         ]},
-        {name: 'VU Interface and Interaction Design', kurzname: 'IIXD', nummer: '183.289', institut: 'Institut für Rechnergestützte Automation', website: 'http://www.inso.tuwien.ac.at/lectures/iixd/', semester: [
+        {name: 'VU Interface and Interaction Design', kurzname: 'IIXD', nummer: '183.289', institut: 'Institut für Rechnergestützte Automation', website: 'http://www.inso.tuwien.ac.at/lectures/iixd/', uni: "TU Wien", semester: [
             {name: 'WS14', startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
                 {name: 'Übung 1', angabe: 'iixd1.pdf', deadline: '17.11.2014', url: ''},
                 {name: 'Übung 2', angabe: 'iixd2.pdf', deadline: '02.12.2014', url: ''}
@@ -33,14 +34,14 @@ iidControllers.controller('TestfileAddController', function($scope) {
                 {name: 'Übung 3', angabe: 'iixd3.pdf', deadline: '17.12.2013', url: ''}
             ]}
         ]},
-        {name: 'VU Funktionale Programmierung', kurzname: 'FUNCPROG', nummer: '311.813', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/funcprog', semester: [
+        {name: 'VU Funktionale Programmierung', kurzname: 'FUNCPROG', nummer: '311.813', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/funcprog', uni: "TU Wien", semester: [
             {name: 'WS14', startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
                 {name: 'Beispiel 1', angabe: 'fprog1.pdf', deadline: '17.11.2014', url: ''},
                 {name: 'Beispiel 2', angabe: 'fprog2.pdf', deadline: '02.12.2014', url: ''},
                 {name: 'Beispiel 3', angabe: 'fprog3.pdf', deadline: '19.12.2014', url: ''}
             ]}
         ]},
-        {name: 'UE Software Engineering & Projekt Management', kurzname: 'SEPM', nummer: '346.952', institut: 'QSE', website: 'http://qse.tuwien.ac.at', semester: [
+        {name: 'UE Software Engineering & Projekt Management', kurzname: 'SEPM', nummer: '346.952', institut: 'QSE', website: 'http://qse.tuwien.ac.at', uni: "TU Wien", semester: [
             {name: 'WS14', startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
                 {name: 'Einzelbeispiel', angabe: 'einzelbeispiel.pdf', deadline: '17.11.2014', url: ''},
                 {name: 'Gruppenbeispiel', angabe: 'gruppenbeispiel.pdf', deadline: '02.01.2014', url: ''}
@@ -71,13 +72,13 @@ iidControllers.controller('TestfileAddController', function($scope) {
     ];
 
     $scope.beispiele = [
-        {name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '15.11.2013', url: ''},
-        {name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '22.11.2013', url: ''},
-        {name: 'Beispiel 3', angabe: 'oop1.pdf', deadline: '29.11.2013', url: ''},
-        {name: 'Beispiel 4', angabe: 'oop2.pdf', deadline: '05.12.2013', url: ''},
-        {name: 'Beispiel 5', angabe: 'oop1.pdf', deadline: '12.12.2013', url: ''},
-        {name: 'Beispiel 6', angabe: 'oop2.pdf', deadline: '19.12.2013', url: ''},
-        {name: 'Beispiel 7', angabe: 'oop3.pdf', deadline: '09.01.2014', url: ''}
+        {name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '15.11.2013', url: '', lva:"VU Objektorientierte Programmiertechniken"},
+        {name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '22.11.2013', url: '', lva:"VU Objektorientierte Programmiertechniken"},
+        {name: 'Beispiel 3', angabe: 'oop1.pdf', deadline: '29.11.2013', url: '', lva:"VU Objektorientierte Programmiertechniken"},
+        {name: 'Beispiel 4', angabe: 'oop2.pdf', deadline: '05.12.2013', url: '', lva:"VU Objektorientierte Programmiertechniken"},
+        {name: 'Beispiel 5', angabe: 'oop1.pdf', deadline: '12.12.2013', url: '', lva:"VU Objektorientierte Programmiertechniken"},
+        {name: 'Beispiel 6', angabe: 'oop2.pdf', deadline: '19.12.2013', url: '', lva:"VU Objektorientierte Programmiertechniken"},
+        {name: 'Beispiel 7', angabe: 'oop3.pdf', deadline: '09.01.2014', url: '', lva:"VU Objektorientierte Programmiertechniken"}
     ];
 
     $scope.unis = [

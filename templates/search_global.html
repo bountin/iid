@@ -3,33 +3,40 @@
     <div><input ng-model="searchString" placeholder="Search for"/></div>
     <div><h2>Testresults for search string '<span>{{searchString}}</span>'</h2></div>
 
-    <div class="col-md-6">
-        <!-- Bildungseinrichtungen -->
-        <h3>Bildungseinrichtungen</h3>
-        <ul>
-            <li ng-repeat="uni in unis | filter:searchString">{{uni.name}}</li>
-        </ul>
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Bildungseinrichtungen -->
+            <h3>Bildungseinrichtungen</h3>
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="uni in unis | filter:searchString">{{uni.name}}</li>
+            </ul>
+        </div>
+
+        <div class="col-md-6">
+            <!-- Lehrveranstaltungen -->
+            <h3>Lehrveranstaltungen</h3>
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="lva in lvas | filter:searchString">{{lva.name}} ({{lva.uni}})</li>
+            </ul>
+        </div>
     </div>
 
-    <div class="col-md-6">
-        <!-- Lehrveranstaltungen -->
-        <h3>Lehrveranstaltungen</h3>
-        <ul>
-            <li ng-repeat="lva in lvas | filter:searchString">{{lva.name}} ({{lva.uni}})</li>
-        </ul>
-    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Beispiele -->
+            <h3>Beispiele</h3>
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="bsp in beispiele | filter:searchString">{{bsp.name}} ({{bsp.lva}})</li>
+            </ul>
+        </div>
 
-    <div class="col-md-6">
-        <!-- Beispiele -->
-        <h3>Beispiele</h3>
-        <ul>
-            <li ng-repeat="bsp in beispiele | filter:searchString">{{bsp.name}} ({{bsp.lva}})</li>
-        </ul>
-    </div>
-
-    <div class="col-md-6">
-        <h3>Testfiles</h3>
-        <!-- Testfiles ? -->
+        <div class="col-md-6">
+            <h3>Testfiles</h3>
+            <!-- Testfiles ? -->
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="testfile in testfiles | filter:searchString">{{testfile.name}}</li>
+            </ul>
+        </div>
     </div>
 
 </div>

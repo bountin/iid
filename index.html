@@ -21,11 +21,21 @@
             <span class="col-md-4">
                 Logo
             </span>
-            <span class="col-md-4">
+            <span class="col-md-4 text-center">
                 <h1>Share your tests!</h1>
             </span>
             <span class="col-md-4">
-                <button type="button" class="btn btn-primary pull-right">Login/Register</button>
+                <div class="col-md-12" style="margin-bottom: 5px">
+                    <button type="button" class="btn btn-primary pull-right">Login/Register</button>
+                </div>
+                <div class="col-md-12">
+                    <form>
+                        <span class="pull-right">
+                            <input type="text" id="searchString" placeholder="Suche" onsubmit="window.open('#/search/global?searchString=' + $('#searchString').val(), '_self')" />
+                            <button type="submit" class="btn btn-default" onclick="window.open('#/search/global?searchString=' + $('#searchString').val(), '_self')">Go!</button>
+                        </span>
+                    </form>
+                </div>
             </span>
         </div>
     </div>
