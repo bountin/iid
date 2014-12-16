@@ -20,6 +20,7 @@
                 <div class="col-md-8">
                     <select ng-model="selectedUni" ng-options="uni.name for uni in unis" class="form-control" id="uni"/>
                 </div>
+                <div class="col-md-2" />
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2" for="lva">Lehrveranstaltung:</label>
@@ -42,6 +43,7 @@
                         <!--<option onclick="$('#new_lva').removeClass('hidden'); $('#semester').removeAttr('disabled');">&lt;neue Lehrveranstaltung&gt;</option>-->
                     <!--</select>-->
                 </div>
+                <div class="col-md-2" />
             </div>
             <div id="new_lva" class="form-group text-muted" ng-show="selectedLVA == newLVA">
                 <div class="col-md-offset-2 col-md-8" style="border-style: none; border-width: 1px; border-radius: 5px; border-color: lightgrey;">
@@ -86,6 +88,7 @@
                         <option ng-select="selectedLVA == newLVA">{{newSemester}}</option>
                     </select>
                 </div>
+                <div class="col-md-2" />
             </div>
             <div id="new_semester" class="form-group text-muted" ng-show="selectedSemester == newSemester">
                 <div class="col-md-offset-2 col-md-8" style="border-style: none; border-width: 1px; border-radius: 5px; border-color: lightgrey;">
@@ -118,6 +121,7 @@
                         <option ng-select="selectedSemester == newSemester">{{newBeispiel}}</option>
                     </select>
                 </div>
+                <div class="col-md-2" />
             </div>
             <div id="new_beispiel" class="form-group text-muted" ng-show="selectedBeispiel == newBeispiel">
                 <div class="col-md-offset-2 col-md-8" style="border-style: none; border-width: 1px; border-radius: 5px; border-color: lightgrey;">
@@ -177,8 +181,8 @@
         <div class="row-fluid">
             <div class="form-group">
                 <div class="pull-right">
-                    <button type="submit" class="btn btn-default" ng-click="doDelete()" ng-show="saved">Löschen</button>
-                    <button type="submit" class="btn btn-default" ng-click="doSave()" ng-disabled="selectedUni == null || selectedLVA == null || selectedSemester == null || selectedBeispiel == null || fileSelected == false">Speichern</button>
+                    <button type="submit" class="btn btn-default glyphicon glyphicon-trash" ng-click="doDelete()" ng-show="saved"> Delete</button>
+                    <button type="submit" class="btn btn-primary glyphicon glyphicon-floppy-disk" ng-click="doSave()" ng-disabled="selectedUni == null || selectedLVA == null || selectedSemester == null || selectedBeispiel == null || fileSelected == false"> Save</button>
                 </div>
             </div>
         </div>
