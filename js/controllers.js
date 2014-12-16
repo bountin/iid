@@ -235,13 +235,25 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         ];
 
     $scope.beispiele = [
-        {name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '15.11.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken", semester:"WS14"},
-        {name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '22.11.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken", semester:"WS14"},
-        {name: 'Beispiel 3', angabe: 'oop1.pdf', deadline: '29.11.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken", semester:"WS14"},
-        {name: 'Beispiel 4', angabe: 'oop2.pdf', deadline: '05.12.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken", semester:"WS14"},
-        {name: 'Beispiel 5', angabe: 'oop1.pdf', deadline: '12.12.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken", semester:"WS14"},
-        {name: 'Beispiel 6', angabe: 'oop2.pdf', deadline: '19.12.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken", semester:"WS14"},
-        {name: 'Beispiel 7', angabe: 'oop3.pdf', deadline: '09.01.2014', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken", semester:"WS14"}
+        {name: 'Beispiel 1', angabe: 'fprog1.pdf', deadline: '17.11.2014', url: '', uni:"TU Wien", lva:"VU Funktionale Programmierung", lva_kurz:"fprog", semester:"WS14"},
+        {name: 'Beispiel 2', angabe: 'fprog2.pdf', deadline: '02.12.2014', url: '', uni:"TU Wien", lva:"VU Funktionale Programmierung", lva_kurz:"fprog", semester:"WS14"},
+        {name: 'Beispiel 3', angabe: 'fprog3.pdf', deadline: '19.12.2014', url: '', uni:"TU Wien", lva:"VU Funktionale Programmierung", lva_kurz:"fprog", semester:"WS14"},
+        {name: 'Übung 1', angabe: 'iixd1.pdf', deadline: '17.11.2014', url: '', uni:"TU Wien", lva:"VU Interface and Interaction Design", lva_kurz:"IIXD", semester:"WS14"},
+        {name: 'Übung 2', angabe: 'iixd2.pdf', deadline: '02.12.2014', url: '', uni:"TU Wien", lva:"VU Interface and Interaction Design", lva_kurz:"IIXD", semester:"WS14"},
+        {name: 'Übung 1', angabe: 'iixd1.pdf', deadline: '15.11.2013', url: '', uni:"TU Wien", lva:"VU Interface and Interaction Design", lva_kurz:"IIXD", semester:"WS13"},
+        {name: 'Übung 2', angabe: 'iixd2.pdf', deadline: '30.11.2013', url: '', uni:"TU Wien", lva:"VU Interface and Interaction Design", lva_kurz:"IIXD", semester:"WS13"},
+        {name: 'Übung 3', angabe: 'iixd3.pdf', deadline: '17.12.2013', url: '', uni:"TU Wien", lva:"VU Interface and Interaction Design", lva_kurz:"IIXD", semester:"WS13"},
+        {name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '15.11.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken",  lva_kurz:"OOP", semester:"WS14"},
+        {name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '22.11.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken", lva_kurz:"OOP", semester:"WS14"},
+        {name: 'Beispiel 3', angabe: 'oop1.pdf', deadline: '29.11.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken", lva_kurz:"OOP", semester:"WS14"},
+        {name: 'Beispiel 4', angabe: 'oop2.pdf', deadline: '05.12.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken", lva_kurz:"OOP", semester:"WS14"},
+        {name: 'Beispiel 5', angabe: 'oop1.pdf', deadline: '12.12.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken", lva_kurz:"OOP", semester:"WS14"},
+        {name: 'Beispiel 6', angabe: 'oop2.pdf', deadline: '19.12.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken", lva_kurz:"OOP", semester:"WS14"},
+        {name: 'Beispiel 7', angabe: 'oop3.pdf', deadline: '09.01.2014', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken", lva_kurz:"OOP", semester:"WS14"},
+        {name: 'Einzelbeispiel', angabe: 'einzelbeispiel.pdf', deadline: '01.04.2014', url: '', uni:"TU Wien", lva:"UE Software Engineering & Projekt Management", lva_kurz:"UE SEPM", semester:"WS14"},
+        {name: 'Gruppenbeispiel', angabe: 'gruppenbeispiel.pdf', deadline: '23.06.2014', url: '', uni:"TU Wien", lva:"UE Software Engineering & Projekt Management", lva_kurz:"UE SEPM", semester:"WS14"},
+        {name: 'Einzelbeispiel', angabe: 'einzelbeispiel.pdf', deadline: '01.04.2013', url: '', uni:"TU Wien", lva:"UE Software Engineering & Projekt Management", lva_kurz:"UE SEPM", semester:"WS13"},
+        {name: 'Gruppenbeispiel', angabe: 'gruppenbeispiel.pdf', deadline: '23.06.2013', url: '', uni:"TU Wien", lva:"UE Software Engineering & Projekt Management", lva_kurz:"UE SEPM", semester:"WS13"}
     ];
 
     $scope.unis = [
