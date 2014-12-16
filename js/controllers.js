@@ -1,3 +1,11 @@
+Date.prototype.today = function () {
+    return ((this.getDate() < 10)?"0":"") + this.getDate() +"/"+(((this.getMonth()+1) < 10)?"0":"") + (this.getMonth()+1) +"/"+ this.getFullYear();
+}
+
+// For the time now
+Date.prototype.timeNow = function () {
+    return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
+}
 
 var iidControllers = angular.module('iidControllers', []);
 iidControllers.controller('TestfileAddController', function($scope) {
@@ -6,6 +14,18 @@ iidControllers.controller('TestfileAddController', function($scope) {
     $scope.newLVA = '<neue Lehrveranstaltung>';
     $scope.newSemester = '<neues Semester>';
     $scope.newBeispiel = '<neues Beispiel>';
+    $scope.doSave = function() {
+        $scope.saved = true;
+        $scope.deleted = false;
+        var date = new Date();
+        $scope.savedTime = date.timeNow();
+    };
+    $scope.doDelete = function() {
+        $scope.deleted = true;
+        $scope.saved = false;
+        var date = new Date();
+        $scope.deletedTime = date.timeNow(); // date.today() + " " +
+    };
     $scope.lvas = [
         {name: 'VU Objektorientierte Programmiertechniken', kurzname: 'OOP', nummer: '311.294', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/oop', uni: "TU Wien", semester: [
             {name: 'WS14', startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
