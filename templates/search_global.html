@@ -8,7 +8,7 @@
             <!-- Bildungseinrichtungen -->
             <h3>Bildungseinrichtungen</h3>
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="uni in unis | filter:searchString"><a href="#/nav/beispiele"><b>{{uni.name}}</b></a></li>
+                <li class="list-group-item" ng-repeat="uni in bildungseinrichtungen | filter:searchString"><a href="#/nav/beispiele"><b>{{uni.name}}</b></a></li>
             </ul>
         </div>
 
@@ -16,7 +16,7 @@
             <!-- Lehrveranstaltungen -->
             <h3>Lehrveranstaltungen</h3>
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="lva in lvas | filter:searchString"><a href="#/nav/beispiele"><b>{{lva.name}}</b> <span class="small">({{lva.uni}})</span></a></li>
+                <li class="list-group-item" ng-repeat="lva in lvas2 | filter:searchString"><a href="#/nav/beispiele"><b>{{lva.name}}</b> <span class="small">({{lva.uni}})</span></a></li>
             </ul>
         </div>
     </div>

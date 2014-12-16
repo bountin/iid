@@ -241,6 +241,24 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         ]}
     ];
 
+    $scope.lvas2 = [
+        {name: 'VU Objektorientierte Programmiertechniken', kurzname: 'OOP', nummer: '311.294', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/oop', uni: "TU Wien", semester: [
+            {name: 'WS14', startDatum: '01.10.2014', endDatum: '30.01.2015'},
+            {name: 'WS13', startDatum: '01.10.2013', endDatum: '30.01.2014'}
+        ]},
+        {name: 'VU Interface and Interaction Design', kurzname: 'IIXD', nummer: '183.289', institut: 'Institut für Rechnergestützte Automation', website: 'http://www.inso.tuwien.ac.at/lectures/iixd/', uni: "TU Wien", semester: [
+            {name: 'WS14', startDatum: '01.10.2014', endDatum: '30.01.2015'},
+            {name: 'WS13', startDatum: '01.10.2013', endDatum: '30.01.2014'}
+        ]},
+        {name: 'VU Funktionale Programmierung', kurzname: 'FUNCPROG', nummer: '311.813', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/funcprog', uni: "TU Wien", semester: [
+            {name: 'WS14', startDatum: '01.10.2014', endDatum: '30.01.2015'}
+        ]},
+        {name: 'UE Software Engineering & Projekt Management', kurzname: 'SEPM', nummer: '346.952', institut: 'QSE', website: 'http://qse.tuwien.ac.at', uni: "TU Wien", semester: [
+            {name: 'WS14', startDatum: '01.10.2014', endDatum: '30.01.2015'},
+            {name: 'SS14', startDatum: '01.10.2013', endDatum: '30.01.2014'}
+        ]}
+    ];
+
     $scope.semester =
         [
             {name: 'WS14', startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
@@ -336,6 +354,13 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         {filename:'TestGerade.java', votesUp:'7', votesDown:'2', description:'', voted:'0', user:'Jotschi',
             beispiel:{name: 'Beispiel 3', angabe: 'oop3.pdf', deadline: '15.11.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken",  lva_kurz:"OOP", semester:"WS14"}
         }
+    ];
+
+    $scope.bildungseinrichtungen = [
+        {name: 'HTL Hollabrunn'},
+        {name: 'Technikum Wien'},
+        {name: 'TU Wien'},
+        {name: 'Uni Wien'}
     ];
 
     $scope.unis = [
