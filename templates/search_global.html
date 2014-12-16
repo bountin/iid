@@ -1,4 +1,4 @@
-<div ng-controller="TestfileAddController">
+<div ng-controller="SearchGlobalController">
 
     <!--<div><input ng-model="searchString" placeholder="Search for"/></div>-->
     <div><h2>Results for search string '<span>{{searchString}}</span>'</h2></div>
@@ -26,7 +26,7 @@
             <!-- Beispiele -->
             <h3>Beispiele</h3>
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="bsp in beispiele | filter:searchString"><a href="#/nav/testfiles">{{bsp.name}} ({{bsp.lva}})</a></li>
+                <li class="list-group-item" ng-repeat="bsp in beispiele | filter:searchString"><a href="#/nav/testfiles">{{bsp.name}} ({{bsp.uni}}, {{bsp.lva}}, {{bsp.semester}})</a></li>
             </ul>
         </div>
 
