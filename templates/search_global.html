@@ -34,7 +34,7 @@
             <h3>Testfiles</h3>
             <!-- Testfiles ? -->
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="testfile in testfiles | filter:searchString"><a href="#/testfile/details">{{testfile.name}}</a></li>
+                <li class="list-group-item" ng-repeat="testfile in testfiles | filter:searchString"><a href="#/testfile/details"><b>{{testfile.filename}}</b> <span class="small">({{testfile.beispiel.uni}}, {{testfile.beispiel.lva}}, {{testfile.beispiel.semester}}, {{testfile.beispiel.name}})</span></a></li>
             </ul>
         </div>
     </div>

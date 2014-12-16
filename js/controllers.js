@@ -281,6 +281,63 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         {name: 'Gruppenbeispiel', angabe: 'gruppenbeispiel.pdf', deadline: '23.06.2013', url: '', uni:"TU Wien", lva:"UE Software Engineering & Projekt Management", lva_kurz:"UE SEPM", semester:"WS13"}
     ];
 
+    $scope.testfiles = [
+        {filename:'TestOranges.java', votesUp:'9', votesDown:'1', description:'', voted:'0', user:'Micc',
+            beispiel:{name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '15.11.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken",  lva_kurz:"OOP", semester:"WS14"}
+        },
+        {filename:'TestBananas.java', votesUp:'21', votesDown:'4', description:'', voted:'0', user:'Micc',
+            beispiel:{name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '15.11.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken",  lva_kurz:"OOP", semester:"WS14"}
+        },
+        {filename:'TestKiwi.java', votesUp:'0', votesDown:'12', description:'', voted:'0', user:'Micc',
+            beispiel:{name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '15.11.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken",  lva_kurz:"OOP", semester:"WS14"}
+        },
+
+        {filename:'TestApples.java', votesUp:'16', votesDown:'0', description:'', user:'Floff',
+            beispiel:{name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '15.11.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken",  lva_kurz:"OOP", semester:"WS14"}
+        },
+
+
+        {filename:'TestSuperman.java', votesUp:'9', votesDown:'1', description:'', voted:'0', user:'Micc',
+            beispiel:{name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '15.11.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken",  lva_kurz:"OOP", semester:"WS14"}
+        },
+
+        {filename:'TestBatman.java', votesUp:'16', votesDown:'1', description:'', voted:'0', user:'Martin',
+            beispiel:{name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '15.11.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken",  lva_kurz:"OOP", semester:"WS14"}
+        },
+        {filename:'TestSuperwoman.java', votesUp:'18', votesDown:'0', description:'', voted:'0', user:'Martin',
+            beispiel:{name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '15.11.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken",  lva_kurz:"OOP", semester:"WS14"}
+        },
+
+        {filename:'TestAquaman.java', votesUp:'20', votesDown:'4', description:'', voted:'0', user:'Jotschi',
+            beispiel:{name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '15.11.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken",  lva_kurz:"OOP", semester:"WS14"}
+        },
+        {filename:'TestCatwoman.java', votesUp:'7', votesDown:'2', description:'', voted:'0', user:'Jotschi',
+            beispiel:{name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '15.11.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken",  lva_kurz:"OOP", semester:"WS14"}
+        },
+
+        {filename:'TestRechteck.java', votesUp:'9', votesDown:'1', description:'', voted:'0', user:'Floff',
+            beispiel:{name: 'Beispiel 3', angabe: 'oop3.pdf', deadline: '15.11.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken",  lva_kurz:"OOP", semester:"WS14"}
+        },
+
+        {filename:'TestPunkt.java', votesUp:'2', votesDown:'41', description:'', voted:'0', user:'Micc',
+            beispiel:{name: 'Beispiel 3', angabe: 'oop3.pdf', deadline: '15.11.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken",  lva_kurz:"OOP", semester:"WS14"}
+        },
+
+        {filename:'TestKreis.java', votesUp:'16', votesDown:'1', description:'', voted:'1', user:'Martin',
+            beispiel:{name: 'Beispiel 3', angabe: 'oop3.pdf', deadline: '15.11.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken",  lva_kurz:"OOP", semester:"WS14"}
+        },
+        {filename:'TestQuadrat.java', votesUp:'18', votesDown:'0', description:'', voted:'1', user:'Martin',
+            beispiel:{name: 'Beispiel 3', angabe: 'oop3.pdf', deadline: '15.11.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken",  lva_kurz:"OOP", semester:"WS14"}
+        },
+
+        {filename:'TestElipse.java', votesUp:'20', votesDown:'4', description:'', voted:'-1', user:'Jotschi',
+            beispiel:{name: 'Beispiel 3', angabe: 'oop3.pdf', deadline: '15.11.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken",  lva_kurz:"OOP", semester:"WS14"}
+        },
+        {filename:'TestGerade.java', votesUp:'7', votesDown:'2', description:'', voted:'0', user:'Jotschi',
+            beispiel:{name: 'Beispiel 3', angabe: 'oop3.pdf', deadline: '15.11.2013', url: '', uni:"TU Wien", lva:"VU Objektorientierte Programmiertechniken",  lva_kurz:"OOP", semester:"WS14"}
+        }
+    ];
+
     $scope.unis = [
         {name: 'HTL Hollabrunn', lvas: [
             {name: 'VU Objektorientierte Programmiertechniken', kurzname: 'OOP', nummer: '311.294', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/oop', semester: [
@@ -308,9 +365,45 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         {name: 'TU Wien', lvas: [
             {name: 'VU Objektorientierte Programmiertechniken', kurzname: 'OOP', nummer: '311.294', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/oop', semester: [
                 {name: 'WS14', startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
-                    {name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '17.11.2014', url: ''},
-                    {name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '02.12.2014', url: ''},
-                    {name: 'Beispiel 3', angabe: 'oop3.pdf', deadline: '19.12.2014', url: ''}
+                    {name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '17.11.2014', url: '', contributors: [
+                        {user:'Micc', testfiles:[
+                            {filename:'TestOranges.java', votesUp:'9', votesDown:'1', description:'', voted:'0'},
+                            {filename:'TestBananas.java', votesUp:'21', votesDown:'4', description:'', voted:'0'},
+                            {filename:'TestKiwi.java', votesUp:'0', votesDown:'12', description:'', voted:'0'}
+                        ]},
+                        {user:'Floff', testfiles:[
+                            {filename:'TestApples.java', votesUp:'16', votesDown:'0', description:''}
+                        ]}
+                    ]},
+                    {name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '02.12.2014', url: '', contributors: [
+                        {user:'Micc', testfiles:[
+                            {filename:'TestSuperman.java', votesUp:'9', votesDown:'1', description:'', voted:'0'}
+                        ]},
+                        {user:'Martin', testfiles:[
+                            {filename:'TestBatman.java', votesUp:'16', votesDown:'1', description:'', voted:'0'},
+                            {filename:'TestSuperwoman.java', votesUp:'18', votesDown:'0', description:'', voted:'0'}
+                        ]},
+                        {user:'Jotschi', testfiles:[
+                            {filename:'TestAquaman.java', votesUp:'20', votesDown:'4', description:'', voted:'0'},
+                            {filename:'TestCatwoman.java', votesUp:'7', votesDown:'2', description:'', voted:'0'}
+                        ]}
+                    ]},
+                    {name: 'Beispiel 3', angabe: 'oop3.pdf', deadline: '19.12.2014', url: '', contributors: [
+                        {user:'Floff', testfiles:[
+                            {filename:'TestRechteck.java', votesUp:'9', votesDown:'1', description:'', voted:'0'}
+                        ]},
+                        {user:'Micc', testfiles:[
+                            {filename:'TestPunkt.java', votesUp:'2', votesDown:'41', description:'', voted:'0'}
+                        ]},
+                        {user:'Martin', testfiles:[
+                            {filename:'TestKreis.java', votesUp:'16', votesDown:'1', description:'', voted:'1'},
+                            {filename:'TestQuadrat.java', votesUp:'18', votesDown:'0', description:'', voted:'1'}
+                        ]},
+                        {user:'Jotschi', testfiles:[
+                            {filename:'TestElipse.java', votesUp:'20', votesDown:'4', description:'', voted:'-1'},
+                            {filename:'TestGerade.java', votesUp:'7', votesDown:'2', description:'', voted:'0'}
+                        ]}
+                    ]}
                 ]},
                 {name: 'WS13', startDatum: '01.10.2013', endDatum: '30.01.2014', beispiele: [
                     {name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '15.11.2013', url: ''},
