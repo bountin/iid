@@ -200,7 +200,7 @@ iidControllers.controller('SearchGlobalController', function($scope) {
     };
     $scope.setSelectedUni = function(uni) {
       $scope.selectedUni = uni;
-      alert(uni.name);
+//      alert(uni.name);
     }
     $scope.numberOfTestFiles = function(beispiel) {
        var l = 0;

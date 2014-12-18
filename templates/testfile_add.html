@@ -9,7 +9,7 @@
 
     <div class="small">
     {{ selectedUni.name }} <br />
-    {{ selectedLVA.name }} <br />
+    {{ selectedLva.name }} <br />
     {{ selectedSemester.name }} <br/>
     {{ selectedBeispiel.name }} <br />
     </div>
@@ -25,18 +25,18 @@
             <div class="form-group">
                 <label class="control-label col-md-2" for="lva">Course:</label>
                 <div class="col-md-8">
-                    <!--<select ng-disabled="selectedUni == null" ng-model="selectedLVA" class="form-control disabled" id="lva"> &lt;!&ndash; ng-options="lva.name for lva in selectedUni.lvas" &ndash;&gt;-->
+                    <!--<select ng-disabled="selectedUni == null" ng-model="selectedLva" class="form-control disabled" id="lva"> &lt;!&ndash; ng-options="lva.name for lva in selectedUni.lvas" &ndash;&gt;-->
                         <!--<option ng-repeat="lva in lvas">{{lva.name}}</option>-->
                         <!--<option>{{newLVA}}</option>-->
                     <!--</select>-->
-                    <select ng-disabled="selectedUni == null" ng-model="selectedLVA" ng-options="lva.name for lva in selectedUni.lvas" class="form-control disabled" id="lva" />
+                    <select ng-disabled="selectedUni == null" ng-model="selectedLva" ng-options="lva.name for lva in selectedUni.lvas" class="form-control disabled" id="lva" />
                         <!--<option ng-repeat="l in selectedUni.lvas">{{ l.name }}</option>-->
                         <!--<option onclick="$('#new_lva').removeClass('hidden'); $('#semester').removeAttr('disabled');">&lt;neue Lehrveranstaltung&gt;</option>-->
                     <!--</select>-->
                 </div>
                 <div class="col-md-2" />
             </div>
-            <div id="new_lva" class="form-group text-muted" ng-show="selectedLVA == newLVA">
+            <div id="new_lva" class="form-group text-muted" ng-show="selectedLva == newLVA">
                 <div class="col-md-offset-2 col-md-8" style="border-style: none; border-width: 1px; border-radius: 5px; border-color: lightgrey;">
                     <div class="form-group">
                         <label class="control-label col-sm-offset-1 col-md-2 col-md-offset-0" for="lva_name">Name:</label>
@@ -74,11 +74,11 @@
             <div class="form-group">
                 <label class="control-label col-md-2" for="semester">Term:</label>
                 <div class="col-md-8">
-                    <!--<select ng-disabled="selectedLVA == null" ng-model="selectedSemester" class="form-control" id="semester"> &lt;!&ndash; ng-options="semester.name for semester in selectedLVA.semester" &ndash;&gt;-->
-                        <!--<option ng-repeat="sem in semester" ng-hide="selectedLVA == newLVA">{{ sem.name }}</option>-->
-                        <!--<option ng-select="selectedLVA == newLVA">{{newSemester}}</option>-->
+                    <!--<select ng-disabled="selectedLva == null" ng-model="selectedSemester" class="form-control" id="semester"> &lt;!&ndash; ng-options="semester.name for semester in selectedLva.semester" &ndash;&gt;-->
+                        <!--<option ng-repeat="sem in semester" ng-hide="selectedLva == newLVA">{{ sem.name }}</option>-->
+                        <!--<option ng-select="selectedLva == newLVA">{{newSemester}}</option>-->
                     <!--</select>-->
-                    <select ng-disabled="selectedLVA == null" ng-model="selectedSemester" ng-options="semester.name for semester in selectedLVA.semester" class="form-control" id="semester" />
+                    <select ng-disabled="selectedLva == null" ng-model="selectedSemester" ng-options="semester.name for semester in selectedLva.semester" class="form-control" id="semester" />
                 </div>
                 <div class="col-md-2" />
             </div>
@@ -175,7 +175,7 @@
             <div class="form-group">
                 <div class="pull-right">
                     <button type="submit" class="btn btn-default glyphicon glyphicon-trash" ng-click="doDelete()" ng-show="saved"> Delete</button>
-                    <button type="submit" class="btn btn-primary glyphicon glyphicon-floppy-disk" ng-click="doSave()" ng-disabled="selectedUni == null || selectedLVA == null || selectedSemester == null || selectedBeispiel == null || fileSelected == false"> Save</button>
+                    <button type="submit" class="btn btn-primary glyphicon glyphicon-floppy-disk" ng-click="doSave()" ng-disabled="selectedUni == null || selectedLva == null || selectedSemester == null || selectedBeispiel == null || fileSelected == false"> Save</button>
                 </div>
             </div>
         </div>
