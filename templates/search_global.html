@@ -8,7 +8,7 @@
             <!-- Bildungseinrichtungen -->
             <h3>Bildungseinrichtungen</h3>
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="uni in bildungseinrichtungen | filter:searchString"><a href="#/nav/beispiele"><b>{{uni.name}}</b></a></li>
+                <li class="list-group-item" ng-repeat="uni in unis | filter:searchString"><a href="#/nav/beispiele"><b>{{uni.name}}</b></a></li>
             </ul>
         </div>
 
@@ -16,7 +16,8 @@
             <!-- Lehrveranstaltungen -->
             <h3>Lehrveranstaltungen</h3>
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="lva in lvas2 | filter:searchString"><a href="#/nav/beispiele"><b>{{lva.name}}</b> <span class="small">({{lva.uni}})</span></a></li>
+                <!--<li class="list-group-item" ng-repeat="lva in lvas2 | filter:searchString"><a href="#/nav/beispiele"><b>{{lva.name}}</b> <span class="small">({{lva.uni}})</span></a></li>-->
+                <li class="list-group-item" ng-repeat="lva in getLVAs() | filter:{lva:searchString}"><a href="#/nav/beispiele"><b>{{lva.lva.name}}</b> <span class="small">({{lva.uni.name}})</span></a></li>
             </ul>
         </div>
     </div>
@@ -26,7 +27,7 @@
             <!-- Beispiele -->
             <h3>Beispiele</h3>
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="bsp in beispiele | filter:searchString"><a href="#/nav/testfiles"><b>{{bsp.name}}</b> <span class="small">({{bsp.uni}}, {{bsp.lva}}, {{bsp.semester}})</span></a></li>
+                <li class="list-group-item" ng-repeat="beispiel in getBeispiele() | filter:{bsp:searchString}"><a href="#/nav/testfiles"><b>{{beispiel.bsp.name}}</b></a></li><!-- <span class="small">({{bsp.uni.name}}, {{bsp.lva.name}}, {{bsp.sem.name}})</span></a></li>-->
             </ul>
         </div>
 
