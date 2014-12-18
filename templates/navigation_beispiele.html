@@ -65,10 +65,15 @@
 			<div class="col-md-6" ng-hide="selectedSemester == null">
 				<font size="5">{{selectedLva.kurzname}} - {{selectedSemester.name}}</font>
 				<div class="list-group">
-				  <a href="#/nav/testfiles" class="list-group-item" ng-repeat="beispiel in selectedSemester.beispiele">
-  					<span class="badge">{{numberOfTestFiles(beispiel)}}</span> 
-  					<p class="list-group-item-text"> {{beispiel.name}} </p>
-				  </a>
+				  <div ng-repeat="beispiel in selectedSemester.beispiele">
+				     <table>
+				       <tr>
+				        <td width="15%"><a class="pull-left" href="pdf"> [pdf] </a> </td>
+				        <td width="70%"><a href="#/nav/testfiles" class="pull-left text-left"> {{beispiel.name}} </a> </td>
+				        <td width="15%"><span class="badge pull-right"> {{numberOfTestFiles(beispiel)}} </span>  </td>
+    					 </tr>
+    				 </table>
+				  </div>
 				</div>
 			</div>
 		</div>	
