@@ -50,13 +50,15 @@
   					<tr class="treegrid-{{$index+1}}">
   						<td>{{lva.name}}</td>
   						<td>
-                <img src="images/star_full.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
+                <img ng-show="hasAFavorite(lva)" src="images/star_full.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
+                <img ng-hide="hasAFavorite(lva)" src="images/star_empty.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
               </td>
   					</tr>
             <tr class="treegrid-parent-{{$parent.$index+1}}" ng-repeat="sem in lva.semester">
   						<td><a href="#/nav/beispiele" ng-click="setSelectedSemester(sem, lva)">{{sem.name}}</a></td>
   						<td>
-                <img src="images/star_full.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
+                <img ng-show="sem.favorite" src="images/star_full.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
+                <img ng-hide="sem.favorite" src="images/star_empty.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
               </td>
   				  </tr>	   	
 				  </tbody>
