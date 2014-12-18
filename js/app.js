@@ -8,7 +8,7 @@ var iid = angular.module('iidApp', [
 iid.config(function($routeProvider) {
     $routeProvider.
         when('/home', {
-            templateUrl: 'templates/home.html',
+            templateUrl: 'templates/home.html',         
         }).
         when('/testfile/add', {
             templateUrl: 'templates/testfile_add.html',
