@@ -10,13 +10,13 @@
         });
     }); 
 </script>
+<div ng-controller="SearchGlobalController">
   <div class="row-fluid">
   	<ul class="breadcrumb">
-  	<li class="active">TU Wien</li>
+  	<li class="active">{{selectedUni.name}}</li>
   	</ul>
   </div>
 	
-<div ng-controller="SearchGlobalController">
 	<div class="row-fluid">
 		<div class="col-md-12">
 			<div class="col-md-6">
@@ -46,7 +46,7 @@
 					<tr>
 						<th><font size="5"> Course </font></th>
 					</tr>
-				  <tbody ng-repeat="lva in lvas">
+				  <tbody ng-repeat="lva in selectedUni.lvas">
   					<tr class="treegrid-{{$index+1}}">
   						<td>{{lva.name}}</td>
   						<td>

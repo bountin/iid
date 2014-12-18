@@ -192,11 +192,15 @@ var iidControllers = angular.module('iidControllers', []);
 iidControllers.controller('SearchGlobalController', function($scope) {
     // for navigation_beispiel
     $scope.selectedSemester = null;
-    $scope.selectedLva = null;
+    $scope.selectedLva = null;      
+    
     $scope.setSelectedSemester = function(sem, lva) {
       $scope.selectedSemester = sem;
       $scope.selectedLva = lva;  
     };
+    $scope.setSelectedUni = function(uni) {
+      $scope.selectedUni = uni;
+    }
 //    $scope.searchString = ($location.search()).searchString;
     $scope.saved = false;
     $scope.deleted = false;
@@ -501,4 +505,5 @@ iidControllers.controller('SearchGlobalController', function($scope) {
 
     ];
 
+    $scope.selectedUni = $scope.unis[2];
 });
