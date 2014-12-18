@@ -12,7 +12,6 @@ iid.config(function($routeProvider) {
         }).
         when('/testfile/add', {
             templateUrl: 'templates/testfile_add.html',
-            controller: 'SearchGlobalController',
         }).
         when('/testfile/details', {
             templateUrl: 'templates/testfile_details.html',
@@ -22,7 +21,6 @@ iid.config(function($routeProvider) {
         }).
         when('/nav/beispiele', {
             templateUrl: 'templates/navigation_beispiele.html',
-            controller: 'SearchGlobalController',
         }).		
         when('/user/profile', {
             templateUrl: 'templates/user_profile.html',
@@ -34,6 +32,6 @@ iid.config(function($routeProvider) {
             templateUrl: 'templates/login.html',
         }).
         otherwise({
-            redirectTo: '/home'
+            redirectTo: '/home',
         });
 });
