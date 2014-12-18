@@ -29,7 +29,7 @@
 					</div>
 				</div>
 				<div class="col-md-8">
-					<input type="text" class="form-control" id="local_filter">
+					<input type="text" class="form-control" ng-model="filterCourseString" id="local_filter">
 				</div>		
 			</div>
   		<div class="col-md-4"/>
@@ -46,7 +46,7 @@
 					<tr>
 						<th><font size="5"> Course </font></th>
 					</tr>
-				  <tbody ng-repeat="lva in selectedUni.lvas">
+				  <tbody ng-repeat="lva in selectedUni.lvas | filter:filterCourseString">
   					<tr class="treegrid-{{$index+1}}">
   						<td>{{lva.name}}</td>
   						<td>
