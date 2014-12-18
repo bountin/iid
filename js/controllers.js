@@ -405,6 +405,7 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         {name: 'Uni Wien'}
     ];
 
+
     $scope.unis = [
         {name: 'HTL Hollabrunn', lvas: [
             {name: 'VU Objektorientierte Programmiertechniken', kurzname: 'OOP', nummer: '311.294', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/oop', semester: [
@@ -517,4 +518,42 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         ]}
 
     ];
+
+    $scope.getLVAs = function() {
+        result = [];
+
+        i = 0;
+        $scope.unis.forEach(function(uni) {
+            uni.lvas.forEach(function(lva) {
+                result[i] = {
+                    'lva': lva,
+                    'uni': uni
+                };
+                i++;
+            });
+        });
+        return result;
+    };
+
+    $scope.getBeispiele = function() {
+        result = [];
+
+        i = 0;
+        $scope.unis.forEach(function(uni) {
+            uni.lvas.forEach(function(lva) {
+                lva.semester.forEach(function(sem) {
+                    sem.beispiele.forEach(function(bsp) {
+                        result[i] = {
+                            'uni': uni,
+                            'lva': lva,
+                            'sem': sem,
+                            'bsp': bsp
+                        };
+                        i++;
+                    });
+                });
+            });
+        });
+        return result;
+    };
 });
