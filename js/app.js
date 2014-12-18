@@ -30,6 +30,9 @@ iid.config(function($routeProvider) {
         when('/search/global', {
             templateUrl: 'templates/search_global.html',
         }).
+        when('/login', {
+            templateUrl: 'templates/login.html',
+        }).
         otherwise({
             redirectTo: '/home'
         });

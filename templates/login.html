@@ -1,0 +1,115 @@
+<div class="row-fluid">
+	<div class="col-md-12">
+		<br><br><br>
+		<form class="form-horizontal" role="form">
+			<div class="form-group">
+				<label for="username" class="col-md-4 control-label">Username</label>
+				<div class="col-md-4">
+					<input type="text" class="form-control" id="username" placeholder="" autofocus="autofocus">
+				</div>
+                <div class="col-md-4"/>
+			</div>
+			<div class="form-group">
+				<label for="password" class="col-md-4 control-label">Password</label>
+				<div class="col-md-4">
+					<input type="password" class="form-control" id="password" placeholder="">
+				</div>
+                <div class="col-md-4"/>
+			</div>
+            <div class="form-group text-center">
+                <a href="#/home"><button type="submit" class="btn btn-primary">Login</button></a>
+            </div>
+		</form>
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="col-md-12">
+		<hr>		
+        <br />
+        <br />
+        <div class="text-center">
+            You don't have a user yet? Then <span><button type="button" class="btn btn-info" data-toggle="modal" data-target="#change_pw" id="pw_button">Register</button></span> now!
+        </div>
+        <!--<h4 class="text-center">Change Notification Settings</h4>-->
+		<!--<div class="col-md-6 col-md-offset-3">-->
+			<!--<form class="form-horizontal" role="form">-->
+				<!--<div class="checkbox">-->
+					<!--<label>-->
+						<!--<input type="checkbox" value="">-->
+							<!--Push Notifications-->
+					<!--</label>-->
+				<!--</div>-->
+				<!--<div class="checkbox">-->
+					<!--<label>-->
+						<!--<input type="checkbox" value="">-->
+							<!--E-Mail Notifications-->
+					<!--</label>-->
+				<!--</div>-->
+				<!--<br>-->
+				<!--Notify my when ...-->
+				<!--<div class="checkbox">-->
+					<!--<label>-->
+						<!--<input type="checkbox" value="">-->
+							<!--there are new Testfiles for one of my favourites-->
+					<!--</label>-->
+				<!--</div>-->
+				<!--<div class="checkbox">-->
+					<!--<label>-->
+						<!--<input type="checkbox" value="">-->
+							<!--someone commented on my testfile-->
+					<!--</label>-->
+				<!--</div>-->
+				<!--<div class="checkbox">-->
+					<!--<label>-->
+						<!--<input type="checkbox" value="">-->
+							<!--someone answered my comment-->
+					<!--</label>-->
+				<!--</div>-->
+			<!--</form>-->
+		<!--</div>-->
+	</div>
+</div>
+
+
+<div class="modal fade" id="change_pw" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Register User</h4>
+      </div>
+      <div class="modal-body">
+      		<form class="form-horizontal" role="form">
+      			<div class="form-group">
+				<label for="username" class="col-md-3 control-label">Username:</label>
+				<div class="col-md-9">
+					<input type="text" class="form-control" id="username">
+				</div>
+			</div>
+                <div class="form-group">
+                    <label for="email" class="col-md-3 control-label">E-Mail:</label>
+                    <div class="col-md-9">
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                </div>
+      			<div class="form-group">
+				<label for="new_pw_1" class="col-md-3 control-label">Password:</label>
+				<div class="col-md-9">
+					<input type="password" class="form-control" id="new_pw_1">
+				</div>
+			</div>
+      			<div class="form-group">
+				<label for="new_pw_2" class="col-md-3 control-label">Repeat PW:</label>
+				<div class="col-md-9">
+					<input type="password" class="form-control" id="new_pw_2">
+				</div>
+			</div>
+      		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
