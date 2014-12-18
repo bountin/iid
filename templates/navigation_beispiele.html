@@ -46,19 +46,19 @@
 					<tr>
 						<th><font size="5"> Course </font></th>
 					</tr>
-					<tbody ng-hide="favoriteFilterEnabled" ng-repeat="lva in selectedUni.lvas | filter: filterCourseString">
+					<tbody ng-hide="favoriteFilterEnabled" ng-repeat="lva in selectedUni.lvas | filter: filterCourseString | orderBy:orderCourses">
 					  <tr class="treegrid-{{$index+1}}">
   						<td>{{lva.name}}</td>
   						<td>
-                <img ng-show="hasAFavorite(lva)" src="images/star_full.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
-                <img ng-hide="hasAFavorite(lva)" src="images/star_empty.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
+                <img ng-show="hasAFavorite(lva)" src="images/star_full_disabled.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
+                <img ng-hide="hasAFavorite(lva)" src="images/star_empty_disabled.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
               </td>
   					</tr>
             <tr class="treegrid-parent-{{$parent.$index+1}}" ng-repeat="sem in lva.semester">
   						<td><a href="#/nav/beispiele" ng-click="setSelectedSemester(sem, lva)">{{sem.name}}</a></td>
   						<td>
-                <img ng-show="sem.favorite" src="images/star_full.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
-                <img ng-hide="sem.favorite" src="images/star_empty.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
+                <a href="#/nav/beispiele" ng-click="toggleFavorite(sem)"><img ng-show="sem.favorite" src="images/star_full.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite"></a>
+                <a href="#/nav/beispiele" ng-click="toggleFavorite(sem)"><img ng-hide="sem.favorite" src="images/star_empty.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite"></a>
               </td>
   				  </tr>	
   				</tbody>
@@ -66,15 +66,15 @@
   					<tr class="treegrid-{{$index+1}}">
   						<td>{{lva.name}}</td>
   						<td>
-                <img ng-show="hasAFavorite(lva)" src="images/star_full.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
-                <img ng-hide="hasAFavorite(lva)" src="images/star_empty.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
+                <img ng-show="hasAFavorite(lva)" src="images/star_full_disabled.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
+                <img ng-hide="hasAFavorite(lva)" src="images/star_empty_disabled.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
               </td>
   					</tr>
             <tr ng-hide="!sem.favorite" class="treegrid-parent-{{$parent.$index+1}}" ng-repeat="sem in lva.semester">
   						<td><a href="#/nav/beispiele" ng-click="setSelectedSemester(sem, lva)">{{sem.name}}</a></td>
   						<td>
-                <img ng-show="sem.favorite" src="images/star_full.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
-                <img ng-hide="sem.favorite" src="images/star_empty.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
+                <a href="#/nav/beispiele" ng-click="toggleFavorite(sem)"><img ng-show="sem.favorite" src="images/star_full.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite"></a>
+                <a href="#/nav/beispiele" ng-click="toggleFavorite(sem)"><img ng-hide="sem.favorite" src="images/star_empty.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite"></a>
               </td>
   				  </tr>	   	
 				  </tbody>

@@ -225,6 +225,18 @@ iidControllers.controller('SearchGlobalController', function($scope) {
       });
       return r;
     }
+    $scope.orderCourses = function(lva) {
+      var r = true;
+      if(lva.semester == null) {
+        return r;
+      }
+      lva.semester.forEach(function(sem) {
+        if(sem.favorite == true) {
+          r = false;
+        }
+      });
+      return r;
+    }    
     $scope.favoriteFilterEnabled = false;   
 //    $scope.searchString = ($location.search()).searchString;
     $scope.saved = false;
@@ -247,6 +259,13 @@ iidControllers.controller('SearchGlobalController', function($scope) {
     };
     $scope.selectFile = function() {
         $scope.fileSelected = true;
+    }
+    $scope.toggleFavorite = function(sem) {
+        if(sem.favorite) {
+          sem.favorite = false;
+        }else {
+          sem.favorite = true;
+        }
     }
     $scope.lvas = [
         {name: 'VU Objektorientierte Programmiertechniken', kurzname: 'OOP', nummer: '311.294', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/oop', uni: "TU Wien", semester: [
