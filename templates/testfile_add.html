@@ -9,9 +9,9 @@
 
     <div class="small">
     {{ selectedUni.name }} <br />
-    {{ selectedLVA }} <br />
-    {{ selectedSemester }} <br/>
-    {{ selectedBeispiel }} <br />
+    {{ selectedLVA.name }} <br />
+    {{ selectedSemester.name }} <br/>
+    {{ selectedBeispiel.name }} <br />
     </div>
     <form class="form-horizontal" role="form">
         <div class="row-fluid">
@@ -25,20 +25,11 @@
             <div class="form-group">
                 <label class="control-label col-md-2" for="lva">Course:</label>
                 <div class="col-md-8">
-                    <!--<input type="text" name="product" list="productName"/>-->
-                    <!--<datalist id="productName">-->
-                    <!--<option value="Pen">Pen</option>-->
-                    <!--<option value="Pencil">Pencil</option>-->
-                    <!--<option value="Paper">Paper</option>-->
-                    <!--</datalist>-->
-                    <!--<input  type="text" list="_lvas"/>-->
-                    <!--<datalist id="_lvas">-->
-                        <!--<select ng-model="selectedLVA" ng-options="lva.name for lva in selectedUni.lvas"></select>-->
-                    <!--</datalist>-->
-                    <select ng-disabled="selectedUni == null" ng-model="selectedLVA" class="form-control disabled" id="lva"> <!-- ng-options="lva.name for lva in selectedUni.lvas" -->
-                        <option ng-repeat="lva in lvas">{{lva.name}}</option>
-                        <option>{{newLVA}}</option>
-                    </select>
+                    <!--<select ng-disabled="selectedUni == null" ng-model="selectedLVA" class="form-control disabled" id="lva"> &lt;!&ndash; ng-options="lva.name for lva in selectedUni.lvas" &ndash;&gt;-->
+                        <!--<option ng-repeat="lva in lvas">{{lva.name}}</option>-->
+                        <!--<option>{{newLVA}}</option>-->
+                    <!--</select>-->
+                    <select ng-disabled="selectedUni == null" ng-model="selectedLVA" ng-options="lva.name for lva in selectedUni.lvas" class="form-control disabled" id="lva" />
                         <!--<option ng-repeat="l in selectedUni.lvas">{{ l.name }}</option>-->
                         <!--<option onclick="$('#new_lva').removeClass('hidden'); $('#semester').removeAttr('disabled');">&lt;neue Lehrveranstaltung&gt;</option>-->
                     <!--</select>-->
@@ -83,10 +74,11 @@
             <div class="form-group">
                 <label class="control-label col-md-2" for="semester">Term:</label>
                 <div class="col-md-8">
-                    <select ng-disabled="selectedLVA == null" ng-model="selectedSemester" class="form-control" id="semester"> <!-- ng-options="semester.name for semester in selectedLVA.semester" -->
-                        <option ng-repeat="sem in semester" ng-hide="selectedLVA == newLVA">{{ sem.name }}</option>
-                        <option ng-select="selectedLVA == newLVA">{{newSemester}}</option>
-                    </select>
+                    <!--<select ng-disabled="selectedLVA == null" ng-model="selectedSemester" class="form-control" id="semester"> &lt;!&ndash; ng-options="semester.name for semester in selectedLVA.semester" &ndash;&gt;-->
+                        <!--<option ng-repeat="sem in semester" ng-hide="selectedLVA == newLVA">{{ sem.name }}</option>-->
+                        <!--<option ng-select="selectedLVA == newLVA">{{newSemester}}</option>-->
+                    <!--</select>-->
+                    <select ng-disabled="selectedLVA == null" ng-model="selectedSemester" ng-options="semester.name for semester in selectedLVA.semester" class="form-control" id="semester" />
                 </div>
                 <div class="col-md-2" />
             </div>
@@ -116,10 +108,11 @@
             <div class="form-group">
                 <label class="control-label col-md-2" for="beispiel">Task:</label>
                 <div class="col-md-8">
-                    <select ng-disabled="selectedSemester == null" ng-model="selectedBeispiel" class="form-control" id="beispiel" disabled="disabled"> <!-- ng-options="beispiel.name for beispiel in selectedSemester.beispiele" -->
-                        <option ng-repeat="beispiel in beispiele" ng-hide="selectedSemester == newSemester">{{ beispiel.name }}</option>
-                        <option ng-select="selectedSemester == newSemester">{{newBeispiel}}</option>
-                    </select>
+                    <!--<select ng-disabled="selectedSemester == null" ng-model="selectedBeispiel" class="form-control" id="beispiel" disabled="disabled"> &lt;!&ndash; ng-options="beispiel.name for beispiel in selectedSemester.beispiele" &ndash;&gt;-->
+                        <!--<option ng-repeat="beispiel in beispiele" ng-hide="selectedSemester == newSemester">{{ beispiel.name }}</option>-->
+                        <!--<option ng-select="selectedSemester == newSemester">{{newBeispiel}}</option>-->
+                    <!--</select>-->
+                    <select ng-disabled="selectedSemester == null" ng-model="selectedBeispiel" ng-options="beispiel.name for beispiel in selectedSemester.beispiele" class="form-control" id="beispiel" disabled="disabled" />
                 </div>
                 <div class="col-md-2" />
             </div>
