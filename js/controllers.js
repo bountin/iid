@@ -200,7 +200,6 @@ iidControllers.controller('SearchGlobalController', function($scope) {
     };
     $scope.setSelectedUni = function(uni) {
       $scope.selectedUni = uni;
-//      alert(uni.name);
     }
     $scope.numberOfTestFiles = function(beispiel) {
        var l = 0;
@@ -214,6 +213,19 @@ iidControllers.controller('SearchGlobalController', function($scope) {
        });
        return l;
     }
+    $scope.hasAFavorite = function(lva) {
+      var r = false;
+      if(lva.semester == null) {
+        return r;
+      }
+      lva.semester.forEach(function(sem) {
+        if(sem.favorite == true) {
+          r = true;
+        }
+      });
+      return r;
+    }
+    $scope.favoriteFilterEnabled = false;   
 //    $scope.searchString = ($location.search()).searchString;
     $scope.saved = false;
     $scope.deleted = false;
