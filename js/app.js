@@ -12,7 +12,7 @@ iid.config(function($routeProvider) {
         }).
         when('/testfile/add', {
             templateUrl: 'templates/testfile_add.html',
-            controller: 'TestfileAddController',
+            controller: 'SearchGlobalController',
         }).
         when('/testfile/details', {
             templateUrl: 'templates/testfile_details.html',

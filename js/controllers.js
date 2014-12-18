@@ -7,7 +7,7 @@ Date.prototype.timeNow = function () {
     return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
 }
 
-//var iidControllers = angular.module('iidControllers', []);
+var iidControllers = angular.module('iidControllers', []);
 //iidControllers.controller('TestfileAddController', function($scope) {
 //
 ////    $scope.searchString = ($location.search()).searchString;
