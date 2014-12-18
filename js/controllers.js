@@ -192,11 +192,27 @@ var iidControllers = angular.module('iidControllers', []);
 iidControllers.controller('SearchGlobalController', function($scope) {
     // for navigation_beispiel
     $scope.selectedSemester = null;
-    $scope.selectedLva = null;
+    $scope.selectedLva = null;      
+    $scope.selectedUni = null;
     $scope.setSelectedSemester = function(sem, lva) {
       $scope.selectedSemester = sem;
       $scope.selectedLva = lva;  
     };
+    $scope.setSelectedUni = function(uni) {
+      $scope.selectedUni = uni;
+    }
+    $scope.numberOfTestFiles = function(beispiel) {
+       var l = 0;
+       if(beispiel.contributors == null) {
+        return 0;
+       }
+       beispiel.contributors.forEach(function(cont) {
+          if(cont.testfiles != null) {
+            l = l + cont.testfiles.length;
+          }
+       });
+       return l;
+    }
 //    $scope.searchString = ($location.search()).searchString;
     $scope.saved = false;
     $scope.deleted = false;
@@ -501,4 +517,5 @@ iidControllers.controller('SearchGlobalController', function($scope) {
 
     ];
 
+    $scope.selectedUni = $scope.unis[2];
 });
