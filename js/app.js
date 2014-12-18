@@ -22,6 +22,7 @@ iid.config(function($routeProvider) {
         }).
         when('/nav/beispiele', {
             templateUrl: 'templates/navigation_beispiele.html',
+            controller: 'SearchGlobalController',
         }).		
         when('/user/profile', {
             templateUrl: 'templates/user_profile.html',

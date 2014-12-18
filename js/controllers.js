@@ -9,7 +9,8 @@ Date.prototype.timeNow = function () {
 
 var iidControllers = angular.module('iidControllers', []);
 iidControllers.controller('TestfileAddController', function($scope) {
-//    $scope.searchString = ($location.search()).searchString;
+
+//    $scope.searchString = ($location.search()).searchString;      
     $scope.saved = false;
     $scope.deleted = false;
     $scope.fileSelected = false;
@@ -189,6 +190,13 @@ iidControllers.controller('TestfileAddController', function($scope) {
 
 
 iidControllers.controller('SearchGlobalController', function($scope) {
+    // for navigation_beispiel
+    $scope.selectedSemester = null;
+    $scope.selectedLva = null;
+    $scope.setSelectedSemester = function(sem, lva) {
+      $scope.selectedSemester = sem;
+      $scope.selectedLva = lva;  
+    };
 //    $scope.searchString = ($location.search()).searchString;
     $scope.saved = false;
     $scope.newLVA = '<neue Lehrveranstaltung>';
