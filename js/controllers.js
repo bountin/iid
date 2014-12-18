@@ -225,6 +225,7 @@ iidControllers.controller('SearchGlobalController', function($scope) {
       });
       return r;
     }
+    $scope.favoriteFilterEnabled = false;   
 //    $scope.searchString = ($location.search()).searchString;
     $scope.saved = false;
     $scope.deleted = false;
