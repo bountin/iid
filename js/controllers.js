@@ -197,7 +197,7 @@ iidControllers.controller('SearchGlobalController', function($scope) {
       });
       return r;
     };
-    $scope.favoriteFilterEnabled = false;   
+    $scope.favoriteFilterEnabled = false;
 //    $scope.searchString = ($location.search()).searchString;
     $scope.saved = false;
     $scope.deleted = false;
@@ -510,6 +510,8 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         ]}
 
     ];
+
+    $scope.favoriteUni = $scope.unis[2];
 
     var beispiele = [];
     $scope.unis.forEach(function(uni) {
