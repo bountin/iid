@@ -91,17 +91,15 @@ iidControllers.controller('SearchGlobalController', function($scope) {
           sem.favorite = true;
         }
     };
-    $scope.getLVAsForSelectedUni = function() {
-        console.info($scope.selectedUni);
-        if ($scope.selectedUni == undefined) {
+    $scope.getLVAsForSelectedUni = function(selectedUni) {
+        if (selectedUni == undefined) {
             return [];
         }
         var result = [];
-        result.push($scope.selectedUni.lvas);
-        result.push($scope.newLVA);
-        result.forEach(function(elem) {
-            console.info(elem.name);
+        angular.forEach(selectedUni.lvas, function(lva) {
+            result.push(lva);
         });
+        result.push($scope.newLVA);
         return result;
     };
 
@@ -110,7 +108,9 @@ iidControllers.controller('SearchGlobalController', function($scope) {
             return [];
         }
         var result = [];
-        result.push(selectedLva.semester);
+        angular.forEach(selectedLva.semester, function(sem) {
+            result.push(sem);
+        });
         result.push($scope.newSemester);
         return result;
     };
@@ -121,6 +121,9 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         }
         var result = [];
         result.push(selectedSemester.beispiele);
+        angular.forEach(selectedSemester.beispiele, function(bsp) {
+            result.push(bsp);
+        });
         result.push($scope.newBeispiel);
         return result;
     };
