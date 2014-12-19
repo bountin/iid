@@ -49,9 +49,9 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         $scope.selectedTestfile = null;
     };
     $scope.goToSemester2 = function(uni, lva, semester) {
-        alert(uni.name);
-        alert(lva.name);
-        alert(semester.name);
+//        alert(uni.name);
+//        alert(lva.name);
+//        alert(semester.name);
         $scope.selectedUni = uni;
         $scope.selectedLva = lva;
         $scope.selectedSemester = semester;
@@ -64,10 +64,7 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         $scope.selectedTestfile = null;
     };
     $scope.goToBeispiel2 = function(uni, lva, semester, beispiel) {
-//        alert(uni.name);
-//        alert(lva.name);
-//        alert(semester.name);
-//        alert(beispiel.name);
+//        alert(uni.name + ', ' + lva.name + ', ' + semester.name + ', ' + beispiel.name);
         console.info('goToBeispiel2 ' + testfile.filename);
         $scope.selectedUni = uni;
         $scope.selectedLva = lva;
