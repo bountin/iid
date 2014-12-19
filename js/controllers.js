@@ -19,6 +19,40 @@ iidControllers.controller('SearchGlobalController', function($scope) {
     $scope.selectedUni = null;
     $scope.selectedTestfile = null;
     $scope.selectedContributor = null;
+
+
+    $scope.goToUni = function(uni) {
+        console.info('goToUni ' + uni.name);
+        $scope.selectedUni = uni;
+        $scope.selectedLva = null;
+        $scope.selectedSemester = null;
+        $scope.selectedBeispiel = null;
+        $scope.selectedTestfile = null;
+    };
+    $scope.goToLva = function(lva) {
+        console.info('goToLva ' + lva.name);
+        $scope.selectedLva = lva;
+        $scope.selectedSemester = null;
+        $scope.selectedBeispiel = null;
+        $scope.selectedTestfile = null;
+    };
+    $scope.goToSemester = function(semester) {
+        console.info('goToSemester ' + semester.name);
+        $scope.selectedSemester = semester;
+        $scope.selectedBeispiel = null;
+        $scope.selectedTestfile = null;
+    };
+    $scope.goToBeispiel = function(beispiel) {
+        console.info('goToBeispiel ' + beispiel.name);
+        $scope.selectedBeispiel = beispiel;
+        $scope.selectedTestfile = null;
+    };
+    $scope.goToTestfile = function(testfile) {
+        console.info('goToTestfile ' + testfile.filename);
+        $scope.selectedTestfile = testfile;
+    };
+
+
     $scope.setSelectedLva = function(lva) {
       $scope.selectedLva = lva; 
       $scope.selectedSemester = null; 

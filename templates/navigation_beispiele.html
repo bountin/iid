@@ -5,11 +5,20 @@
 <script type="text/javascript" src="js/jquery.treegrid.bootstrap3.js"></script>
 <div>
   <div class="row-fluid">
-  	<ul class="breadcrumb">
-  	<li class="active">{{selectedUni.name}}</li>
-  	</ul>
+      <ul ng-show="selectedLva == null" class="breadcrumb">
+          <li class="active">{{selectedUni.name}}</li>
+      </ul>
+      <ul ng-show="selectedSemester == null && selectedLva != null" class="breadcrumb">
+          <li><a href="#/nav/beispiele" ng-click="goToUni(selectedUni)">{{selectedUni.name}}</a></li>
+          <li class="active" ng-show="selectedLva != null">{{selectedLva.name}}</li>
+      </ul>
+      <ul ng-show="selectedSemester != null" class="breadcrumb">
+          <li><a href="#/nav/beispiele" ng-click="goToUni(selectedUni)">{{selectedUni.name}}</a></li>
+          <li ng-show="selectedLva != null"><a href="#/nav/beispiele" ng-click="goToLva(selectedLva)">{{selectedLva.name}}</a></li>
+          <li class="active" ng-show="selectedSemester != null">{{selectedSemester.name}}</li>
+      </ul>
   </div>
-	
+
 	<div class="row-fluid">
 		<div class="col-md-12">
 			<div class="col-md-6">
