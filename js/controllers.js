@@ -531,6 +531,54 @@ iidControllers.controller('SearchGlobalController', function($scope) {
 
     ];
 
+    $scope.getBeispiele = function() {
+        result2 = [];
+        j = 0;
+//        $scope.unis.forEach(function(uni) {
+//            uni.lvas.forEach(function(lva) {
+//                lva.semester.forEach(function(sem) {
+//                    sem.beispiele.forEach(function(bsp) {
+//                        result[j] = {
+//                            'uni': uni,
+//                            'lva': lva,
+//                            'bsp': bsp,
+//                            'sem': sem
+//                        };
+//                        j++;
+////                        alert(i + ': ' + bsp.name);
+//
+//                    });
+//                });
+//            });
+//        });
+//        result.forEach(function (obj) {
+//            alert(obj.bsp);
+//        });
+//        return result;
+        j;
+        $scope.unis.forEach(function(uni) {
+            uni.lvas.forEach(function(lva) {
+                lva.semester.forEach(function(sem) {
+                    sem.beispiele.forEach(function(bsp) {
+                        result2[j] = {
+                            'uni': uni,
+                            'lva': lva,
+                            'sem': sem,
+                            'bsp': bsp
+                        };
+                        alert(j + ':' + result2[j].bsp.name);
+                        j++;
+
+                    });
+                });
+            });
+        });
+        result2.forEach(function(obj) {
+            alert(obj.lva);
+        });
+        return result2;
+    };
+
     $scope.getLVAs = function() {
         result = [];
 
@@ -547,25 +595,4 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         return result;
     };
 
-    $scope.getBeispiele = function() {
-        result = [];
-
-        i = 0;
-        $scope.unis.forEach(function(uni) {
-            uni.lvas.forEach(function(lva) {
-                lva.semester.forEach(function(sem) {
-                    sem.beispiele.forEach(function(bsp) {
-                        result[i] = {
-                            'uni': uni,
-                            'lva': lva,
-                            'sem': sem,
-                            'bsp': bsp
-                        };
-                        i++;
-                    });
-                });
-            });
-        });
-        return result;
-    };
 });
