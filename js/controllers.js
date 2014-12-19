@@ -497,7 +497,7 @@ iidControllers.controller('SearchGlobalController', function($scope) {
       var tempname;
       var temptestfile;  
       
-      unis.forEach(function(uni) {
+      $scope.unis.forEach(function(uni) {
         tempuni = uni.name;
         uni.lvas.forEach(function(lva) {
           templva = lva.kurzname;
@@ -516,11 +516,17 @@ iidControllers.controller('SearchGlobalController', function($scope) {
                             temptestfile = tf;
                             var o = {
                               name:tempname,
-                              uni:tempuni, 
-                              lva:templva, 
-                              sem:tempsem, 
-                              bsp:tempbsp, 
-                              cont:tempcont 
+                              uni:tempuni,
+                              uni2:uni,
+                              lva:templva,
+                                lva2:lva,
+                              sem:tempsem,
+                                sem2:sem,
+                              bsp:tempbsp,
+                                bsp2:beispiel,
+                              cont:tempcont,
+                                cont2:cont,
+                              testfile: tf
                             };
 
                             list.push(o);
@@ -540,7 +546,7 @@ iidControllers.controller('SearchGlobalController', function($scope) {
       }
         
       return $scope.allNoti;   
-    }   
+    };
    
     $scope.getNumNotiAll = function(unis) {
       var num = 0;  
@@ -655,8 +661,8 @@ iidControllers.controller('SearchGlobalController', function($scope) {
     
     $scope.comments = [
         {username:'DumbUtuber', date:'10/12/2014', text:'First!'},
-        {username:'xXxD347hKn1gh7xXx', date:'12/12/2014', text:'Ich hab schon viel bessere Testfälle geschrieben!'},
-        {username:'GreenThumb420', date:'12/12/2014', text:'Die Haltungsbedingungen von diesen industriell gehaltenen Testfällen sind einfach unmöglich zu rechtfertigen!'},
+        {username:'xXxD347hKn1gh7xXx', date:'12/12/2014', text:'Ich hab schon viel bessere TestfÃ¤lle geschrieben!'},
+        {username:'GreenThumb420', date:'12/12/2014', text:'Die Haltungsbedingungen von diesen industriell gehaltenen Testfï¿½llen sind einfach unmÃ¤glich zu rechtfertigen!'}
     ];
 
     $scope.unis = [

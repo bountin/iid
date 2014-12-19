@@ -34,12 +34,12 @@
                     </div>
                     <div class="dropdown-menu" style="width:400px" ng-style="{display: newsOpened ? 'block' : 'none' }">
                       <div ng-repeat="noti in getAllNotiAll(unis)">
-                        <a href="#/testfile/details">
-                          <font size="3">{{noti.uni}} - {{noti.lva}} - {{noti.sem}}</font> 
+                        <a href="#/testfile/details" ng-click="goToTestfile2(noti.uni2, noti.lva2, noti.sem2, noti.bsp2, noti.cont2, noti.testfile)"> <!-- ng-click="goToTestfile2(noti.uni2, noti.lva2, noti.sem2, noti.bsp2, noti.cont2, noti.testfile)" -->
+                          <font size="3">{{noti.uni}} - {{noti.lva}} - {{noti.sem}}</font>
                           <br />   
                            {{noti.bsp}}: {{noti.name}} (from {{noti.cont}})
                         </a>
-                        <hr style="padding:2px;margin:2px;" />      
+                        <hr style="padding:2px;margin:2px; padding-bottom: 5px" />
                       </div>              
                     </div>
                 </div>
