@@ -15,17 +15,26 @@ iidControllers.controller('SearchGlobalController', function($scope) {
     $scope.selectedSemester = null;
     $scope.selectedLva = null;      
     $scope.selectedUni = null;
+    $scope.selectedTestfile = null;
     $scope.setSelectedLva = function(lva) {
+<<<<<<< .merge_file_a38404
       $scope.selectedLva = lva; 
       $scope.selectedSemester = null; 
     };    
+=======
+      $scope.selectedLva = lva;
+    };
+>>>>>>> .merge_file_a38436
     $scope.setSelectedSemester = function(sem, lva) {
       $scope.selectedSemester = sem;
       $scope.selectedLva = lva;  
     };
     $scope.setSelectedUni = function(uni) {
       $scope.selectedUni = uni;
-    }
+    };
+    $scope.setSelectedTestfile = function(testfile) {
+        $scope.selectedTestfile = testfile;
+    };
     $scope.numberOfTestFiles = function(beispiel) {
        var l = 0;
        if(beispiel.contributors == null) {
@@ -37,6 +46,7 @@ iidControllers.controller('SearchGlobalController', function($scope) {
           }
        });
        return l;
+<<<<<<< .merge_file_a38404
     }
     $scope.getColorLva = function(lva, selected) {
       if(lva == selected) {
@@ -45,6 +55,9 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         return 'background-color: #FFFFFF';
       }
     }
+=======
+    };
+>>>>>>> .merge_file_a38436
     $scope.hasAFavorite = function(lva) {
       var r = false;
       if(lva.semester == null) {
@@ -56,7 +69,7 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         }
       });
       return r;
-    }
+    };
     $scope.orderCourses = function(lva) {
       var r = true;
       if(lva.semester == null) {
@@ -68,15 +81,15 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         }
       });
       return r;
-    }    
+    };
     $scope.favoriteFilterEnabled = false;   
 //    $scope.searchString = ($location.search()).searchString;
     $scope.saved = false;
     $scope.deleted = false;
     $scope.fileSelected = false;
-    $scope.newLVA = '<neue Lehrveranstaltung>';
-    $scope.newSemester = '<neues Semester>';
-    $scope.newBeispiel = '<neues Beispiel>';
+    $scope.newLVA = {name:'<neue Lehrveranstaltung>'};
+    $scope.newSemester = {name:'<neues Semester>'};
+    $scope.newBeispiel = {name:'<neues Beispiel>'};
     $scope.doSave = function() {
         $scope.saved = true;
         $scope.deleted = false;
@@ -91,14 +104,50 @@ iidControllers.controller('SearchGlobalController', function($scope) {
     };
     $scope.selectFile = function() {
         $scope.fileSelected = true;
-    }
+    };
     $scope.toggleFavorite = function(sem) {
         if(sem.favorite) {
           sem.favorite = false;
         }else {
           sem.favorite = true;
         }
-    }
+    };
+    $scope.getLVAsForSelectedUni = function(selectedUni) {
+        if (selectedUni == undefined) {
+            return [];
+        }
+        var result = [];
+        angular.forEach(selectedUni.lvas, function(lva) {
+            result.push(lva);
+        });
+        result.push($scope.newLVA);
+        return result;
+    };
+
+    $scope.getSemesterForSelectedLVA = function(selectedLva) {
+        if (selectedLva == undefined) {
+            return [];
+        }
+        var result = [];
+        angular.forEach(selectedLva.semester, function(sem) {
+            result.push(sem);
+        });
+        result.push($scope.newSemester);
+        return result;
+    };
+
+    $scope.getBeispieleForSelectedSemester = function(selectedSemester) {
+        if (selectedSemester == undefined) {
+            return [];
+        }
+        var result = [];
+        result.push(selectedSemester.beispiele);
+        angular.forEach(selectedSemester.beispiele, function(bsp) {
+            result.push(bsp);
+        });
+        result.push($scope.newBeispiel);
+        return result;
+    };
 
     $scope.unis = [
         {name: 'HTL Hollabrunn', lvas: [
@@ -213,6 +262,34 @@ iidControllers.controller('SearchGlobalController', function($scope) {
 
     ];
 
+    $scope.getBeispiele = function() {
+
+        var result = [];
+
+        var i = 0;
+        $scope.unis.forEach(function(uni) {
+            uni.lvas.forEach(function(lva) {
+                lva.semester.forEach(function(sem) {
+                    sem.beispiele.forEach(function(bsp) {
+                        result2[j] = {
+                            'uni': uni,
+                            'lva': lva,
+                            'sem': sem,
+                            'bsp': bsp
+                        };
+                        alert(j + ':' + result2[j].bsp.name);
+                        j++;
+
+                    });
+                });
+            });
+        });
+//        result2.forEach(function(obj) {
+//            alert(obj.lva);
+//        });
+        return result2;
+    };
+
     $scope.getLVAs = function() {
         result = [];
 
@@ -229,25 +306,4 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         return result;
     };
 
-    $scope.getBeispiele = function() {
-	var result = [];
-
-	var i = 0;
-        $scope.unis.forEach(function(uni) {
-            uni.lvas.forEach(function(lva) {
-                lva.semester.forEach(function(sem) {
-                    sem.beispiele.forEach(function(bsp) {
-                        result[i] = {
-                            'uni': uni,
-                            'lva': lva,
-                            'sem': sem,
-                            'bsp': bsp
-                        };
-                        i++;
-                    });
-                });
-            });
-        });
-        return result;
-    };
 });

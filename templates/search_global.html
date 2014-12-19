@@ -23,11 +23,28 @@
     </div>
 
     <div class="row">
+<<<<<<< .merge_file_a38972
         <div class="col-md-6">
             <!-- Beispiele -->
             <h3>Beispiele</h3>
             <ul class="list-group">
                 <li class="list-group-item" ng-repeat="beispiel in getBeispiele() | filter:{bsp:searchString}"><a href="#/nav/testfiles"><b>{{beispiel.bsp.name}}</b></a></li><!-- <span class="small">({{bsp.uni.name}}, {{bsp.lva.name}}, {{bsp.sem.name}})</span></a></li>-->
+=======
+        <!--<div class="col-md-6">-->
+            <!--&lt;!&ndash; Beispiele &ndash;&gt;-->
+            <!--<h3>Beispiele</h3>-->
+            <!--<ul class="list-group">-->
+                <!--<li class="list-group-item" ng-repeat="bsp in getBSPs() | filter:{lva:searchString}"><a href="#/nav/testfiles"><b>{{bsp.lva.name}}</b></a></li>&lt;!&ndash; <span class="small">({{bsp.uni.name}}, {{bsp.lva.name}}, {{bsp.sem.name}})</span></a></li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li class="list-group-item" ng-repeat="bsp in getBeispiele() | filter:{bsp:searchString}"><a href="#/nav/testfiles"><b>{{bsp.bsp.name}}</b> <span class="small">({{bsp.lva.name}})</span></a></li>&ndash;&gt;-->
+            <!--</ul>-->
+        <!--</div>-->
+        <div class="col-md-6">
+            <!-- Lehrveranstaltungen -->
+            <h3>Beispiele</h3>
+            <ul class="list-group">
+                <!--<li class="list-group-item" ng-repeat="lva in lvas2 | filter:searchString"><a href="#/nav/beispiele"><b>{{lva.name}}</b> <span class="small">({{lva.uni}})</span></a></li>-->
+                <li class="list-group-item" ng-repeat="bsp in getBeispiele() | filter:{bsp:searchString}"><a href="#/nav/beispiele"><b>{{bsp.lva.name}}</b> <span class="small">({{bsp.uni.name}})</span></a></li>
+>>>>>>> .merge_file_a35364
             </ul>
         </div>
 
