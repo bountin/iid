@@ -65,7 +65,7 @@
               </td>
   					</tr>
             <tr ng-show="selectedLva == lva" style="{{getColorSem(sem, selectedSemester)}}" class="treegrid-parent-{{$parent.$index+1}}" ng-repeat="sem in lva.semester">
-  						<td class="row-fluid"><a class="col-md-offset-1" href="#/nav/beispiele" ng-click="setSelectedSemester(sem, lva)">{{sem.name}}</a></td>	
+  						<td class="row-fluid"><a class="col-md-offset-1" href="#/nav/beispiele" ng-click="setSelectedSemester(sem, lva)"><span ng-show="sem == selectedSemester" class="glyphicon glyphicon-arrow-right"/> {{sem.name}}</a></td>
               <td> 
                 <div ng-show="user != null">
                     <span ng-show="getNumNotiSem(sem) != 0" class="badge pull-right">{{getNumNotiSem(sem)}}</span>
