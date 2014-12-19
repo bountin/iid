@@ -29,7 +29,7 @@
                         <!--<option ng-repeat="lva in lvas">{{lva.name}}</option>-->
                         <!--<option>{{newLVA}}</option>-->
                     <!--</select>-->
-                    <select ng-disabled="selectedUni == null" ng-model="selectedLva" ng-options="lva.name for lva in getLVAsForSelectedUni()" class="form-control disabled" id="lva" />
+                    <select ng-disabled="selectedUni == null" ng-model="selectedLva" ng-options="lva.name for lva in getLVAsForSelectedUni(selectedUni)" class="form-control disabled" id="lva" />
                         <!--<option ng-repeat="l in selectedUni.lvas">{{ l.name }}</option>-->
                         <!--<option onclick="$('#new_lva').removeClass('hidden'); $('#semester').removeAttr('disabled');">&lt;neue Lehrveranstaltung&gt;</option>-->
                     <!--</select>-->

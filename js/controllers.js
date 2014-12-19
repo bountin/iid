@@ -91,17 +91,15 @@ iidControllers.controller('SearchGlobalController', function($scope) {
           sem.favorite = true;
         }
     };
-    $scope.getLVAsForSelectedUni = function() {
-        alert($scope.selectedUni);
-        if ($scope.selectedUni == undefined) {
+    $scope.getLVAsForSelectedUni = function(selectedUni) {
+        if (selectedUni == undefined) {
             return [];
         }
         var result = [];
-        result.push($scope.selectedUni.lvas);
-        result.push($scope.newLVA);
-        result.forEach(function(elem) {
-           alert(elem.name);
+        angular.forEach(selectedUni.lvas, function(lva) {
+            result.push(lva);
         });
+        result.push($scope.newLVA);
         return result;
     };
 
