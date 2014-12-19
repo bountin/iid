@@ -32,7 +32,7 @@
 					</tr>
 					<tbody ng-repeat="contributor in selectedBeispiel.contributors | orderBy:getAvgVotesForContributor:true">
 						<tr class="treegrid-{{$index+1}}" style="{{getColorContributor(contributor, selectedContributor)}}">   
-							<td class="col-md-7"><font size="4"><a href="#/nav/testfiles" ng-click="setSelectedContributor(contributor)">{{contributor.user}}</font><font size="2">  ({{contributor.testfiles.length}} Testfiles)</font></a></td>
+							<td class="col-md-7"><font size="4"><a href="#/nav/testfiles" ng-click="setSelectedContributor(contributor)">{{contributor.user}}</a></font><font size="2">  ({{contributor.testfiles.length}} Testfiles)</font></a></td>
 							<td> 
                 <div ng-show="user != null">
                     <span ng-show="getNumNotiCont(contributor) != 0" class="badge pull-right">{{getNumNotiCont(contributor)}}</span>
