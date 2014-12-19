@@ -7,7 +7,7 @@
         <div class="col-md-6">
             <h3>Universities</h3>
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="uni in unis | filter:searchString"><a href="#/nav/beispiele"><b>{{uni.name}}</b></a></li>
+                <li class="list-group-item" ng-repeat="uni in unis | filter:searchString"><a ng-click="goToUni(uni)" href="#/nav/beispiele"><b>{{uni.name}}</b></a></li>
             </ul>
         </div>
 
@@ -15,7 +15,7 @@
             <h3>Courses</h3>
             <ul class="list-group">
                 <li class="list-group-item" ng-repeat="lva in getLVAs() | filter:{lva:searchString}">
-                    <a href="#/nav/beispiele">
+                    <a href="#/nav/beispiele" ng-click="goToLva2(lva.uni, lva.lva)">
                         <b>{{lva.lva.name}}</b>
                         <span class="small">({{lva.uni.name}})</span>
                     </a>
@@ -29,7 +29,7 @@
             <h3>Tasks</h3>
             <ul class="list-group">
                 <li class="list-group-item" ng-repeat="bsp in getBeispiele() | filter:{bsp:searchString}">
-                    <a href="#/nav/beispiele">
+                    <a href="#/nav/testfiles" ng-click="goToBeispiel2(bsp.uni, bsp.lva, bsp.sem, bsp.bsp)">
                         <b>{{bsp.bsp.name}}</b>
                         <span class="small">({{bsp.uni.name}}, {{bsp.lva.name}}, {{bsp.sem.name}})</span>
                     </a>
@@ -41,7 +41,7 @@
             <h3>Test files</h3>
             <ul class="list-group">
                 <li class="list-group-item" ng-repeat="testfile in getTestfiles() | filter:{value:searchString}">
-                    <a href="#/testfile/details">
+                    <a href="#/testfile/details" ng-click="goToTestfile2(testfile.uni, testfile.lva, testfile.sem, testfile.bsp, testfile.contr, testfile.value)">
                         <b>{{testfile.value.filename}}</b>
                         <span class="small">({{testfile.uni.name}}, {{testfile.lva.name}}, {{testfile.sem.name}}, {{testfile.bsp.name}})</span>
                     </a>

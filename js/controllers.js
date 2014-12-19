@@ -22,7 +22,6 @@ iidControllers.controller('SearchGlobalController', function($scope) {
 
 
     $scope.goToUni = function(uni) {
-        console.info('goToUni ' + uni.name);
         $scope.selectedUni = uni;
         $scope.selectedLva = null;
         $scope.selectedSemester = null;
@@ -36,8 +35,25 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         $scope.selectedBeispiel = null;
         $scope.selectedTestfile = null;
     };
+    $scope.goToLva2 = function(uni, lva) {
+        $scope.selectedUni = uni;
+        $scope.selectedLva = lva;
+        $scope.selectedSemester = null;
+        $scope.selectedBeispiel = null;
+        $scope.selectedTestfile = null;
+    };
     $scope.goToSemester = function(semester) {
         console.info('goToSemester ' + semester.name);
+        $scope.selectedSemester = semester;
+        $scope.selectedBeispiel = null;
+        $scope.selectedTestfile = null;
+    };
+    $scope.goToSemester2 = function(uni, lva, semester) {
+//        alert(uni.name);
+//        alert(lva.name);
+//        alert(semester.name);
+        $scope.selectedUni = uni;
+        $scope.selectedLva = lva;
         $scope.selectedSemester = semester;
         $scope.selectedBeispiel = null;
         $scope.selectedTestfile = null;
@@ -47,11 +63,28 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         $scope.selectedBeispiel = beispiel;
         $scope.selectedTestfile = null;
     };
+    $scope.goToBeispiel2 = function(uni, lva, semester, beispiel) {
+//        alert(uni.name + ', ' + lva.name + ', ' + semester.name + ', ' + beispiel.name);
+        console.info('goToBeispiel2 ' + testfile.filename);
+        $scope.selectedUni = uni;
+        $scope.selectedLva = lva;
+        $scope.selectedSemester = semester;
+        $scope.selectedBeispiel = beispiel;
+        $scope.selectedTestfile = null;
+    };
     $scope.goToTestfile = function(testfile) {
         console.info('goToTestfile ' + testfile.filename);
         $scope.selectedTestfile = testfile;
     };
-
+    $scope.goToTestfile2 = function(uni, lva, semester, beispiel, contributor, testfile) {
+        console.info('goToTestfile ' + testfile.filename);
+        $scope.selectedUni = uni;
+        $scope.selectedLva = lva;
+        $scope.selectedSemester = semester;
+        $scope.selectedBeispiel = beispiel;
+        $scope.selectedContributor = contributor;
+        $scope.selectedTestfile = testfile;
+    };
 
     $scope.setSelectedLva = function(lva) {
       $scope.selectedLva = lva; 
@@ -597,12 +630,28 @@ iidControllers.controller('SearchGlobalController', function($scope) {
       }
       return num;
     }
+    
+    $scope.inputText = "";
+    
+    $scope.addComment = function(user, text) {
+        $scope.comments.push({
+        	'username': user.username,
+        	'date': today(),
+        	'text': text
+        });
+    };
 
     $scope.users = [
         {username:'Martin', password:'password', email:'e1234567@student.tuwien.ac.at', notifications: { type: {push: 'true', email:'false'}, trigger: { newTestfiles: 'true', comments: 'false', answer: 'true'}}},
         {username:'Floff', password:'password', email:'e9876543@student.tuwien.ac.at', notifications: { type: {push: 'false', email:'false'}, trigger: { newTestfiles: 'false', comments: 'false', answer: 'false'}}},
         {username:'Jotschi', password:'password', email:'e5647382@student.tuwien.ac.at', notifications: { type: {push: 'false', email:'true'}, trigger: { newTestfiles: 'false', comments: 'false', answer: 'true'}}},
         {username:'Micc', password:'password', email:'e1946243@student.tuwien.ac.at', notifications: { type: {push: 'true', email:'true'}, trigger: { newTestfiles: 'true', comments: 'true', answer: 'true'}}}
+    ];
+    
+    $scope.comments = [
+        {username:'DumbUtuber', date:'10.12.2014', text:'First!'},
+        {username:'xXxD347hKn1gh7xXx', date:'12.12.2014', text:'Ich hab schon viel bessere Testfälle geschrieben!'},
+        {username:'GreenThumb420', date:'12.12.2014', text:'Die Haltungsbedingungen von diesen industriell gehaltenen Testfällen sind einfach unmöglich zu rechtfertigen!'},
     ];
 
     $scope.unis = [
