@@ -109,9 +109,9 @@ iidControllers.controller('SearchGlobalController', function($scope) {
             ]}
         ]},
         {name: 'Technikum Wien', lvas: [
-            {name: 'LVA 1', kurzname: '', nummer: '', institut: '', website: ''},
-            {name: 'LVA 2', kurzname: '', nummer: '', institut: '', website: ''},
-            {name: 'LVA 3', kurzname: '', nummer: '', institut: '', website: ''}
+	    {name: 'LVA 1', kurzname: '', nummer: '', institut: '', website: '', semester:[]},
+	    {name: 'LVA 2', kurzname: '', nummer: '', institut: '', website: '', semester:[]},
+	    {name: 'LVA 3', kurzname: '', nummer: '', institut: '', website: '', semester:[]}
         ]},
         {name: 'TU Wien', lvas: [
             {name: 'VU Objektorientierte Programmiertechniken', kurzname: 'OOP', nummer: '311.294', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/oop', semester: [
@@ -196,8 +196,8 @@ iidControllers.controller('SearchGlobalController', function($scope) {
             ]}
         ]},
         {name: 'Uni Wien', lvas: [
-            {name: 'LVA 1', kurzname: '', nummer: '', institut: '', website: ''},
-            {name: 'LVA 2', kurzname: '', nummer: '', institut: '', website: ''}
+	    {name: 'LVA 1', kurzname: '', nummer: '', institut: '', website: '', semester:[]},
+	    {name: 'LVA 2', kurzname: '', nummer: '', institut: '', website: '', semester:[]}
         ]}
 
     ];
@@ -219,9 +219,9 @@ iidControllers.controller('SearchGlobalController', function($scope) {
     };
 
     $scope.getBeispiele = function() {
-        result = [];
+	var result = [];
 
-        i = 0;
+	var i = 0;
         $scope.unis.forEach(function(uni) {
             uni.lvas.forEach(function(lva) {
                 lva.semester.forEach(function(sem) {
