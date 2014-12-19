@@ -52,6 +52,11 @@
 					<tbody ng-hide="favoriteFilterEnabled" ng-repeat="lva in selectedUni.lvas | filter: filterCourseString | orderBy:name | orderBy:orderCourses ">
 					  <tr class="treegrid-{{$index+1}}" style="{{getColorLva(lva, selectedLva)}}">   
   						<td><font size="4"><a href="#/nav/beispiele" ng-click="setSelectedLva(lva)">{{lva.name}}</a></font></td>
+  						<td> 
+                <div ng-show="user != null">
+                    <span ng-show="getNumNotiLva(lva) != 0" class="badge pull-right">{{getNumNotiLva(lva)}}</span>
+                </div>
+              </td>
   						<td>
                 <div ng-show="user != null">
                     <img ng-show="hasAFavorite(lva)" src="images/star_full_disabled.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
@@ -60,18 +65,28 @@
               </td>
   					</tr>
             <tr ng-show="selectedLva == lva" class="treegrid-parent-{{$parent.$index+1}}" ng-repeat="sem in lva.semester">
-  						<td class="row-fluid"><a class="col-md-offset-1" href="#/nav/beispiele" ng-click="setSelectedSemester(sem, lva)">{{sem.name}}</a></td>
+  						<td class="row-fluid"><a class="col-md-offset-1" href="#/nav/beispiele" ng-click="setSelectedSemester(sem, lva)">{{sem.name}}</a></td>	
+              <td> 
+                <div ng-show="user != null">
+                    <span ng-show="getNumNotiSem(sem) != 0" class="badge pull-right">{{getNumNotiSem(sem)}}</span>
+                </div>
+              </td>
   						<td>
-                            <div ng-show="user != null">
-                                <a href="#/nav/beispiele" ng-click="toggleFavorite(sem)"><img ng-show="sem.favorite" src="images/star_full.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite"></a>
-                                <a href="#/nav/beispiele" ng-click="toggleFavorite(sem)"><img ng-hide="sem.favorite" src="images/star_empty.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite"></a>
-                            </div>
+                  <div ng-show="user != null">
+                      <a href="#/nav/beispiele" ng-click="toggleFavorite(sem)"><img ng-show="sem.favorite" src="images/star_full.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite"></a>
+                      <a href="#/nav/beispiele" ng-click="toggleFavorite(sem)"><img ng-hide="sem.favorite" src="images/star_empty.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite"></a>
+                  </div>
               </td>
   				  </tr>	
   				</tbody>                                                           
 				  <tbody ng-show="favoriteFilterEnabled" ng-repeat="lva in selectedUni.lvas | filter: hasAFavorite | filter: filterCourseString | orderBy:name">
   					<tr class="treegrid-{{$index+1000}}" style="{{getColorLva(lva, selectedLva)}}">
   						<td><font size="4"><a href="#/nav/beispiele" ng-click="setSelectedLva(lva)">{{lva.name}}</a></font></td>
+  						<td> 
+                <div ng-show="user != null">
+                    <span ng-show="getNumNotiLva(lva) != 0" class="badge pull-right">{{getNumNotiLva(lva)}}</span>
+                </div>
+              </td>
   						<td>
                 <img ng-show="hasAFavorite(lva)" src="images/star_full_disabled.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
                 <img ng-hide="hasAFavorite(lva)" src="images/star_empty_disabled.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
@@ -79,6 +94,11 @@
   					</tr>
             <tr ng-show="selectedLva == lva" ng-hide="!sem.favorite" class="treegrid-parent-{{$parent.$index+1000}}" ng-repeat="sem in lva.semester">
   						<td class="row-fluid"><a class="col-md-offset-1" href="#/nav/beispiele" ng-click="setSelectedSemester(sem, lva)">{{sem.name}}</a></td>
+  						<td> 
+                <div ng-show="user != null">
+                    <span ng-show="getNumNotiSem(sem) != 0" class="badge pull-right">{{getNumNotiSem(sem)}}</span>
+                </div>
+              </td>
   						<td>
                 <a href="#/nav/beispiele" ng-click="toggleFavorite(sem)"><img ng-show="sem.favorite" src="images/star_full.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite"></a>
                 <a href="#/nav/beispiele" ng-click="toggleFavorite(sem)"><img ng-hide="sem.favorite" src="images/star_empty.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite"></a>
@@ -99,8 +119,7 @@
 
                            <td width="20%">({{numberOfTestFiles(beispiel)}} test files)</td>
 
-
-				        <td width="15%"><span class="badge pull-right"> TODO news </span>  </td>
+				        <td width="15%"><span ng-show="getNumNotiTBeispiel(beispiel) != 0" class="badge pull-right">{{getNumNotiTBeispiel(beispiel)}}</span>  </td>
     					 </tr>
     				 </table>
 				  </div>
