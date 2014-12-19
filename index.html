@@ -27,7 +27,7 @@
             <span class="col-md-2 text-center">
                 <div ng-show="user != null">
                     <div>
-                        <a href="#/nav/beispiele"><button>Favorites</button></a>
+                        <a href="#/nav/beispiele"><button ng-click="favoriteFilterEnabled = true; selectedUni = favoriteUni">Favorites</button></a>
                     </div>
                     <div>
                         <button ng-click="newsOpened = !newsOpened">News <span class="badge">4</span></button>

@@ -19,6 +19,40 @@ iidControllers.controller('SearchGlobalController', function($scope) {
     $scope.selectedUni = null;
     $scope.selectedTestfile = null;
     $scope.selectedContributor = null;
+
+
+    $scope.goToUni = function(uni) {
+        console.info('goToUni ' + uni.name);
+        $scope.selectedUni = uni;
+        $scope.selectedLva = null;
+        $scope.selectedSemester = null;
+        $scope.selectedBeispiel = null;
+        $scope.selectedTestfile = null;
+    };
+    $scope.goToLva = function(lva) {
+        console.info('goToLva ' + lva.name);
+        $scope.selectedLva = lva;
+        $scope.selectedSemester = null;
+        $scope.selectedBeispiel = null;
+        $scope.selectedTestfile = null;
+    };
+    $scope.goToSemester = function(semester) {
+        console.info('goToSemester ' + semester.name);
+        $scope.selectedSemester = semester;
+        $scope.selectedBeispiel = null;
+        $scope.selectedTestfile = null;
+    };
+    $scope.goToBeispiel = function(beispiel) {
+        console.info('goToBeispiel ' + beispiel.name);
+        $scope.selectedBeispiel = beispiel;
+        $scope.selectedTestfile = null;
+    };
+    $scope.goToTestfile = function(testfile) {
+        console.info('goToTestfile ' + testfile.filename);
+        $scope.selectedTestfile = testfile;
+    };
+
+
     $scope.setSelectedLva = function(lva) {
       $scope.selectedLva = lva; 
       $scope.selectedSemester = null; 
@@ -163,7 +197,7 @@ iidControllers.controller('SearchGlobalController', function($scope) {
       });
       return r;
     };
-    $scope.favoriteFilterEnabled = false;   
+    $scope.favoriteFilterEnabled = false;
 //    $scope.searchString = ($location.search()).searchString;
     $scope.saved = false;
     $scope.deleted = false;
@@ -284,10 +318,17 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         var newUser = {username: username, email: email, password: password, notifications: { type: {push: 'true', email:'false'}, trigger: { newTestfiles: 'true', comments: 'false', answer: 'true'}}};
         $scope.users.push(newUser);
 //        $scope.userRegistered = true;
-        confirm("'" + newUser.username + "' registered! An email will be sent to your email address in order to verify its validity.", "", function(ret) {
+//        confirm("'" + newUser.username + "' registered! An email will be sent to your email address in order to verify its validity.", "", function(ret) {
 //            window.location.href = '#/home';
-        });
+//        });
+        alert("'" + newUser.username + "' registered! An email will be sent to your email address in order to verify its validity.");
+        window.location.href = '#/home';
+        window.location.href = '#/login';
 
+    };
+
+    $scope.isLoggedIn = function() {
+        return $scope.user != null;
     };
 
     $scope.login = function(username, password) {
@@ -469,6 +510,8 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         ]}
 
     ];
+
+    $scope.favoriteUni = $scope.unis[2];
 
     var beispiele = [];
     $scope.unis.forEach(function(uni) {

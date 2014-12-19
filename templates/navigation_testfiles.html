@@ -6,9 +6,12 @@
 
     <div class="row-fluid">
 	<ul class="breadcrumb">
-	<li><a href="#/nav/beispiele">{{selectedUni.name}}</a></li>
-	<li><a href="#/nav/beispiele">{{selectedLva.name}}</a></li>
-	<li><a href="#/nav/beispiele">{{selectedSemester.name}}</a></li>
+	<!--<li><a href="#/nav/beispiele">{{selectedUni.name}}</a></li>-->
+	<!--<li><a href="#/nav/beispiele">{{selectedLva.name}}</a></li>-->
+	<!--<li><a href="#/nav/beispiele">{{selectedSemester.name}}</a></li>-->
+        <li><a href="#/nav/beispiele" ng-click="goToUni(selectedUni)">{{selectedUni.name}}</a></li>
+        <li ng-show="selectedLva != null"><a href="#/nav/beispiele" ng-click="goToLva(selectedLva)">{{selectedLva.name}}</a></li>
+        <li ng-show="selectedSemester != null"><a href="#/nav/beispiele" ng-click="goToSemester(selectedSemester)">{{selectedSemester.name}}</a></li>
 	<li class="active">{{selectedBeispiel.name}}</li>
 	</ul>
     </div>
