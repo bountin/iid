@@ -345,115 +345,65 @@ iidControllers.controller('SearchGlobalController', function($scope) {
 
     ];
 
-    $scope.getBeispiele = function() {
-
-        var result = [];
-
-        var i = 0;
-        $scope.unis.forEach(function(uni) {
-            uni.lvas.forEach(function(lva) {
-                lva.semester.forEach(function(sem) {
-                    sem.beispiele.forEach(function(bsp) {
-                        result[i] = {
-                            'uni': uni,
-                            'lva': lva,
-                            'sem': sem,
-                            'bsp': bsp
-                        };
-                        i++;
-
+    var beispiele = [];
+    $scope.unis.forEach(function(uni) {
+        uni.lvas.forEach(function(lva) {
+            lva.semester.forEach(function(sem) {
+                sem.beispiele.forEach(function(bsp) {
+                    beispiele.push({
+                        'uni': uni,
+                        'lva': lva,
+                        'sem': sem,
+                        'bsp': bsp
                     });
                 });
             });
         });
+    });
 
-        console.info('');
-        console.info('Unis');
-        result.forEach(function(elem) {
-            console.info(elem.uni);
-        });
-        console.info('LVAs');
-        result.forEach(function(elem) {
-            console.info(elem.lva);
-        });
-        console.info('Semester');
-        result.forEach(function(elem) {
-            console.info(elem.sem);
-        });
-        console.info('Beispiele');
-        result.forEach(function(elem) {
-            console.info(elem.bsp);
-        });
 
-        return result;
+    $scope.getBeispiele = function() {
+        return beispiele;
     };
 
-    $scope.getTestfiles = function() {
-
-        var result = [];
-
-        var i = 0;
-        $scope.unis.forEach(function(uni) {
-            uni.lvas.forEach(function(lva) {
-                lva.semester.forEach(function(sem) {
-                    sem.beispiele.forEach(function(bsp) {
-                        bsp.contributors.forEach(function(contr) {
-                            contr.testfiles.forEach(function(value) {
-                                result[i] = {
-                                    'uni': uni,
-                                    'lva': lva,
-                                    'sem': sem,
-                                    'bsp': bsp,
-                                    'contr': contr,
-                                    'value': value
-                                };
-                                i++;
+    var testFiles = [];
+    $scope.unis.forEach(function(uni) {
+        uni.lvas.forEach(function(lva) {
+            lva.semester.forEach(function(sem) {
+                sem.beispiele.forEach(function(bsp) {
+                    bsp.contributors.forEach(function(contr) {
+                        contr.testfiles.forEach(function(value) {
+                            testFiles.push({
+                                'uni': uni,
+                                'lva': lva,
+                                'sem': sem,
+                                'bsp': bsp,
+                                'contr': contr,
+                                'value': value
                             });
                         });
                     });
                 });
             });
         });
-//        console.info('');
-//        console.info('Unis');
-//        result.forEach(function(elem) {
-//           console.info(elem.uni);
-//        });
-//        console.info('LVAs');
-//        result.forEach(function(elem) {
-//            console.info(elem.lva);
-//        });
-//        console.info('Semester');
-//        result.forEach(function(elem) {
-//            console.info(elem.sem);
-//        });
-//        console.info('Beispiele');
-//        result.forEach(function(elem) {
-//            console.info(elem.bsp);
-//        });
-//        console.info('Contributors');
-//        result.forEach(function(elem) {
-//            console.info(elem.contr);
-//        });
+    });
 
 
-        return result;
+    $scope.getTestfiles = function() {
+        return testFiles;
     };
 
-    $scope.getLVAs = function() {
-        var result = [];
-
-        var i = 0;
-        $scope.unis.forEach(function(uni) {
-            uni.lvas.forEach(function(lva) {
-                result[i] = {
-                    'lva': lva,
-                    'uni': uni
-                };
-                i++;
+    var lvas = [];
+    $scope.unis.forEach(function(uni) {
+        uni.lvas.forEach(function(lva) {
+            lvas.push({
+                'lva': lva,
+                'uni': uni
             });
         });
-        return result;
-    };
+    });
 
+    $scope.getLVAs = function() {
+        return lvas;
+    };
 });
