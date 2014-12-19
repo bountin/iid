@@ -30,7 +30,12 @@
                         <a href="#/nav/beispiele"><button>Favorites</button></a>
                     </div>
                     <div>
-                        <button>News <span class="badge">4</span></button>
+                        <button ng-click="newsOpened = !newsOpened">News <span class="badge">4</span></button>
+                    </div>
+                    <div class="dropdown-menu" ng-style="{display: newsOpened ? 'block' : 'none' }">
+                        <span class="col-md-12 text-center">
+                            News
+                        </span>
                     </div>
                 </div>
             </span>
