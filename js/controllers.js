@@ -450,6 +450,64 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         alert('Password successfully changed!');
 
     };
+
+    $scope.allNoti = null;
+    
+    $scope.getAllNotiAll = function(unis) {
+      var list = [];
+      var i = 0;
+      var tempuni;
+      var templva;
+      var tempsem;
+      var tempbsp;
+      var tempcont;
+      var tempname;
+      var temptestfile;  
+      
+      unis.forEach(function(uni) {
+        tempuni = uni.name;
+        uni.lvas.forEach(function(lva) {
+          templva = lva.kurzname;
+          lva.semester.forEach(function(sem) {
+            if(sem.beispiele != null) {
+              tempsem = sem.name;
+              sem.beispiele.forEach(function(beispiel) {
+                if(beispiel.contributors != null) {
+                  tempbsp = beispiel.name;
+                  beispiel.contributors.forEach(function(cont) {
+                      if(cont.testfiles != null) {
+                        tempcont = cont.user;
+                        cont.testfiles.forEach(function(tf) {
+                          if(tf.notificate == true) {
+                            tempname = tf.filename;
+                            temptestfile = tf;
+                            var o = {
+                              name:tempname,
+                              uni:tempuni, 
+                              lva:templva, 
+                              sem:tempsem, 
+                              bsp:tempbsp, 
+                              cont:tempcont 
+                            };
+
+                            list.push(o);
+                            //i++;
+                          }
+                        });
+                      }
+                   });
+                 }
+              });
+            } 
+          });
+        });  
+      });
+      if($scope.allNoti == null || $scope.allNoti.length != list.length) {
+        $scope.allNoti = list;
+      }
+        
+      return $scope.allNoti;   
+    }   
    
     $scope.getNumNotiAll = function(unis) {
       var num = 0;  
@@ -577,8 +635,8 @@ iidControllers.controller('SearchGlobalController', function($scope) {
                     {name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '17.11.2014', url: '', contributors: [
                         {user:'Micc', allSelected:'false', votedAll:'0', testfiles:[
                             {filename:'TestOranges.java', notificate:true, votesUp:'9', votesDown:'1', description:'', voted:'0', code:'public class TestOranges {}', comments:'17', downloads:'25', forDownload:'false'},
-                            {filename:'TestBananas.java', notificate:true,votesUp:'21', votesDown:'4', description:'', voted:'0', code:'public class TestBananas {}', comments:'34', downloads:'2', forDownload:'false'},
-                            {filename:'TestKiwi.java',  notificate:true,votesUp:'0', votesDown:'12', description:'', voted:'0', code:'public class TestKiwi {}', comments:'142', downloads:'15', forDownload:'false'}
+                            {filename:'TestBananas.java', notificate:true, votesUp:'21', votesDown:'4', description:'', voted:'0', code:'public class TestBananas {}', comments:'34', downloads:'2', forDownload:'false'},
+                            {filename:'TestKiwi.java',  notificate:true, votesUp:'0', votesDown:'12', description:'', voted:'0', code:'public class TestKiwi {}', comments:'142', downloads:'15', forDownload:'false'}
                         ]},
                         {user:'Floff', allSelected:'false', votedAll:'0', testfiles:[
                             {filename:'TestApples.java',  notificate:true,votesUp:'16', votesDown:'0', description:'', voted:'0', code:'public class TestApples {}', comments:'2', downloads:'13', forDownload:'false'}
