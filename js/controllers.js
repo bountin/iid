@@ -318,9 +318,12 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         var newUser = {username: username, email: email, password: password, notifications: { type: {push: 'true', email:'false'}, trigger: { newTestfiles: 'true', comments: 'false', answer: 'true'}}};
         $scope.users.push(newUser);
 //        $scope.userRegistered = true;
-        confirm("'" + newUser.username + "' registered! An email will be sent to your email address in order to verify its validity.", "", function(ret) {
+//        confirm("'" + newUser.username + "' registered! An email will be sent to your email address in order to verify its validity.", "", function(ret) {
 //            window.location.href = '#/home';
-        });
+//        });
+        alert("'" + newUser.username + "' registered! An email will be sent to your email address in order to verify its validity.");
+        window.location.href = '#/home';
+        window.location.href = '#/login';
 
     };
 
