@@ -81,7 +81,7 @@
   				</tbody>                                                           
 				  <tbody ng-show="favoriteFilterEnabled" ng-repeat="lva in selectedUni.lvas | filter: hasAFavorite | filter: filterCourseString | orderBy:name">
   					<tr class="treegrid-{{$index+1000}}" style="{{getColorLva(lva, selectedLva)}}">
-  						<td><font size="4"><a href="#/nav/beispiele" ng-click="setSelectedLva(lva)"><span ng-show="lva != selectedLva" class="glyphicon glyphicon-chevron-right"/><span ng-show="lva == selectedLva" class="glyphicon glyphicon-chevron-down"/> {{lva.name}}</a></font></td>
+  						<td><font size="4"><a href="#/nav/beispiele" ng-click="setSelectedLva(lva)"><span ng-show="lva != selectedLva" class="glyphicon glyphicon-chevron-right"/><span ng-show="lva == selectedLva" class="glyphicon glyphicon-chevron-down"/> {{lva.typ}} {{lva.name}}</a></font></td>
   						<td> 
                 <div ng-show="user != null">
                     <span ng-show="getNumNotiLva(lva) != 0" class="badge pull-right">{{getNumNotiLva(lva)}}</span>
@@ -93,7 +93,7 @@
               </td>
   					</tr>
             <tr ng-show="selectedLva == lva" style="{{getColorSem(sem, selectedSemester)}}" ng-hide="!sem.favorite" class="treegrid-parent-{{$parent.$index+1000}}" ng-repeat="sem in lva.semester">
-  						<td class="row-fluid"><a class="col-md-offset-1" href="#/nav/beispiele" ng-click="setSelectedSemester(sem, lva)">{{sem.name}}</a></td>
+  						<td class="row-fluid"><a class="col-md-offset-1" href="#/nav/beispiele" ng-click="setSelectedSemester(sem, lva)"><span ng-show="sem == selectedSemester" class="glyphicon glyphicon-arrow-right"/> {{sem.name}}</a></td>
   						<td> 
                 <div ng-show="user != null">
                     <span ng-show="getNumNotiSem(sem) != 0" class="badge pull-right">{{getNumNotiSem(sem)}}</span>
