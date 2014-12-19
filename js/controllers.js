@@ -146,7 +146,18 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         $scope.users.push({username: username, email: email, password: password});
     };
     $scope.login = function(username, password) {
-//        $scope.users.getElementsByName()
+        var foundUser = null;
+        angular.forEach($scope.users, function(user) {
+           if (user.username == username) {
+               foundUser = user;
+           }
+        });
+        if (foundUser == null || foundUser.password != password) {
+            $scope.loginFailureMessage = 'Invalid credentials!';
+            return;
+        }
+        $scope.user = foundUser;
+
     };
 
     $scope.users = [];
