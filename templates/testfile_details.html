@@ -84,20 +84,10 @@ The testfile contains the following testcases:
 				<th>Comment</td>
 				<th>Time</td>
 			</tr>
-			<tr>
-				<td>DumbUtuber</td>
-				<td>First!</td>
-				<td>10.12.2014</td>
-			</tr>
-			<tr>
-				<td>xXxD347hKn1gh7xXx</td>
-				<td>Ich hab schon viel bessere Testf&auml;lle geschrieben!</td>
-				<td>12.12.2014</td>
-			</tr>
-			<tr>
-				<td>GreenThumb420</td>
-				<td>Die Haltungsbedingungen von diesen industriell gehaltenen Testf&auml;llen sind einfach unm&ouml;glich zu rechtfertigen!</td>
-				<td>12.12.2014</td>
+			<tr ng-repeat="comment in comments">
+				<td>{{comment.username}}</td>
+				<td>{{comment.text}}</td>
+				<td>{{comment.date}}</td>
 			</tr>
 		</table>
 	</div>
@@ -105,10 +95,10 @@ The testfile contains the following testcases:
     
     <div class="row-fluid" ng-show="user != null">
     	<div class="col-md-9 col-md-offset-1">
-    		<textarea type="text" class="form-control" rows="2" placeholder="Your Comment"></textarea>
+    		<textarea type="text" class="form-control" rows="2" placeholder="Your Comment" ng-model="inputText"></textarea>
 			<br>
     	</div>
     	<div class="col-md-2">
-    		<br><button type="button" class="btn btn-primary pull-center btn-block"><span class="glyphicon glyphicon-envelope"/> Send</button>
+    		<br><button type="button" ng-click="addComment(user, inputText)" class="btn btn-primary pull-center btn-block"><span class="glyphicon glyphicon-envelope"/> Send</button>
     	</div>
     </div>
