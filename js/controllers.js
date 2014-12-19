@@ -15,6 +15,9 @@ iidControllers.controller('SearchGlobalController', function($scope) {
     $scope.selectedSemester = null;
     $scope.selectedLva = null;      
     $scope.selectedUni = null;
+    $scope.setSelectedLva = function(lva) {
+      $scope.selectedLva = lva;  
+    };    
     $scope.setSelectedSemester = function(sem, lva) {
       $scope.selectedSemester = sem;
       $scope.selectedLva = lva;  
