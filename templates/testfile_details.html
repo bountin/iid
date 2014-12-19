@@ -25,7 +25,7 @@
         	</div>
     	</div>
     	<div class="col-md-4">
-            <a href="#/testfile/update"><button type="button" class="btn btn-default text-center btn-block">Edit</button></a>
+            <a href="#/testfile/update"><button ng-show="user != null" type="button" class="btn btn-default text-center btn-block">Edit</button></a>
         </div>
     	<div class="col-md-2 col-md-offset-2">
     		<button type="button" class="btn btn-primary pull-right btn-block">Download</button>
@@ -100,7 +100,7 @@ The testfile contains the following testcases:
 	</div>
     </div>
     
-    <div class="row-fluid">
+    <div class="row-fluid" ng-show="user != null">
     	<div class="col-md-9 col-md-offset-1">
     		<textarea type="text" class="form-control" rows="2" placeholder="Your Comment"></textarea>
 			<br>
