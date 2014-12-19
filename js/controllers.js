@@ -201,10 +201,24 @@ iidControllers.controller('SearchGlobalController', function($scope) {
 //    $scope.searchString = ($location.search()).searchString;
     $scope.saved = false;
     $scope.deleted = false;
+    $scope.upd_saved = false;
+    $scope.upd_deleted = false;
     $scope.fileSelected = false;
     $scope.newLVA = {name:'<neue Lehrveranstaltung>'};
     $scope.newSemester = {name:'<neues Semester>'};
     $scope.newBeispiel = {name:'<neues Beispiel>'};
+    $scope.doSave_upd = function() {
+        $scope.upd_saved = true;
+        $scope.upd_deleted = false;
+        var date = new Date();
+        $scope.savedTime = date.timeNow();
+    };
+    $scope.doDelete_upd = function() {
+        $scope.upd_deleted = true;
+        $scope.upd_saved = false;
+        var date = new Date();
+        $scope.deletedTime = date.timeNow(); // date.today() + " " +
+    };
     $scope.doSave = function() {
         $scope.saved = true;
         $scope.deleted = false;
