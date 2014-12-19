@@ -169,41 +169,41 @@ iidControllers.controller('SearchGlobalController', function($scope) {
                 {name: 'WS14', favorite: true, startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
                     {name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '17.11.2014', url: '', contributors: [
                         {user:'Micc', testfiles:[
-                            {filename:'TestOranges.java', votesUp:'9', votesDown:'1', description:'', voted:'0'},
-                            {filename:'TestBananas.java', votesUp:'21', votesDown:'4', description:'', voted:'0'},
-                            {filename:'TestKiwi.java', votesUp:'0', votesDown:'12', description:'', voted:'0'}
+                            {filename:'TestOranges.java', votesUp:'9', votesDown:'1', description:'', voted:'0', code:'public class TestOranges {}'},
+                            {filename:'TestBananas.java', votesUp:'21', votesDown:'4', description:'', voted:'0', code:'public class TestBananas {}'},
+                            {filename:'TestKiwi.java', votesUp:'0', votesDown:'12', description:'', voted:'0', code:'public class TestKiwi {}'}
                         ]},
                         {user:'Floff', testfiles:[
-                            {filename:'TestApples.java', votesUp:'16', votesDown:'0', description:''}
+                            {filename:'TestApples.java', votesUp:'16', votesDown:'0', description:'', code:'public class TestApples {}'}
                         ]}
                     ]},
                     {name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '02.12.2014', url: '', contributors: [
                         {user:'Micc', testfiles:[
-                            {filename:'TestSuperman.java', votesUp:'9', votesDown:'1', description:'', voted:'0'}
+                            {filename:'TestSuperman.java', votesUp:'9', votesDown:'1', description:'', voted:'0', code:'public class TestSuperman {}'}
                         ]},
                         {user:'Martin', testfiles:[
-                            {filename:'TestBatman.java', votesUp:'16', votesDown:'1', description:'', voted:'0'},
-                            {filename:'TestSuperwoman.java', votesUp:'18', votesDown:'0', description:'', voted:'0'}
+                            {filename:'TestBatman.java', votesUp:'16', votesDown:'1', description:'', voted:'0', code:'public class TestBatman {}'},
+                            {filename:'TestSuperwoman.java', votesUp:'18', votesDown:'0', description:'', voted:'0', code:'public class TestSuperwoman {}'}
                         ]},
                         {user:'Jotschi', testfiles:[
-                            {filename:'TestAquaman.java', votesUp:'20', votesDown:'4', description:'', voted:'0'},
-                            {filename:'TestCatwoman.java', votesUp:'7', votesDown:'2', description:'', voted:'0'}
+                            {filename:'TestAquaman.java', votesUp:'20', votesDown:'4', description:'', voted:'0', code:'public class TestAquaman {}'},
+                            {filename:'TestCatwoman.java', votesUp:'7', votesDown:'2', description:'', voted:'0', code:'public class TestCatwoman {}'}
                         ]}
                     ]},
                     {name: 'Beispiel 3', angabe: 'oop3.pdf', deadline: '19.12.2014', url: '', contributors: [
                         {user:'Floff', testfiles:[
-                            {filename:'TestRechteck.java', votesUp:'9', votesDown:'1', description:'', voted:'0'}
+                            {filename:'TestRechteck.java', votesUp:'9', votesDown:'1', description:'', voted:'0', code:'public class TestRechteck {}'}
                         ]},
                         {user:'Micc', testfiles:[
-                            {filename:'TestPunkt.java', votesUp:'2', votesDown:'41', description:'', voted:'0'}
+                            {filename:'TestPunkt.java', votesUp:'2', votesDown:'41', description:'', voted:'0', code:'public class TestPunkt {}'}
                         ]},
                         {user:'Martin', testfiles:[
-                            {filename:'TestKreis.java', votesUp:'16', votesDown:'1', description:'', voted:'1'},
-                            {filename:'TestQuadrat.java', votesUp:'18', votesDown:'0', description:'', voted:'1'}
+                            {filename:'TestKreis.java', votesUp:'16', votesDown:'1', description:'', voted:'1', code:'public class TestKreis {}'},
+                            {filename:'TestQuadrat.java', votesUp:'18', votesDown:'0', description:'', voted:'1', code:'public class TestQuadrat {}'}
                         ]},
                         {user:'Jotschi', testfiles:[
-                            {filename:'TestElipse.java', votesUp:'20', votesDown:'4', description:'', voted:'-1'},
-                            {filename:'TestGerade.java', votesUp:'7', votesDown:'2', description:'', voted:'0'}
+                            {filename:'TestElipse.java', votesUp:'20', votesDown:'4', description:'', voted:'-1', code:'public class TestElipse {}'},
+                            {filename:'TestGerade.java', votesUp:'7', votesDown:'2', description:'', voted:'0', code:'public class TestGerade {}'}
                         ]}
                     ]}
                 ]},
