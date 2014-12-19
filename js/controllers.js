@@ -242,7 +242,7 @@ iidControllers.controller('SearchGlobalController', function($scope) {
     $scope.saved = false;
     $scope.deleted = false;
     $scope.fileSelected = false;
-    $scope.newLVA = '<neue Lehrveranstaltung>';
+    $scope.newLVA = {name:'<neue Lehrveranstaltung>'};
     $scope.newSemester = '<neues Semester>';
     $scope.newBeispiel = '<neues Beispiel>';
     $scope.doSave = function() {
@@ -259,14 +259,28 @@ iidControllers.controller('SearchGlobalController', function($scope) {
     };
     $scope.selectFile = function() {
         $scope.fileSelected = true;
-    }
+    };
     $scope.toggleFavorite = function(sem) {
         if(sem.favorite) {
           sem.favorite = false;
         }else {
           sem.favorite = true;
         }
-    }
+    };
+    $scope.getLVAsForSelectedUni = function() {
+        alert($scope.selectedUni);
+        if ($scope.selectedUni == undefined) {
+            return [];
+        }
+        var result = [];
+        result.push($scope.selectedUni.lvas);
+        result.push($scope.newLVA);
+        result.forEach(function(elem) {
+           alert(elem.name);
+        });
+        return result;
+    };
+
     $scope.lvas = [
         {name: 'VU Objektorientierte Programmiertechniken', kurzname: 'OOP', nummer: '311.294', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/oop', uni: "TU Wien", semester: [
             {name: 'WS14', favorite: true, startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
@@ -574,7 +588,6 @@ iidControllers.controller('SearchGlobalController', function($scope) {
 //            alert(obj.bsp);
 //        });
 //        return result;
-        j;
         $scope.unis.forEach(function(uni) {
             uni.lvas.forEach(function(lva) {
                 lva.semester.forEach(function(sem) {
