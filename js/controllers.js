@@ -450,6 +450,69 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         alert('Password successfully changed!');
 
     };
+    
+    $scope.getNumNotiLva = function(lva) {
+      var num = 0;
+      lva.semester.forEach(function(sem) {
+        if(sem.beispiele != null) {
+          sem.beispiele.forEach(function(beispiel) {
+            if(beispiel.contributors != null) {
+              beispiel.contributors.forEach(function(cont) {
+                  if(cont.testfiles != null) {
+                    cont.testfiles.forEach(function(tf) {
+                      if(tf.notificate == true) {
+                        num++;
+                      }
+                    });
+                  }
+               });
+             }
+          });
+        } 
+      });
+      return num;
+    }
+    $scope.getNumNotiSem = function(sem) {
+      var num = 0;
+      sem.beispiele.forEach(function(beispiel) {
+        if(beispiel.contributors != null) {
+          beispiel.contributors.forEach(function(cont) {
+              if(cont.testfiles != null) {
+                cont.testfiles.forEach(function(tf) {
+                  if(tf.notificate == true) {
+                    num++;
+                  }
+                });
+              }
+           });
+         }
+      });
+      return num;
+    }
+    $scope.getNumNotiTBeispiel = function(beispiel) {
+       var num = 0;
+       beispiel.contributors.forEach(function(cont) {
+          if(cont.testfiles != null) {
+            cont.testfiles.forEach(function(tf) {
+              if(tf.notificate == true) {
+                num++;
+              }
+            });
+          }
+       });
+       return num;
+    }
+    $scope.getNumNotiCont = function(cont) {
+      var num = 0;
+      if(cont.testfiles != null) {
+        cont.testfiles.forEach(function(tf) {
+          if(tf.notificate == true) {
+            num++;
+          }
+        });
+      }
+      return num;
+    }
 
     $scope.users = [
         {username:'Martin', password:'password', email:'e1234567@student.tuwien.ac.at', notifications: { type: {push: 'true', email:'false'}, trigger: { newTestfiles: 'true', comments: 'false', answer: 'true'}}},
