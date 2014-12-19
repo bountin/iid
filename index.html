@@ -25,7 +25,14 @@
                 <h1>Share your tests!</h1>
             </span>
             <span class="col-md-2 text-center">
-                <a ng-show="user != null" href="#/nav/beispiele"><button>Favorites <span class="badge">4</span></button></a>
+                <div ng-show="user != null">
+                    <div>
+                        <a href="#/nav/beispiele"><button>Favorites</button></a>
+                    </div>
+                    <div>
+                        <button>News <span class="badge">4</span></button>
+                    </div>
+                </div>
             </span>
             <span class="col-md-2">
                 <div class="col-md-12" style="margin-bottom: 5px">
