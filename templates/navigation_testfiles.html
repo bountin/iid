@@ -33,9 +33,9 @@
 					<tr>
 						<th><font size="5"> Testfiles for "{{selectedBeispiel.name}}" </font></th>
 					</tr>
-					<tbody ng-repeat="contributor in selectedBeispiel.contributors | orderBy:getAvgVotesForContributor(contributor)">
+					<tbody ng-repeat="contributor in selectedBeispiel.contributors | orderBy:getAvgVotesForContributor:true">
 						<tr class="treegrid-{{$index+1}}" style="{{getColorContributor(contributor, selectedContributor)}}">   
-							<td class="col-md-7"><font size="4"><a href="#/nav/testfiles" ng-click="setSelectedContributor(contributor)">{{contributor.user}}</a></font></td>
+							<td class="col-md-7"><font size="4"><a href="#/nav/testfiles" ng-click="setSelectedContributor(contributor)">{{contributor.user}}</font><font size="2">  ({{contributor.testfiles.length}} Testfiles)</font></a></td>
 							<td class="col-md-1"><font size="3" color="{{getAvgVotesColorForContributor(contributor)}}" class="pull-right">{{getAvgVotesForContributor(contributor)}}</font></td>
 							<td class="col-md-1">
 								<div ng-show="user != null" class="col-md-12">
@@ -55,7 +55,7 @@
 							</td>
 						</tr>
 						<tr ng-show="selectedContributor == contributor" class="treegrid-parent-{{$parent.$index+1}}" ng-repeat="testfile in contributor.testfiles">
-							<td class="col-md-7"><a href="#/testfile/details" ng-click="setSelectedTestfile(testfile)"><font size="3">     {{testfile.filename}}</font>  ({{testfile.comments}} Comments / {{testfile.downloads}} Downloads)</a></td>
+							<td class="col-md-7"><a class="col-md-offset-1" href="#/testfile/details" ng-click="setSelectedTestfile(testfile)"><font size="3">{{testfile.filename}}</font><font size="2">  ({{testfile.comments}} Comments / {{testfile.downloads}} Downloads)</font></a></td>
 							<td class="col-md-1"><font color="{{getColorVotes(testfile)}}" class="pull-right">{{getVotesForTestfile(testfile)}}</font></td>
 							<td class="col-md-1">
 								<div ng-show="user != null"  class="col-md-12">

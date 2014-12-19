@@ -279,7 +279,7 @@ iidControllers.controller('SearchGlobalController', function($scope) {
     
     $scope.getAvgVotesForContributor = function(contributor) {
        if (contributor == undefined) {
-           return [];
+           return null;
        }
        var sum = 0;
        var count = 0;
@@ -288,7 +288,7 @@ iidControllers.controller('SearchGlobalController', function($scope) {
           testSum = testfile.votesUp - testfile.votesDown;
           sum = sum + testSum;
           count = count + 1;
-       })
+       });
        return Math.round((sum/count) * 100) / 100;
     };
     
