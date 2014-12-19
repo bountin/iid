@@ -20,11 +20,11 @@
 	    <div class="col-md-10">
 	    	<div class="row-fluid">
 			<div class="col-md-3">
-				<a href="#/testfile/add"><button ng-show="user != null" type="button" class="btn btn-primary pull-left btn-block">Add Testfile</button></a><br><br><br>
+				<a href="#/testfile/add"><button ng-show="user != null" type="button" class="btn btn-primary pull-left btn-block"><span class="glyphicon glyphicon-plus"/> Add Testfile</button></a><br><br><br>
 			</div>
 			
 			<div class="col-md-3">
-				<a href="pdfs/IIxD_Bsp3.pdf" target="_blank"><button type="button" class="btn btn-primary pull-left btn-block">Download Instruction</button></a><br><br><br>
+				<a href="pdfs/IIxD_Bsp3.pdf" target="_blank"><button type="button" class="btn btn-primary pull-left btn-block"><span class="glyphicon glyphicon-file"/> Download Instruction</button></a><br><br><br>
 			</div>
 		</div>
 		<div class="row-fluid">
@@ -80,7 +80,7 @@
 		</div>
 	    </div>
 	    <div class="col-md-2">
-			<button type="button" class="btn btn-primary pull-right btn-block">Download ({{getNrSelected(selectedBeispiel)}})</button><br><br>
+			<button type="button" class="btn btn-primary pull-right btn-block"><span class="glyphicon glyphicon-download"/> Download ({{getNrSelected(selectedBeispiel)}})</button><br><br>
 			<button type="button" class="btn btn-info pull-right btn-block" ng-click="selectAllForBeispiel(selectedBeispiel)">Select all</button><br><br>
 			<button type="button" class="btn btn-info pull-right btn-block" ng-click="selectGoodForBeispiel(selectedBeispiel)">Select good</button>
 	    </div>
