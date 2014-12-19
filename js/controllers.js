@@ -450,6 +450,32 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         alert('Password successfully changed!');
 
     };
+   
+    $scope.getNumNotiAll = function(unis) {
+      var num = 0;  
+      unis.forEach(function(uni) {
+        uni.lvas.forEach(function(lva) {
+          lva.semester.forEach(function(sem) {
+            if(sem.beispiele != null) {
+              sem.beispiele.forEach(function(beispiel) {
+                if(beispiel.contributors != null) {
+                  beispiel.contributors.forEach(function(cont) {
+                      if(cont.testfiles != null) {
+                        cont.testfiles.forEach(function(tf) {
+                          if(tf.notificate == true) {
+                            num++;
+                          }
+                        });
+                      }
+                   });
+                 }
+              });
+            } 
+          });
+        });  
+      });     
+      return num;
+    }   
     
     $scope.getNumNotiLva = function(lva) {
       var num = 0;
