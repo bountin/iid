@@ -296,6 +296,52 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         return '#FF0000';
       }
     };
+    
+    $scope.allVoted = function(contributor, vote) {
+       contributor.votedAll = vote;
+       contributor.testfiles.forEach(function(testfile) {
+          $scope.fileVoted(contributor, testfile, vote, false);
+       });
+    
+    };
+    
+    $scope.fileVoted = function(contributor, testfile, vote, check) {
+       if (vote == 1) {
+          testfile.votesUp ++;
+          if (testfile.voted == -1) testfile.votesDown --;
+       }
+       if (vote == -1) {
+          testfile.votesDown ++;
+          if (testfile.voted == 1) testfile.votesUp --;
+       }
+       if (vote == 0) {
+          if (testfile.voted == 1) testfile.votesUp --;
+          if (testfile.voted == -1) testfile.votesDown --;
+       }
+       testfile.voted = vote;
+       if (check) $scope.checkAllVoted(contributor);
+    };
+    
+    $scope.checkAllVoted = function(contributor) {
+       var vote = 0;
+       var first = true;
+       var mismatch = false;
+       contributor.testfiles.forEach(function(testfile) {
+          if (first == true) {
+             vote = testfile.voted;
+             first = false;
+          } else {
+             if (vote != testfile.voted) {
+                mismatch = true;
+             }
+          }
+       });
+       if (!mismatch) {
+          contributor.votedAll = vote;
+       } else {
+          contributor.votedAll = 0;
+       }
+    };
 
 
     $scope.register = function(username, email, password, password2) {
