@@ -191,7 +191,14 @@ iidControllers.controller('SearchGlobalController', function($scope) {
       }else {
         return 'background-color: #FFFFFF';
       }
-    }
+    };
+    $scope.getColorSem = function(sem, selected) {
+        if(sem == selected) {
+            return 'background-color: #EEEEEE';
+        }else {
+            return 'background-color: #FFFFFF';
+        }
+    };
     $scope.getColorContributor = function(cont, selected) {
       if(cont == selected) {
         return 'background-color: #CCEEFF';

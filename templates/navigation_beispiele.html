@@ -51,7 +51,7 @@
 					</tr>
 					<tbody ng-hide="favoriteFilterEnabled" ng-repeat="lva in selectedUni.lvas | filter: filterCourseString | orderBy:name | orderBy:orderCourses ">
 					  <tr class="treegrid-{{$index+1}}" style="{{getColorLva(lva, selectedLva)}}">   
-  						<td><font size="4"><a href="#/nav/beispiele" ng-click="setSelectedLva(lva)">{{lva.name}}</a></font></td>
+  						<td><font size="4"><a href="#/nav/beispiele" ng-click="setSelectedLva(lva)"><span ng-show="lva != selectedLva" class="glyphicon glyphicon-chevron-right"/><span ng-show="lva == selectedLva" class="glyphicon glyphicon-chevron-down"/> {{lva.name}}</a></font></td>
   						<td> 
                 <div ng-show="user != null">
                     <span ng-show="getNumNotiLva(lva) != 0" class="badge pull-right">{{getNumNotiLva(lva)}}</span>
@@ -64,7 +64,7 @@
                 </div>
               </td>
   					</tr>
-            <tr ng-show="selectedLva == lva" class="treegrid-parent-{{$parent.$index+1}}" ng-repeat="sem in lva.semester">
+            <tr ng-show="selectedLva == lva" style="{{getColorSem(sem, selectedSemester)}}" class="treegrid-parent-{{$parent.$index+1}}" ng-repeat="sem in lva.semester">
   						<td class="row-fluid"><a class="col-md-offset-1" href="#/nav/beispiele" ng-click="setSelectedSemester(sem, lva)">{{sem.name}}</a></td>	
               <td> 
                 <div ng-show="user != null">
