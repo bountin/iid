@@ -142,9 +142,29 @@ iidControllers.controller('SearchGlobalController', function($scope) {
     };
 
 
-    $scope.register = function(username, email, password) {
-        $scope.users.push({username: username, email: email, password: password});
+    $scope.register = function(username, email, password, password2) {
+
+        if (password != password2) {
+            $scope.registerFailureMessage = 'The passwords do not match!';
+        } else if (username == undefined || username.length < 3) {
+            $scope.registerFailureMessage = 'Username must be at least 3 characters long!';
+        } else if (email == undefined) {
+            $scope.registerFailureMessage = 'Email must not be empty!';
+        } else if (password == undefined || password.length < 7) {
+            $scope.registerFailureMessage = 'The password must be at least 7 characters long!';
+        } else {
+            $scope.registerFailureMessage = null;
+        }
+
+        if ($scope.registerFailureMessage != null) {
+            return;
+        }
+        var newUser = {username: username, email: email, password: password};
+        $scope.users.push(newUser);
+//        $scope.userRegistered = true;
+        alert("'" + newUser.username + "' registered! An email will be sent to your email address in order to verify its validity.")
     };
+
     $scope.login = function(username, password) {
         var foundUser = null;
         angular.forEach($scope.users, function(user) {
@@ -154,13 +174,24 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         });
         if (foundUser == null || foundUser.password != password) {
             $scope.loginFailureMessage = 'Invalid credentials!';
+        } else {
+            $scope.loginFailureMessage = null;
+        }
+
+        if ($scope.loginFailureMessage == null) {
             return;
         }
+
         $scope.user = foundUser;
 
     };
 
-    $scope.users = [];
+    $scope.users = [
+        {username:'Martin', password:'password', email:'e1234567@student.tuwien.ac.at'},
+        {username:'Floff', password:'password', email:'e9876543@student.tuwien.ac.at'},
+        {username:'Jotschi', password:'password', email:'e5647382@student.tuwien.ac.at'},
+        {username:'Micc', password:'password', email:'e1946243@student.tuwien.ac.at'},
+    ];
 
     $scope.unis = [
         {name: 'HTL Hollabrunn', lvas: [

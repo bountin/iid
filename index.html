@@ -29,7 +29,8 @@
             </span>
             <span class="col-md-2">
                 <div class="col-md-12" style="margin-bottom: 5px">
-                    <a href="#/login"><button type="button" class="btn btn-primary pull-right">Login/Register</button></a>
+                    <a ng-show="user == null" href="#/login"><button type="button" class="btn btn-primary pull-right">Login/Register</button></a>
+                    <span ng-show="user != null">Hallo, <a href="#/user/profile">{{user.username}}</a>!</span>
                 </div>
                 <div class="col-md-12">
                     <form>
