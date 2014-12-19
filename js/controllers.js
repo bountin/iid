@@ -761,7 +761,42 @@ iidControllers.controller('SearchGlobalController', function($scope) {
                     {name: 'Übung 3', angabe: 'iixd3.pdf', deadline: '17.12.2013', url: '', contributors:[]}
                 ]}
             ]},
-            {name: 'Funktionale Programmierung', typ:'VU', kurzname: 'FUNCPROG', nummer: '311.813', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/funcprog', semester: [
+            {name: 'Funktionale Programmierung', typ:'VU', kurzname: 'funcprog', nummer: '311.813', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/funcprog', semester: [
+                {name: 'WS14', favorite: false, startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
+                    {name: 'Beispiel 1', angabe: 'fprog1.pdf', deadline: '17.11.2014', url: '', contributors:[]},
+                    {name: 'Beispiel 2', angabe: 'fprog2.pdf', deadline: '02.12.2014', url: '', contributors:[]},
+                    {name: 'Beispiel 3', angabe: 'fprog3.pdf', deadline: '19.12.2014', url: '', contributors:[]}
+                ]}
+            ]},
+            {name: 'Betriebssysteme', typ:'UE', kurzname: 'osue', nummer: '311.813', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/funcprog', semester: [
+                {name: 'WS14', favorite: false, startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
+                    {name: 'Beispiel 1', angabe: 'fprog1.pdf', deadline: '17.11.2014', url: '', contributors:[]},
+                    {name: 'Beispiel 2', angabe: 'fprog2.pdf', deadline: '02.12.2014', url: '', contributors:[]},
+                    {name: 'Beispiel 3', angabe: 'fprog3.pdf', deadline: '19.12.2014', url: '', contributors:[]}
+                ]}
+            ]},
+            {name: 'Datenbanksysteme', typ:'VU', kurzname: 'dbs', nummer: '311.813', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/funcprog', semester: [
+                {name: 'WS14', favorite: false, startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
+                    {name: 'Beispiel 1', angabe: 'fprog1.pdf', deadline: '17.11.2014', url: '', contributors:[]},
+                    {name: 'Beispiel 2', angabe: 'fprog2.pdf', deadline: '02.12.2014', url: '', contributors:[]},
+                    {name: 'Beispiel 3', angabe: 'fprog3.pdf', deadline: '19.12.2014', url: '', contributors:[]}
+                ]}
+            ]},
+            {name: 'Introduction to Security', typ:'VU', kurzname: 'introsec', nummer: '311.813', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/funcprog', semester: [
+                {name: 'WS14', favorite: false, startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
+                    {name: 'Beispiel 1', angabe: 'fprog1.pdf', deadline: '17.11.2014', url: '', contributors:[]},
+                    {name: 'Beispiel 2', angabe: 'fprog2.pdf', deadline: '02.12.2014', url: '', contributors:[]},
+                    {name: 'Beispiel 3', angabe: 'fprog3.pdf', deadline: '19.12.2014', url: '', contributors:[]}
+                ]}
+            ]},
+            {name: 'Software-Qualitätssicherung', typ:'VU', kurzname: 'SQS', nummer: '311.813', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/funcprog', semester: [
+                {name: 'WS14', favorite: false, startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
+                    {name: 'Beispiel 1', angabe: 'fprog1.pdf', deadline: '17.11.2014', url: '', contributors:[]},
+                    {name: 'Beispiel 2', angabe: 'fprog2.pdf', deadline: '02.12.2014', url: '', contributors:[]},
+                    {name: 'Beispiel 3', angabe: 'fprog3.pdf', deadline: '19.12.2014', url: '', contributors:[]}
+                ]}
+            ]},
+            {name: 'Verteilte Systeme', typ:'UE', kurzname: 'DS', nummer: '311.813', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/funcprog', semester: [
                 {name: 'WS14', favorite: false, startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
                     {name: 'Beispiel 1', angabe: 'fprog1.pdf', deadline: '17.11.2014', url: '', contributors:[]},
                     {name: 'Beispiel 2', angabe: 'fprog2.pdf', deadline: '02.12.2014', url: '', contributors:[]},
@@ -782,7 +817,36 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         {name: 'Uni Wien', lvas: [
             {name: 'LVA 1', typ:'VO', kurzname: '', nummer: '', institut: '', website: '', semester:[]},
             {name: 'LVA 2', typ:'UE', kurzname: '', nummer: '', institut: '', website: '', semester:[]}
+        ]},
+        {name: 'Donau-Uni Krems', lvas: [
+            {name: 'LVA 1', typ:'VO', kurzname: '', nummer: '', institut: '', website: '', semester:[]},
+            {name: 'LVA 2', typ:'UE', kurzname: '', nummer: '', institut: '', website: '', semester:[]}
+        ]},
+        {name: 'TU Graz', lvas: [
+            {name: 'LVA 1', typ:'VO', kurzname: '', nummer: '', institut: '', website: '', semester:[]},
+            {name: 'LVA 2', typ:'UE', kurzname: '', nummer: '', institut: '', website: '', semester:[]}
+        ]},
+        {name: 'MedUni Wien', lvas: [
+            {name: 'LVA 1', typ:'VO', kurzname: '', nummer: '', institut: '', website: '', semester:[]},
+            {name: 'LVA 2', typ:'UE', kurzname: '', nummer: '', institut: '', website: '', semester:[]}
+        ]},
+        {name: 'MedUni Innsbruck', lvas: [
+            {name: 'LVA 1', typ:'VO', kurzname: '', nummer: '', institut: '', website: '', semester:[]},
+            {name: 'LVA 2', typ:'UE', kurzname: '', nummer: '', institut: '', website: '', semester:[]}
+        ]},
+        {name: 'WU Wien', lvas: [
+            {name: 'LVA 1', typ:'VO', kurzname: '', nummer: '', institut: '', website: '', semester:[]},
+            {name: 'LVA 2', typ:'UE', kurzname: '', nummer: '', institut: '', website: '', semester:[]}
+        ]},
+        {name: 'Uni Innsbruck', lvas: [
+            {name: 'LVA 1', typ:'VO', kurzname: '', nummer: '', institut: '', website: '', semester:[]},
+            {name: 'LVA 2', typ:'UE', kurzname: '', nummer: '', institut: '', website: '', semester:[]}
+        ]},
+        {name: 'Konservatorium Wien', lvas: [
+            {name: 'LVA 1', typ:'VO', kurzname: '', nummer: '', institut: '', website: '', semester:[]},
+            {name: 'LVA 2', typ:'UE', kurzname: '', nummer: '', institut: '', website: '', semester:[]}
         ]}
+
 
     ];
 

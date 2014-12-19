@@ -51,7 +51,7 @@
 					</tr>
 					<tbody ng-hide="favoriteFilterEnabled" ng-repeat="lva in selectedUni.lvas | filter: filterCourseString | orderBy:name | orderBy:orderCourses ">
 					  <tr class="treegrid-{{$index+1}}" style="{{getColorLva(lva, selectedLva)}}">   
-  						<td><font size="4"><a href="#/nav/beispiele" ng-click="setSelectedLva(lva)"><span ng-show="lva != selectedLva" class="glyphicon glyphicon-chevron-right"/><span ng-show="lva == selectedLva" class="glyphicon glyphicon-chevron-down"/> {{lva.name}}</a></font></td>
+  						<td><font size="4"><a href="#/nav/beispiele" ng-click="setSelectedLva(lva)"><span ng-show="lva != selectedLva" class="glyphicon glyphicon-chevron-right"/><span ng-show="lva == selectedLva" class="glyphicon glyphicon-chevron-down"/> {{lva.typ}} {{lva.name}}</a></font></td>
   						<td> 
                 <div ng-show="user != null">
                     <span ng-show="getNumNotiLva(lva) != 0" class="badge pull-right">{{getNumNotiLva(lva)}}</span>
@@ -119,7 +119,7 @@
 
                            <td width="20%">({{numberOfTestFiles(beispiel)}} test files)</td>
 
-				        <td width="15%"><span ng-show="getNumNotiTBeispiel(beispiel) != 0" class="badge pull-right">{{getNumNotiTBeispiel(beispiel)}}</span>  </td>
+				        <td width="15%"><span ng-show="user != null && getNumNotiTBeispiel(beispiel) != 0" class="badge pull-right">{{getNumNotiTBeispiel(beispiel)}}</span>  </td>
     					 </tr>
     				 </table>
 				  </div>
