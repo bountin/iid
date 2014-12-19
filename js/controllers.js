@@ -13,12 +13,20 @@ var iidControllers = angular.module('iidControllers', []);
 iidControllers.controller('SearchGlobalController', function($scope) {
     // for navigation_beispiel
     $scope.selectedSemester = null;
-    $scope.selectedLva = null;      
+    $scope.selectedLva = null;
+    $scope.selectedBeispiel = null;
     $scope.selectedUni = null;
     $scope.selectedTestfile = null;
+    $scope.selectedContributor = null;
     $scope.setSelectedLva = function(lva) {
       $scope.selectedLva = lva; 
       $scope.selectedSemester = null; 
+    };
+    $scope.setSelectedBeispiel = function(bsp) {
+      $scope.selectedBeispiel = bsp;
+    };
+    $scope.setSelectedContributor = function(cont) {
+      $scope.selectedContributor = cont;
     };    
     $scope.setSelectedSemester = function(sem, lva) {
       $scope.selectedSemester = sem;
@@ -29,6 +37,21 @@ iidControllers.controller('SearchGlobalController', function($scope) {
     };
     $scope.setSelectedTestfile = function(testfile) {
         $scope.selectedTestfile = testfile;
+    };
+    $scope.changeSelectedForDownload = function(testfile) {
+       if(testfile.forDownload == 1) {
+          testfile.forDownload = 0;
+       } else {
+          testfile.forDownload = 1;
+       }
+    };
+    $scope.getVotesForTestfile = function(testfile) {
+       var sum = testfile.votesUp - testfile.votesDown;
+       var result = [];
+       if (sum > 0) result.push('+');
+       if (sum < 0) resukt.push('-');
+       result.push(sum);
+       return result;
     };
     $scope.numberOfTestFiles = function(beispiel) {
        var l = 0;
@@ -44,6 +67,13 @@ iidControllers.controller('SearchGlobalController', function($scope) {
     }
     $scope.getColorLva = function(lva, selected) {
       if(lva == selected) {
+        return 'background-color: #CCEEFF';
+      }else {
+        return 'background-color: #FFFFFF';
+      }
+    }
+    $scope.getColorContributor = function(cont, selected) {
+      if(cont == selected) {
         return 'background-color: #CCEEFF';
       }else {
         return 'background-color: #FFFFFF';
@@ -139,6 +169,15 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         result.push($scope.newBeispiel);
         return result;
     };
+    
+    $scope.getAvgVotesForContributor = function(contributor) {
+       if (contributor == undefined) {
+           return [];
+       }
+       var result = [];
+       result.push(13);
+       return result;
+    };
 
     $scope.unis = [
         {name: 'HTL Hollabrunn', lvas: [
@@ -169,41 +208,41 @@ iidControllers.controller('SearchGlobalController', function($scope) {
                 {name: 'WS14', favorite: true, startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
                     {name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '17.11.2014', url: '', contributors: [
                         {user:'Micc', testfiles:[
-                            {filename:'TestOranges.java', votesUp:'9', votesDown:'1', description:'', voted:'0', code:'public class TestOranges {}'},
-                            {filename:'TestBananas.java', votesUp:'21', votesDown:'4', description:'', voted:'0', code:'public class TestBananas {}'},
-                            {filename:'TestKiwi.java', votesUp:'0', votesDown:'12', description:'', voted:'0', code:'public class TestKiwi {}'}
+                            {filename:'TestOranges.java', votesUp:'9', votesDown:'1', description:'', voted:'0', code:'public class TestOranges {}', comments:'17', downloads:'25', forDownload:'0'},
+                            {filename:'TestBananas.java', votesUp:'21', votesDown:'4', description:'', voted:'0', code:'public class TestBananas {}', comments:'34', downloads:'2', forDownload:'0'},
+                            {filename:'TestKiwi.java', votesUp:'0', votesDown:'12', description:'', voted:'0', code:'public class TestKiwi {}', comments:'142', downloads:'15', forDownload:'0'}
                         ]},
                         {user:'Floff', testfiles:[
-                            {filename:'TestApples.java', votesUp:'16', votesDown:'0', description:'', code:'public class TestApples {}'}
+                            {filename:'TestApples.java', votesUp:'16', votesDown:'0', description:'', code:'public class TestApples {}', comments:'2', downloads:'13', forDownload:'0'}
                         ]}
                     ]},
                     {name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '02.12.2014', url: '', contributors: [
                         {user:'Micc', testfiles:[
-                            {filename:'TestSuperman.java', votesUp:'9', votesDown:'1', description:'', voted:'0', code:'public class TestSuperman {}'}
+                            {filename:'TestSuperman.java', votesUp:'9', votesDown:'1', description:'', voted:'0', code:'public class TestSuperman {}', comments:'45', downloads:'23', forDownload:'0'}
                         ]},
                         {user:'Martin', testfiles:[
-                            {filename:'TestBatman.java', votesUp:'16', votesDown:'1', description:'', voted:'0', code:'public class TestBatman {}'},
-                            {filename:'TestSuperwoman.java', votesUp:'18', votesDown:'0', description:'', voted:'0', code:'public class TestSuperwoman {}'}
+                            {filename:'TestBatman.java', votesUp:'16', votesDown:'1', description:'', voted:'0', code:'public class TestBatman {}', comments:'12', downloads:'334', forDownload:'0'},
+                            {filename:'TestSuperwoman.java', votesUp:'18', votesDown:'0', description:'', voted:'0', code:'public class TestSuperwoman {}', comments:'0', downloads:'12', forDownload:'0'}
                         ]},
                         {user:'Jotschi', testfiles:[
-                            {filename:'TestAquaman.java', votesUp:'20', votesDown:'4', description:'', voted:'0', code:'public class TestAquaman {}'},
-                            {filename:'TestCatwoman.java', votesUp:'7', votesDown:'2', description:'', voted:'0', code:'public class TestCatwoman {}'}
+                            {filename:'TestAquaman.java', votesUp:'20', votesDown:'4', description:'', voted:'0', code:'public class TestAquaman {}', comments:'11', downloads:'31', forDownload:'0'},
+                            {filename:'TestCatwoman.java', votesUp:'7', votesDown:'2', description:'', voted:'0', code:'public class TestCatwoman {}', comments:'2', downloads:'24', forDownload:'0'}
                         ]}
                     ]},
                     {name: 'Beispiel 3', angabe: 'oop3.pdf', deadline: '19.12.2014', url: '', contributors: [
                         {user:'Floff', testfiles:[
-                            {filename:'TestRechteck.java', votesUp:'9', votesDown:'1', description:'', voted:'0', code:'public class TestRechteck {}'}
+                            {filename:'TestRechteck.java', votesUp:'9', votesDown:'1', description:'', voted:'0', code:'public class TestRechteck {}', comments:'52', downloads:'2', forDownload:'0'}
                         ]},
                         {user:'Micc', testfiles:[
-                            {filename:'TestPunkt.java', votesUp:'2', votesDown:'41', description:'', voted:'0', code:'public class TestPunkt {}'}
+                            {filename:'TestPunkt.java', votesUp:'2', votesDown:'41', description:'', voted:'0', code:'public class TestPunkt {}', comments:'3112', downloads:'52', forDownload:'0'}
                         ]},
                         {user:'Martin', testfiles:[
-                            {filename:'TestKreis.java', votesUp:'16', votesDown:'1', description:'', voted:'1', code:'public class TestKreis {}'},
-                            {filename:'TestQuadrat.java', votesUp:'18', votesDown:'0', description:'', voted:'1', code:'public class TestQuadrat {}'}
+                            {filename:'TestKreis.java', votesUp:'16', votesDown:'1', description:'', voted:'1', code:'public class TestKreis {}', comments:'1', downloads:'17', forDownload:'0'},
+                            {filename:'TestQuadrat.java', votesUp:'18', votesDown:'0', description:'', voted:'1', code:'public class TestQuadrat {}', comments:'2', downloads:'18', forDownload:'0'}
                         ]},
                         {user:'Jotschi', testfiles:[
-                            {filename:'TestElipse.java', votesUp:'20', votesDown:'4', description:'', voted:'-1', code:'public class TestElipse {}'},
-                            {filename:'TestGerade.java', votesUp:'7', votesDown:'2', description:'', voted:'0', code:'public class TestGerade {}'}
+                            {filename:'TestElipse.java', votesUp:'20', votesDown:'4', description:'', voted:'-1', code:'public class TestElipse {}', comments:'4', downloads:'35', forDownload:'0'},
+                            {filename:'TestGerade.java', votesUp:'7', votesDown:'2', description:'', voted:'0', code:'public class TestGerade {}', comments:'0', downloads:'13', forDownload:'0'}
                         ]}
                     ]}
                 ]},

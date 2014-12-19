@@ -3,20 +3,13 @@
 
 <script type="text/javascript" src="js/jquery.treegrid.js"></script>
 <script type="text/javascript" src="js/jquery.treegrid.bootstrap3.js"></script>
-<script type="text/javascript">
-      $(document).ready(function() {
-        $('.tree').treegrid({
-          'initialState': 'collapsed',
-        });
-      });
-    </script>
 
     <div class="row-fluid">
 	<ul class="breadcrumb">
-	<li><a href="#/home">TU Wien</a></li>
-	<li><a href="#/home">Objektorientierte Programmierung</a></li>
-	<li><a href="#/home">WS14</a></li>
-	<li class="active">Beispiel 9</li>
+	<li><a href="#/nav/beispiele">{{selectedUni.name}}</a></li>
+	<li><a href="#/nav/beispiele">{{selectedLva.name}}</a></li>
+	<li><a href="#/nav/beispiele">{{selectedSemester.name}}</a></li>
+	<li class="active">{{selectedBeispiel.name}}</li>
 	</ul>
     </div>
     
@@ -31,8 +24,29 @@
 			<div class="col-md-12">
 				<table class="tree">
 					<tr>
-					<th>Testfiles for "Beispiel 9"</th>
+						<th><font size="5"> Testfiles for "{{selectedBeispiel.name}}" </font></th>
 					</tr>
+					<tbody ng-repeat="contributor in selectedBeispiel.contributors | orderBy:{{getAvgVotesForContributor(contributor)}">
+						<tr class="treegrid-{{$index+1}}" style="{{getColorContributor(contributor, selectedContributor)}}">   
+							<td><font size="4"><a href="#/nav/testfiles" ng-click="setSelectedContributor(contributor)">{{contributor.user}}</a></font></td>
+							<td><font size="4">{{getAvgVotesForContributor(contributor)}}</font></td>
+						</tr>
+						<tr ng-show="selectedContributor == contributor" class="treegrid-parent-{{$parent.$index+1}}" ng-repeat="testfile in contributor.testfiles">
+							<td><a href="#/testfile/details">{{testfile.filename}}  ({{testfile.comments}} Comments / {{testfile.downloads}} Downloads)</a></td>
+							<td>{{getVotesForTestfile(testfile)}}</td>
+							<td><img src="images/up_down_vote_buttons.png" class="img-responsive" alt="Vote up or down"></td>
+							<td>
+								<div class="checkbox pull-right">
+									<label>
+										<input type="checkbox" value="" ng-click='changeSelectedForDownload(testfile)'>
+											select for download
+									</label>
+								</div>
+							</td>
+						</tr>
+  					</tbody> 
+  				</table>
+  				<!--
 					<tr class="treegrid-1">
 						<td><font size="5"> Floff</font>  (3 Testfiles)</td>
 						<td><font size="5" class="pull-right">+27</font></td>
@@ -197,6 +211,7 @@
 						</td>
 					</tr>
 				</table>
+				-->
 			</div>
 		</div>
 	    </div>
