@@ -163,7 +163,6 @@ iidControllers.controller('SearchGlobalController', function($scope) {
             return [];
         }
         var result = [];
-        result.push(selectedSemester.beispiele);
         angular.forEach(selectedSemester.beispiele, function(bsp) {
             result.push(bsp);
         });
