@@ -32,10 +32,17 @@
 					</tr>
 					<tbody ng-repeat="contributor in selectedBeispiel.contributors | orderBy:getAvgVotesForContributor(contributor)">
 						<tr class="treegrid-{{$index+1}}" style="{{getColorContributor(contributor, selectedContributor)}}">   
-							<td><font size="4"><a href="#/nav/testfiles" ng-click="setSelectedContributor(contributor)">{{contributor.user}}</a></font></td>
-							<td><font size="3" color="{{getAvgVotesColorForContributor(contributor)}}">{{getAvgVotesForContributor(contributor)}}</font></td>							
-							<td></td>
-							<td>
+							<td class="col-md-7"><font size="4"><a href="#/nav/testfiles" ng-click="setSelectedContributor(contributor)">{{contributor.user}}</a></font></td>
+							<td class="col-md-1"><font size="3" color="{{getAvgVotesColorForContributor(contributor)}}" class="pull-right">{{getAvgVotesForContributor(contributor)}}</font></td>
+							<td class="col-md-1">
+								<div class="col-md-12">
+									<img ng-hide="contributor.votedAll==1" src="images/arrow_up_grey.png" class="img-responsive pull-left" alt="Vote up or down" vspace="1">
+									<img ng-show="contributor.votedAll==1" src="images/arrow_up_green.png" class="img-responsive pull-left" alt="Vote up or down" vspace="1">
+									<img ng-hide="contributor.votedAll==-1" src="images/arrow_down_grey.png" class="img-responsive pull-left" alt="Vote up or down" vspace="1">
+									<img ng-show="contributor.votedAll==-1" src="images/arrow_down_red.png" class="img-responsive pull-left" alt="Vote up or down" vspace="1">
+								</div>
+							</td>
+							<td class="col-md-3">
 								<div class="checkbox pull-right">
 									<label>
 										<input type="checkbox" ng-model="contributor.allSelected" ng-click='selectAllForDownload(contributor)'>
@@ -45,10 +52,17 @@
 							</td>
 						</tr>
 						<tr ng-show="selectedContributor == contributor" class="treegrid-parent-{{$parent.$index+1}}" ng-repeat="testfile in contributor.testfiles">
-							<td><a href="#/testfile/details" ng-click="setSelectedTestfile(testfile)"><font size="3">{{testfile.filename}}</font>  ({{testfile.comments}} Comments / {{testfile.downloads}} Downloads)</a></td>
-							<td><font color="{{getColorVotes(testfile)}}">{{getVotesForTestfile(testfile)}}</font></td>
-							<td><img src="images/up_down_vote_buttons.png" class="img-responsive" alt="Vote up or down"></td>
-							<td>
+							<td class="col-md-7"><a href="#/testfile/details" ng-click="setSelectedTestfile(testfile)"><font size="3">{{testfile.filename}}</font>  ({{testfile.comments}} Comments / {{testfile.downloads}} Downloads)</a></td>
+							<td class="col-md-1"><font color="{{getColorVotes(testfile)}}" class="pull-right">{{getVotesForTestfile(testfile)}}</font></td>
+							<td class="col-md-1">
+								<div class="col-md-12">
+									<img ng-hide="testfile.voted==1" src="images/arrow_up_grey.png" class="img-responsive pull-left" alt="Vote up or down" vspace="1">
+									<img ng-show="testfile.voted==1" src="images/arrow_up_green.png" class="img-responsive pull-left" alt="Vote up or down" vspace="1">
+									<img ng-hide="testfile.voted==-1" src="images/arrow_down_grey.png" class="img-responsive pull-left" alt="Vote up or down" vspace="1">
+									<img ng-show="testfile.voted==-1" src="images/arrow_down_red.png" class="img-responsive pull-left" alt="Vote up or down" vspace="1">
+								</div>
+							</td>
+							<td class="col-md-3">
 								<div class="checkbox pull-right">
 									<label>
 										<input type="checkbox" ng-click="checkAllSelected(contributor)" ng-model="testfile.forDownload">
