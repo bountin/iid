@@ -235,7 +235,7 @@ iidControllers.controller('SearchGlobalController', function($scope) {
 
     $scope.unis = [
         {name: 'HTL Hollabrunn', lvas: [
-            {name: 'VU Objektorientierte Programmiertechniken', kurzname: 'OOP', nummer: '311.294', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/oop', semester: [
+            {name: 'Objektorientierte Programmiertechniken', typ:'VU', kurzname: 'OOP', nummer: '311.294', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/oop', semester: [
                 {name: 'WS14', favorite: true, startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
                     {name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '17.11.2014', url: '', contributors:[]},
                     {name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '02.12.2014', url: '', contributors:[]},
@@ -253,12 +253,12 @@ iidControllers.controller('SearchGlobalController', function($scope) {
             ]}
         ]},
         {name: 'Technikum Wien', lvas: [
-	    {name: 'LVA 1', kurzname: '', nummer: '', institut: '', website: '', semester:[]},
-	    {name: 'LVA 2', kurzname: '', nummer: '', institut: '', website: '', semester:[]},
-	    {name: 'LVA 3', kurzname: '', nummer: '', institut: '', website: '', semester:[]}
+	    {name: 'LVA 1', typ:'VU', kurzname: '', nummer: '', institut: '', website: '', semester:[]},
+	    {name: 'LVA 2', typ:'VU', kurzname: '', nummer: '', institut: '', website: '', semester:[]},
+	    {name: 'LVA 3', typ:'VO', kurzname: '', nummer: '', institut: '', website: '', semester:[]}
         ]},
         {name: 'TU Wien', lvas: [
-            {name: 'VU Objektorientierte Programmiertechniken', kurzname: 'OOP', nummer: '311.294', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/oop', semester: [
+            {name: 'Objektorientierte Programmiertechniken', typ:'VU', kurzname: 'OOP', nummer: '311.294', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/oop', semester: [
                 {name: 'WS14', favorite: true, startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
                     {name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '17.11.2014', url: '', contributors: [
                         {user:'Micc', testfiles:[
@@ -310,7 +310,7 @@ iidControllers.controller('SearchGlobalController', function($scope) {
                     {name: 'Beispiel 7', angabe: 'oop3.pdf', deadline: '09.01.2014', url: '', contributors:[]}
                 ]}
             ]},
-            {name: 'VU Interface and Interaction Design', kurzname: 'IIXD', nummer: '183.289', institut: 'Institut für Rechnergestützte Automation', website: 'http://www.inso.tuwien.ac.at/lectures/iixd/', semester: [
+            {name: 'Interface and Interaction Design', typ:'VU', kurzname: 'IIXD', nummer: '183.289', institut: 'Institut für Rechnergestützte Automation', website: 'http://www.inso.tuwien.ac.at/lectures/iixd/', semester: [
                 {name: 'WS14', favorite: true, startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
                     {name: 'Übung 1', angabe: 'iixd1.pdf', deadline: '17.11.2014', url: '', contributors:[]},
                     {name: 'Übung 2', angabe: 'iixd2.pdf', deadline: '02.12.2014', url: '', contributors:[]}
@@ -321,14 +321,14 @@ iidControllers.controller('SearchGlobalController', function($scope) {
                     {name: 'Übung 3', angabe: 'iixd3.pdf', deadline: '17.12.2013', url: '', contributors:[]}
                 ]}
             ]},
-            {name: 'VU Funktionale Programmierung', kurzname: 'FUNCPROG', nummer: '311.813', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/funcprog', semester: [
+            {name: 'Funktionale Programmierung', typ:'VU', kurzname: 'FUNCPROG', nummer: '311.813', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/funcprog', semester: [
                 {name: 'WS14', favorite: false, startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
                     {name: 'Beispiel 1', angabe: 'fprog1.pdf', deadline: '17.11.2014', url: '', contributors:[]},
                     {name: 'Beispiel 2', angabe: 'fprog2.pdf', deadline: '02.12.2014', url: '', contributors:[]},
                     {name: 'Beispiel 3', angabe: 'fprog3.pdf', deadline: '19.12.2014', url: '', contributors:[]}
                 ]}
             ]},
-            {name: 'UE Software Engineering & Projekt Management', kurzname: 'SEPM', nummer: '346.952', institut: 'QSE', website: 'http://qse.tuwien.ac.at', semester: [
+            {name: 'Software Engineering & Projekt Management', typ:'UE', kurzname: 'SEPM', nummer: '346.952', institut: 'QSE', website: 'http://qse.tuwien.ac.at', semester: [
                 {name: 'WS14', favorite: false, startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
                     {name: 'Einzelbeispiel', angabe: 'einzelbeispiel.pdf', deadline: '17.11.2014', url: '', contributors:[]},
                     {name: 'Gruppenbeispiel', angabe: 'gruppenbeispiel.pdf', deadline: '02.01.2014', url: '', contributors:[]}
@@ -340,8 +340,8 @@ iidControllers.controller('SearchGlobalController', function($scope) {
             ]}
         ]},
         {name: 'Uni Wien', lvas: [
-            {name: 'LVA 1', kurzname: '', nummer: '', institut: '', website: '', semester:[]},
-            {name: 'LVA 2', kurzname: '', nummer: '', institut: '', website: '', semester:[]}
+            {name: 'LVA 1', typ:'VO', kurzname: '', nummer: '', institut: '', website: '', semester:[]},
+            {name: 'LVA 2', typ:'UE', kurzname: '', nummer: '', institut: '', website: '', semester:[]}
         ]}
 
     ];
@@ -367,6 +367,25 @@ iidControllers.controller('SearchGlobalController', function($scope) {
                 });
             });
         });
+
+        console.info('');
+        console.info('Unis');
+        result.forEach(function(elem) {
+            console.info(elem.uni);
+        });
+        console.info('LVAs');
+        result.forEach(function(elem) {
+            console.info(elem.lva);
+        });
+        console.info('Semester');
+        result.forEach(function(elem) {
+            console.info(elem.sem);
+        });
+        console.info('Beispiele');
+        result.forEach(function(elem) {
+            console.info(elem.bsp);
+        });
+
         return result;
     };
 
@@ -386,6 +405,7 @@ iidControllers.controller('SearchGlobalController', function($scope) {
                                     'lva': lva,
                                     'sem': sem,
                                     'bsp': bsp,
+                                    'contr': contr,
                                     'value': value
                                 };
                                 i++;
@@ -395,6 +415,29 @@ iidControllers.controller('SearchGlobalController', function($scope) {
                 });
             });
         });
+//        console.info('');
+//        console.info('Unis');
+//        result.forEach(function(elem) {
+//           console.info(elem.uni);
+//        });
+//        console.info('LVAs');
+//        result.forEach(function(elem) {
+//            console.info(elem.lva);
+//        });
+//        console.info('Semester');
+//        result.forEach(function(elem) {
+//            console.info(elem.sem);
+//        });
+//        console.info('Beispiele');
+//        result.forEach(function(elem) {
+//            console.info(elem.bsp);
+//        });
+//        console.info('Contributors');
+//        result.forEach(function(elem) {
+//            console.info(elem.contr);
+//        });
+
+
         return result;
     };
 
