@@ -46,7 +46,7 @@
 					<tr>
 						<th><font size="5"> Course </font></th>
 					</tr>
-					<tbody ng-hide="favoriteFilterEnabled" ng-repeat="lva in selectedUni.lvas | filter: filterCourseString | orderBy:orderCourses">
+					<tbody ng-hide="favoriteFilterEnabled" ng-repeat="lva in selectedUni.lvas | filter: filterCourseString | orderBy:name | orderBy:orderCourses ">
 					  <tr class="treegrid-{{$index+1}}">
   						<td>{{lva.name}}</td>
   						<td>
@@ -62,7 +62,7 @@
               </td>
   				  </tr>	
   				</tbody>
-				  <tbody ng-show="favoriteFilterEnabled" ng-repeat="lva in selectedUni.lvas | filter: hasAFavorite | filter: filterCourseString">
+				  <tbody ng-show="favoriteFilterEnabled" ng-repeat="lva in selectedUni.lvas | filter: hasAFavorite | filter: filterCourseString | orderBy:name">
   					<tr class="treegrid-{{$index+1}}">
   						<td>{{lva.name}}</td>
   						<td>
