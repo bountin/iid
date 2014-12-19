@@ -12,6 +12,7 @@ var iidControllers = angular.module('iidControllers', []);
 
 iidControllers.controller('SearchGlobalController', function($scope) {
     // for navigation_beispiel
+    $scope.user = null;
     $scope.selectedSemester = null;
     $scope.selectedLva = null;      
     $scope.selectedUni = null;
@@ -131,6 +132,16 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         result.push($scope.newBeispiel);
         return result;
     };
+
+
+    $scope.register = function(username, email, password) {
+        $scope.users.push({username: username, email: email, password: password});
+    };
+    $scope.login = function(username, password) {
+//        $scope.users.getElementsByName()
+    };
+
+    $scope.users = [];
 
     $scope.unis = [
         {name: 'HTL Hollabrunn', lvas: [
