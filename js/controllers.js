@@ -18,8 +18,9 @@ iidControllers.controller('SearchGlobalController', function($scope) {
     $scope.selectedUni = null;
     $scope.selectedTestfile = null;
     $scope.setSelectedLva = function(lva) {
-      $scope.selectedLva = lva;
-    };
+      $scope.selectedLva = lva; 
+      $scope.selectedSemester = null; 
+    };    
     $scope.setSelectedSemester = function(sem, lva) {
       $scope.selectedSemester = sem;
       $scope.selectedLva = lva;  
@@ -41,7 +42,14 @@ iidControllers.controller('SearchGlobalController', function($scope) {
           }
        });
        return l;
-    };
+    }
+    $scope.getColorLva = function(lva, selected) {
+      if(lva == selected) {
+        return 'background-color: #CCEEFF';
+      }else {
+        return 'background-color: #FFFFFF';
+      }
+    }
     $scope.hasAFavorite = function(lva) {
       var r = false;
       if(lva.semester == null) {
