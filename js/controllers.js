@@ -573,14 +573,19 @@ iidControllers.controller('SearchGlobalController', function($scope) {
       return num;
     }
     
-    $scope.inputText = "";
+    $scope.inputText = '';
     
     $scope.addComment = function(user, text) {
+        $scope.inputText = '';
+    	var date = new Date();
         $scope.comments.push({
         	'username': user.username,
-        	'date': today(),
+        	'date': date.today(),
         	'text': text
         });
+        if ($scope.comments.length > 10) {
+              $scope.comments.splice(0, 1);
+        }
     };
 
     $scope.users = [
@@ -591,9 +596,9 @@ iidControllers.controller('SearchGlobalController', function($scope) {
     ];
     
     $scope.comments = [
-        {username:'DumbUtuber', date:'10.12.2014', text:'First!'},
-        {username:'xXxD347hKn1gh7xXx', date:'12.12.2014', text:'Ich hab schon viel bessere Testfälle geschrieben!'},
-        {username:'GreenThumb420', date:'12.12.2014', text:'Die Haltungsbedingungen von diesen industriell gehaltenen Testfällen sind einfach unmöglich zu rechtfertigen!'},
+        {username:'DumbUtuber', date:'10/12/2014', text:'First!'},
+        {username:'xXxD347hKn1gh7xXx', date:'12/12/2014', text:'Ich hab schon viel bessere Testfälle geschrieben!'},
+        {username:'GreenThumb420', date:'12/12/2014', text:'Die Haltungsbedingungen von diesen industriell gehaltenen Testfällen sind einfach unmöglich zu rechtfertigen!'},
     ];
 
     $scope.unis = [
