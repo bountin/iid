@@ -50,7 +50,7 @@ iidControllers.controller('SearchGlobalController', function($scope) {
        var sum = testfile.votesUp - testfile.votesDown;
        var result = [];
        if (sum > 0) result.push('+');
-       if (sum < 0) resukt.push('-');
+       if (sum < 0) result.push('-');
        result.push(sum);
        return result;
     };
