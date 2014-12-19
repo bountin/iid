@@ -1,42 +1,51 @@
-<div ng-controller="SearchGlobalController">
+<div>
 
     <!--<div><input ng-model="searchString" placeholder="Search for"/></div>-->
     <div><h2>Results for search string '<span>{{searchString}}</span>'</h2></div>
 
     <div class="row">
         <div class="col-md-6">
-            <!-- Bildungseinrichtungen -->
-            <h3>Bildungseinrichtungen</h3>
+            <h3>Universities</h3>
             <ul class="list-group">
                 <li class="list-group-item" ng-repeat="uni in unis | filter:searchString"><a href="#/nav/beispiele"><b>{{uni.name}}</b></a></li>
             </ul>
         </div>
 
         <div class="col-md-6">
-            <!-- Lehrveranstaltungen -->
-            <h3>Lehrveranstaltungen</h3>
+            <h3>Courses</h3>
             <ul class="list-group">
-                <!--<li class="list-group-item" ng-repeat="lva in lvas2 | filter:searchString"><a href="#/nav/beispiele"><b>{{lva.name}}</b> <span class="small">({{lva.uni}})</span></a></li>-->
-                <li class="list-group-item" ng-repeat="lva in getLVAs() | filter:{lva:searchString}"><a href="#/nav/beispiele"><b>{{lva.lva.name}}</b> <span class="small">({{lva.uni.name}})</span></a></li>
+                <li class="list-group-item" ng-repeat="lva in getLVAs() | filter:{lva:searchString}">
+                    <a href="#/nav/beispiele">
+                        <b>{{lva.lva.name}}</b>
+                        <span class="small">({{lva.uni.name}})</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-6">
-            <!-- Lehrveranstaltungen -->
-            <h3>Beispiele</h3>
+            <h3>Tasks</h3>
             <ul class="list-group">
-                <!--<li class="list-group-item" ng-repeat="lva in lvas2 | filter:searchString"><a href="#/nav/beispiele"><b>{{lva.name}}</b> <span class="small">({{lva.uni}})</span></a></li>-->
-                <li class="list-group-item" ng-repeat="bsp in getBeispiele() | filter:{bsp:searchString}"><a href="#/nav/beispiele"><b>{{bsp.lva.name}}</b> <span class="small">({{bsp.uni.name}})</span></a></li>
+                <li class="list-group-item" ng-repeat="bsp in getBeispiele() | filter:{bsp:searchString}">
+                    <a href="#/nav/beispiele">
+                        <b>{{bsp.bsp.name}}</b>
+                        <span class="small">({{bsp.uni.name}}, {{bsp.lva.name}}, {{bsp.sem.name}})</span>
+                    </a>
+                </li>
             </ul>
         </div>
 
         <div class="col-md-6">
-            <h3>Testfiles</h3>
-            <!-- Testfiles ? -->
+            <h3>Test files</h3>
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="testfile in testfiles | filter:searchString"><a href="#/testfile/details"><b>{{testfile.filename}}</b> <span class="small">({{testfile.beispiel.uni}}, {{testfile.beispiel.lva}}, {{testfile.beispiel.semester}}, {{testfile.beispiel.name}})</span></a></li>
+                <li class="list-group-item" ng-repeat="testfile in getTestfiles() | filter:{value:searchString}">
+                    <a href="#/testfile/details">
+                        <b>{{testfile.value.filename}}</b>
+                        <span class="small">({{testfile.uni.name}}, {{testfile.lva.name}}, {{testfile.sem.name}}, {{testfile.bsp.name}})</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

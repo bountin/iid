@@ -11,7 +11,7 @@
     {{ selectedUni.name }} <br />
     {{ selectedLva.name }} <br />
     {{ selectedSemester.name }} <br/>
-    {{ selectedBeispiel.name }} <br />
+    {{ selectedBeispiel }} <br />
     </div>
     <form class="form-horizontal" role="form">
         <div class="row-fluid">
@@ -112,7 +112,7 @@
                         <!--<option ng-repeat="beispiel in beispiele" ng-hide="selectedSemester == newSemester">{{ beispiel.name }}</option>-->
                         <!--<option ng-select="selectedSemester == newSemester">{{newBeispiel}}</option>-->
                     <!--</select>-->
-                    <select ng-disabled="selectedSemester == null" ng-model="selectedBeispiel" ng-options="beispiel.name for beispiel in getBeispieleForSelectedSemester(selectedSemester)" class="form-control" id="beispiel" disabled="disabled" />
+                    <select ng-disabled="selectedSemester == null" ng-model="selectedBeispiel" ng-options="beispiel.name for beispiel in getBeispieleForSelectedSemester(selectedSemester)" class="form-control" id="beispiel" />
                 </div>
                 <div class="col-md-2" />
             </div>

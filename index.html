@@ -19,18 +19,30 @@
     <div class="container">
         <div class="row-fluid">
             <span class="col-md-4">
-                <a href="index.html">Logo</a>
+                <a href="#/home">Logo</a>
             </span>
             <span class="col-md-4 text-center">
                 <h1>Share your tests!</h1>
             </span>
             <span class="col-md-2 text-center">
-                <a ng-show="user != null" href="#/nav/beispiele"><button>Favorites <span class="badge">4</span></button></a>
+                <div ng-show="user != null">
+                    <div>
+                        <a href="#/nav/beispiele"><button>Favorites</button></a>
+                    </div>
+                    <div>
+                        <button ng-click="newsOpened = !newsOpened">News <span class="badge">4</span></button>
+                    </div>
+                    <div class="dropdown-menu" ng-style="{display: newsOpened ? 'block' : 'none' }">
+                        <span class="col-md-12 text-center">
+                            News
+                        </span>
+                    </div>
+                </div>
             </span>
             <span class="col-md-2">
                 <div class="col-md-12" style="margin-bottom: 5px">
                     <a ng-show="user == null" href="#/login"><button type="button" class="btn btn-primary pull-right">Login/Register</button></a>
-                    <span ng-show="user != null">Hallo, <a href="#/user/profile">{{user.username}}</a>!</span>
+                    <span ng-show="user != null">Hallo, <a href="#/user/profile">{{user.username}}</a>! <button ng-click="logout()" class="btn-link">logout</button></span>
                 </div>
                 <div class="col-md-12">
                     <form>
