@@ -39,21 +39,72 @@ iidControllers.controller('SearchGlobalController', function($scope) {
     $scope.setSelectedTestfile = function(testfile) {
         $scope.selectedTestfile = testfile;
     };
-    $scope.changeSelectedForDownload = function(testfile) {
-       if(testfile.forDownload == 1) {
-          testfile.forDownload = 0;
+    $scope.checkAllSelected = function(contributor) {
+       var allSelected = true;
+       contributor.testfiles.forEach(function(testfile) {
+          if (testfile.forDownload == false) {
+             allSelected = false;
+          }
+       });
+       contributor.allSelected = allSelected;
+    };
+    $scope.selectAllForDownload = function(contributor) {
+       if (contributor.allSelected == true) {
+	       contributor.testfiles.forEach(function(testfile) {
+		  testfile.forDownload = true;
+	       });
        } else {
-          testfile.forDownload = 1;
+               contributor.testfiles.forEach(function(testfile) {
+		  testfile.forDownload = false;
+	       });
        }
+    };
+    $scope.selectAllForBeispiel = function(bsp) {
+       bsp.contributors.forEach(
+          function(contributor) {
+          contributor.testfiles.forEach(function(testfile) {
+             testfile.forDownload = true;
+          });
+       });
+       bsp.contributors.forEach(function(contributor) {
+          contributor.allSelected = true;
+       });
+    };
+    $scope.selectGoodForBeispiel = function(bsp) {
+       bsp.contributors.forEach(
+       	  function(contributor) {
+          contributor.testfiles.forEach(function(testfile) {
+             var sum = testfile.votesUp - testfile.votesDown;
+             if (sum >= 0) {
+                testfile.forDownload = true;
+             } else {
+                testfile.forDownload = false;
+             }
+          });
+          var allSelected = true;
+          contributor.testfiles.forEach(function(testfile) {
+          if (testfile.forDownload == false) {
+             allSelected = false;
+          }
+       });
+       contributor.allSelected = allSelected;
+       });
     };
     $scope.getVotesForTestfile = function(testfile) {
        var sum = testfile.votesUp - testfile.votesDown;
-       var result = [];
-       if (sum > 0) result.push('+');
-       if (sum < 0) result.push('-');
-       result.push(sum);
-       return result;
+       return sum;
     };
+    $scope.getNrSelected = function(bsp) {
+       var sum = 0;
+       bsp.contributors.forEach(function(cont) {
+          cont.testfiles.forEach(function(testfile) {
+             if (testfile.forDownload == true) {
+                sum ++;
+             }
+          });
+       });
+       return sum;
+    }
     $scope.numberOfTestFiles = function(beispiel) {
        var l = 0;
        if(beispiel.contributors == null) {
@@ -78,6 +129,14 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         return 'background-color: #CCEEFF';
       }else {
         return 'background-color: #FFFFFF';
+      }
+    }
+    $scope.getColorVotes = function(testfile) {
+      var v = testfile.votesUp - testfile.votesDown;
+      if (v >= 0) {
+        return '#00C000';
+      } else {
+        return '#FF0000';
       }
     }
     $scope.hasAFavorite = function(lva) {
@@ -175,9 +234,34 @@ iidControllers.controller('SearchGlobalController', function($scope) {
        if (contributor == undefined) {
            return [];
        }
-       var result = [];
-       result.push(13);
-       return result;
+       var sum = 0;
+       var count = 0;
+       var testSum = 0;
+       contributor.testfiles.forEach(function(testfile) {
+          testSum = testfile.votesUp - testfile.votesDown;
+          sum = sum + testSum;
+          count = count + 1;
+       })
+       return Math.round((sum/count) * 100) / 100;
+    };
+    
+    $scope.getAvgVotesColorForContributor = function(contributor) {
+       if (contributor == undefined) {
+           return [];
+       }
+       var sum = 0;
+       var count = 0;
+       var testSum = 0;
+       contributor.testfiles.forEach(function(testfile) {
+          testSum = testfile.votesUp - testfile.votesDown;
+          sum = sum + testSum;
+          count = count + 1;
+       })
+       if (Math.round((sum/count) * 100) / 100 >= 0){
+        return '#00C000';
+      } else {
+        return '#FF0000';
+      }
     };
 
 
@@ -256,42 +340,42 @@ iidControllers.controller('SearchGlobalController', function($scope) {
             {name: 'VU Objektorientierte Programmiertechniken', kurzname: 'OOP', nummer: '311.294', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/oop', semester: [
                 {name: 'WS14', favorite: true, startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
                     {name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '17.11.2014', url: '', contributors: [
-                        {user:'Micc', testfiles:[
-                            {filename:'TestOranges.java', votesUp:'9', votesDown:'1', description:'', voted:'0', code:'public class TestOranges {}', comments:'17', downloads:'25', forDownload:'0'},
-                            {filename:'TestBananas.java', votesUp:'21', votesDown:'4', description:'', voted:'0', code:'public class TestBananas {}', comments:'34', downloads:'2', forDownload:'0'},
-                            {filename:'TestKiwi.java', votesUp:'0', votesDown:'12', description:'', voted:'0', code:'public class TestKiwi {}', comments:'142', downloads:'15', forDownload:'0'}
+                        {user:'Micc', allSelected:'false', testfiles:[
+                            {filename:'TestOranges.java', votesUp:'9', votesDown:'1', description:'', voted:'0', code:'public class TestOranges {}', comments:'17', downloads:'25', forDownload:'false'},
+                            {filename:'TestBananas.java', votesUp:'21', votesDown:'4', description:'', voted:'0', code:'public class TestBananas {}', comments:'34', downloads:'2', forDownload:'false'},
+                            {filename:'TestKiwi.java', votesUp:'0', votesDown:'12', description:'', voted:'0', code:'public class TestKiwi {}', comments:'142', downloads:'15', forDownload:'false'}
                         ]},
-                        {user:'Floff', testfiles:[
-                            {filename:'TestApples.java', votesUp:'16', votesDown:'0', description:'', code:'public class TestApples {}', comments:'2', downloads:'13', forDownload:'0'}
+                        {user:'Floff', allSelected:'false', testfiles:[
+                            {filename:'TestApples.java', votesUp:'16', votesDown:'0', description:'', code:'public class TestApples {}', comments:'2', downloads:'13', forDownload:'false'}
                         ]}
                     ]},
                     {name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '02.12.2014', url: '', contributors: [
-                        {user:'Micc', testfiles:[
-                            {filename:'TestSuperman.java', votesUp:'9', votesDown:'1', description:'', voted:'0', code:'public class TestSuperman {}', comments:'45', downloads:'23', forDownload:'0'}
+                        {user:'Micc', allSelected:'false', testfiles:[
+                            {filename:'TestSuperman.java', votesUp:'9', votesDown:'1', description:'', voted:'0', code:'public class TestSuperman {}', comments:'45', downloads:'23', forDownload:'false'}
                         ]},
-                        {user:'Martin', testfiles:[
-                            {filename:'TestBatman.java', votesUp:'16', votesDown:'1', description:'', voted:'0', code:'public class TestBatman {}', comments:'12', downloads:'334', forDownload:'0'},
-                            {filename:'TestSuperwoman.java', votesUp:'18', votesDown:'0', description:'', voted:'0', code:'public class TestSuperwoman {}', comments:'0', downloads:'12', forDownload:'0'}
+                        {user:'Martin', allSelected:'false', testfiles:[
+                            {filename:'TestBatman.java', votesUp:'16', votesDown:'1', description:'', voted:'0', code:'public class TestBatman {}', comments:'12', downloads:'334', forDownload:'false'},
+                            {filename:'TestSuperwoman.java', votesUp:'18', votesDown:'0', description:'', voted:'0', code:'public class TestSuperwoman {}', comments:'0', downloads:'12', forDownload:'false'}
                         ]},
-                        {user:'Jotschi', testfiles:[
-                            {filename:'TestAquaman.java', votesUp:'20', votesDown:'4', description:'', voted:'0', code:'public class TestAquaman {}', comments:'11', downloads:'31', forDownload:'0'},
-                            {filename:'TestCatwoman.java', votesUp:'7', votesDown:'2', description:'', voted:'0', code:'public class TestCatwoman {}', comments:'2', downloads:'24', forDownload:'0'}
+                        {user:'Jotschi', allSelected:'false', testfiles:[
+                            {filename:'TestAquaman.java', votesUp:'20', votesDown:'4', description:'', voted:'0', code:'public class TestAquaman {}', comments:'11', downloads:'31', forDownload:'false'},
+                            {filename:'TestCatwoman.java', votesUp:'7', votesDown:'2', description:'', voted:'0', code:'public class TestCatwoman {}', comments:'2', downloads:'24', forDownload:'false'}
                         ]}
                     ]},
                     {name: 'Beispiel 3', angabe: 'oop3.pdf', deadline: '19.12.2014', url: '', contributors: [
-                        {user:'Floff', testfiles:[
-                            {filename:'TestRechteck.java', votesUp:'9', votesDown:'1', description:'', voted:'0', code:'public class TestRechteck {}', comments:'52', downloads:'2', forDownload:'0'}
+                        {user:'Floff', allSelected:'false', testfiles:[
+                            {filename:'TestRechteck.java', votesUp:'9', votesDown:'1', description:'', voted:'0', code:'public class TestRechteck {}', comments:'52', downloads:'2', forDownload:'false'}
                         ]},
-                        {user:'Micc', testfiles:[
-                            {filename:'TestPunkt.java', votesUp:'2', votesDown:'41', description:'', voted:'0', code:'public class TestPunkt {}', comments:'3112', downloads:'52', forDownload:'0'}
+                        {user:'Micc', allSelected:'false', testfiles:[
+                            {filename:'TestPunkt.java', votesUp:'2', votesDown:'41', description:'', voted:'0', code:'public class TestPunkt {}', comments:'3112', downloads:'52', forDownload:'false'}
                         ]},
-                        {user:'Martin', testfiles:[
-                            {filename:'TestKreis.java', votesUp:'16', votesDown:'1', description:'', voted:'1', code:'public class TestKreis {}', comments:'1', downloads:'17', forDownload:'0'},
-                            {filename:'TestQuadrat.java', votesUp:'18', votesDown:'0', description:'', voted:'1', code:'public class TestQuadrat {}', comments:'2', downloads:'18', forDownload:'0'}
+                        {user:'Martin', allSelected:'false', testfiles:[
+                            {filename:'TestKreis.java', votesUp:'16', votesDown:'1', description:'', voted:'1', code:'public class TestKreis {}', comments:'1', downloads:'17', forDownload:'false'},
+                            {filename:'TestQuadrat.java', votesUp:'18', votesDown:'0', description:'', voted:'1', code:'public class TestQuadrat {}', comments:'2', downloads:'18', forDownload:'false'}
                         ]},
-                        {user:'Jotschi', testfiles:[
-                            {filename:'TestElipse.java', votesUp:'20', votesDown:'4', description:'', voted:'-1', code:'public class TestElipse {}', comments:'4', downloads:'35', forDownload:'0'},
-                            {filename:'TestGerade.java', votesUp:'7', votesDown:'2', description:'', voted:'0', code:'public class TestGerade {}', comments:'0', downloads:'13', forDownload:'0'}
+                        {user:'Jotschi', allSelected:'false', testfiles:[
+                            {filename:'TestElipse.java', votesUp:'20', votesDown:'4', description:'', voted:'-1', code:'public class TestElipse {}', comments:'4', downloads:'35', forDownload:'false'},
+                            {filename:'TestGerade.java', votesUp:'7', votesDown:'2', description:'', voted:'0', code:'public class TestGerade {}', comments:'0', downloads:'13', forDownload:'false'}
                         ]}
                     ]}
                 ]},
