@@ -84,6 +84,7 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         $scope.selectedBeispiel = beispiel;
         $scope.selectedContributor = contributor;
         $scope.selectedTestfile = testfile;
+        $scope.selectedTestfile.notificate = false;
     };
 
     $scope.setSelectedLva = function(lva) {
