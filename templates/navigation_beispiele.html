@@ -22,7 +22,7 @@
 					</div>
 				</div>
 				<div class="col-md-8">
-					<input type="text" class="form-control" ng-model="filterCourseString" id="local_filter">
+					<input type="text" class="form-control" ng-model="filterCourseString" id="local_filter" placeholder="Filter">
 				</div>		
 			</div>
   		<div class="col-md-4"/>
@@ -79,8 +79,10 @@
 				  <div ng-repeat="beispiel in selectedSemester.beispiele">
 				     <table>
 				       <tr>
-				        <td width="15%"><a class="pull-left" href="pdfs/IIxD_Bsp3.pdf"> [pdf] </a> </td>
+
+				        <td width="15%"><a class="pull-left" href="pdfs/IIxD_Bsp3.pdf" target="_blank"> [pdf] </a> </td>
 				        <td width="70%"><a href="#/nav/testfiles" class="pull-left text-left" ng-click="setSelectedBeispiel(beispiel)"> {{beispiel.name}} </a> </td>
+
 				        <td width="15%"><span class="badge pull-right"> {{numberOfTestFiles(beispiel)}} </span>  </td>
     					 </tr>
     				 </table>

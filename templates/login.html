@@ -5,19 +5,24 @@
 			<div class="form-group">
 				<label for="username" class="col-md-4 control-label">Username</label>
 				<div class="col-md-4">
-					<input type="text" class="form-control" id="username" placeholder="" autofocus="autofocus">
+					<input ng-model="username" type="text" class="form-control" id="username" placeholder="" autofocus="autofocus">
 				</div>
                 <div class="col-md-4"/>
 			</div>
 			<div class="form-group">
 				<label for="password" class="col-md-4 control-label">Password</label>
 				<div class="col-md-4">
-					<input type="password" class="form-control" id="password" placeholder="">
+					<input ng-model="password" type="password" class="form-control" id="password" placeholder="">
 				</div>
                 <div class="col-md-4"/>
 			</div>
             <div class="form-group text-center">
-                <a href="#/home"><button type="submit" class="btn btn-primary">Login</button></a>
+                <!--<a href="#/home">-->
+                    <button type="button" ng-click="login(username, password)" class="btn btn-primary">Login</button>
+                <!--</a>-->
+            </div>
+            <div class="alert alert-info" ng-hide="loginFailureMessage == null"> <!-- TODO: submit verhindern wenn eingabe falsch bzw. wenn OK dann auf favorites -->
+                {{loginFailureMessage}}
             </div>
 		</form>
 	</div>
@@ -83,32 +88,36 @@
       			<div class="form-group">
 				<label for="username" class="col-md-3 control-label">Username:</label>
 				<div class="col-md-9">
-					<input type="text" class="form-control" id="username">
+					<input ng-model="reg_username" type="text" class="form-control" id="username">
 				</div>
 			</div>
                 <div class="form-group">
                     <label for="email" class="col-md-3 control-label">E-Mail:</label>
                     <div class="col-md-9">
-                        <input type="email" class="form-control" id="email">
+                        <input ng-model="reg_email" type="email" class="form-control" id="email">
                     </div>
                 </div>
       			<div class="form-group">
 				<label for="new_pw_1" class="col-md-3 control-label">Password:</label>
 				<div class="col-md-9">
-					<input type="password" class="form-control" id="new_pw_1">
+					<input ng-model="reg_new_pw_1" type="password" class="form-control" id="new_pw_1">
 				</div>
 			</div>
       			<div class="form-group">
 				<label for="new_pw_2" class="col-md-3 control-label">Repeat PW:</label>
 				<div class="col-md-9">
-					<input type="password" class="form-control" id="new_pw_2">
+					<input ng-model="reg_new_pw_2" type="password" class="form-control" id="new_pw_2">
 				</div>
 			</div>
       		</form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" ng-click="register(reg_username, reg_email, reg_new_pw_1, reg_new_pw_2)">Register</button>
+        <div ng-hide="registerFailureMessage == null"><!-- TODO: model window close wenn registration OK -->
+            <hr>
+            <div class="alert alert-info">{{registerFailureMessage}}</div>
+        </div>
       </div>
     </div>
   </div>
