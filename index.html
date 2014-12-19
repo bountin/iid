@@ -24,40 +24,42 @@
             <span class="col-md-4 text-center">
                 <h1>Share your tests!</h1>
             </span>
-            <span class="col-md-2 text-center">
-                <div ng-show="user != null">
-                    <div>
-                        <a href="#/nav/beispiele"><button ng-click="favoriteFilterEnabled = true; selectedUni = favoriteUni">Favorites</button></a>
-                    </div>
-                    <div>
-                        <button ng-click="newsOpened = !newsOpened">News <span class="badge">{{getNumNotiAll(unis)}}</span></button>
-                    </div>
-                    <div class="dropdown-menu" style="width:400px" ng-style="{display: newsOpened ? 'block' : 'none' }">
-                      <div ng-repeat="noti in getAllNotiAll(unis)">
-                        <a href="#/testfile/details" ng-click="goToTestfile2(noti.uni2, noti.lva2, noti.sem2, noti.bsp2, noti.cont2, noti.testfile)"> <!-- ng-click="goToTestfile2(noti.uni2, noti.lva2, noti.sem2, noti.bsp2, noti.cont2, noti.testfile)" -->
-                          <font size="3">{{noti.uni}} - {{noti.lva}} - {{noti.sem}}</font>
-                          <br />   
-                           {{noti.bsp}}: {{noti.name}} (from {{noti.cont}})
-                        </a>
-                        <hr style="padding:2px;margin:2px; padding-bottom: 5px" />
-                      </div>              
-                    </div>
-                </div>
-            </span>
-            <span class="col-md-2">
-                <div class="col-md-12" style="margin-bottom: 5px">
-                    <a ng-show="user == null" href="#/login"><button type="button" class="btn btn-primary pull-right">Login/Register</button></a>
-                    <span ng-show="user != null">Hallo, <a href="#/user/profile">{{user.username}}</a>! <button ng-click="logout()" class="btn-link">logout</button></span>
-                </div>
-                <div class="col-md-12">
-                    <form>
-                        <span class="pull-right">
-                            <input type="text" ng-model="searchString" id="searchString" placeholder="Search" onsubmit="window.open('#/search/global?searchString=' + $('#searchString').val(), '_self')" />
-                            <button type="submit" class="btn btn-default hidden" onclick="window.open('#/search/global?searchString=' + $('#searchString').val(), '_self')">Go!</button>
-                        </span>
-                    </form>
-                </div>
-            </span>
+            <span class="col-md-4">
+		    <span class="col-md-5 text-center">
+			<div ng-show="user != null">
+			    <div>
+				<a href="#/nav/beispiele"><button type="button" class="btn btn-primary btn-sm btn-block" ng-click="favoriteFilterEnabled = true; selectedUni = favoriteUni" style="margin-bottom:5px">Favorites</button></a>
+			    </div>
+			    <div>
+				<button ng-click="newsOpened = !newsOpened" type="button" class="btn btn-primary btn-sm btn-block" >News <span class="badge">{{getNumNotiAll(unis)}}</span></button>
+			    </div>
+			    <div class="dropdown-menu" style="width:400px" ng-style="{display: newsOpened ? 'block' : 'none' }">
+			      <div ng-repeat="noti in getAllNotiAll(unis)">
+				<a href="#/testfile/details" ng-click="goToTestfile2(noti.uni2, noti.lva2, noti.sem2, noti.bsp2, noti.cont2, noti.testfile)"> <!-- ng-click="goToTestfile2(noti.uni2, noti.lva2, noti.sem2, noti.bsp2, noti.cont2, noti.testfile)" -->
+				  <font size="3">{{noti.uni}} - {{noti.lva}} - {{noti.sem}}</font>
+				  <br />   
+				   {{noti.bsp}}: {{noti.name}} (from {{noti.cont}})
+				</a>
+				<hr style="padding:2px;margin:2px; padding-bottom: 5px" />
+			      </div>              
+			    </div>
+			</div>
+		    </span>
+		    <span class="col-md-7">
+			<div class="col-md-12" style="margin-bottom: 5px">
+			    <a ng-show="user == null" href="#/login"><button type="button" class="btn btn-primary pull-right btn-block">Login/Register</button></a>
+			    <span ng-show="user != null">Hallo, <a href="#/user/profile">{{user.username}}</a>! <button ng-click="logout()" class="btn-link">logout</button></span>
+			</div>
+			<div class="col-md-12">
+			    <form>
+				<span class="pull-right">
+				    <input type="text" class="form-control" ng-model="searchString" id="searchString" placeholder="Search" onsubmit="window.open('#/search/global?searchString=' + $('#searchString').val(), '_self')" />
+				    <button type="submit" class="btn btn-default hidden" onclick="window.open('#/search/global?searchString=' + $('#searchString').val(), '_self')">Go!</button>
+				</span>
+			    </form>
+			</div>
+		    </span>
+		</span>
         </div>
     </div>
 </div>
