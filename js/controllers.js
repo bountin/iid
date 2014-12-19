@@ -201,13 +201,15 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         var newUser = {username: username, email: email, password: password};
         $scope.users.push(newUser);
 //        $scope.userRegistered = true;
-        alert("'" + newUser.username + "' registered! An email will be sent to your email address in order to verify its validity.")
+        confirm("'" + newUser.username + "' registered! An email will be sent to your email address in order to verify its validity.", "", function(ret) {
+            window.location.href = '#/login';
+        });
     };
 
     $scope.login = function(username, password) {
         var foundUser = null;
         angular.forEach($scope.users, function(user) {
-           if (user.username == username) {
+           if (user.username.toLowerCase() == username.toLowerCase()) {
                foundUser = user;
            }
         });
@@ -218,6 +220,9 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         }
 
         $scope.user = foundUser;
+        if ($scope.user != null) {
+            window.location.href = '#/home';
+        }
 
     };
 
@@ -232,18 +237,18 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         {name: 'HTL Hollabrunn', lvas: [
             {name: 'VU Objektorientierte Programmiertechniken', kurzname: 'OOP', nummer: '311.294', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/oop', semester: [
                 {name: 'WS14', favorite: true, startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
-                    {name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '17.11.2014', url: ''},
-                    {name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '02.12.2014', url: ''},
-                    {name: 'Beispiel 3', angabe: 'oop3.pdf', deadline: '19.12.2014', url: ''}
+                    {name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '17.11.2014', url: '', contributors:[]},
+                    {name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '02.12.2014', url: '', contributors:[]},
+                    {name: 'Beispiel 3', angabe: 'oop3.pdf', deadline: '19.12.2014', url: '', contributors:[]}
                 ]},
                 {name: 'WS13', favorite: true, startDatum: '01.10.2013', endDatum: '30.01.2014', beispiele: [
-                    {name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '15.11.2013', url: ''},
-                    {name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '22.11.2013', url: ''},
-                    {name: 'Beispiel 3', angabe: 'oop1.pdf', deadline: '29.11.2013', url: ''},
-                    {name: 'Beispiel 4', angabe: 'oop2.pdf', deadline: '05.12.2013', url: ''},
-                    {name: 'Beispiel 5', angabe: 'oop1.pdf', deadline: '12.12.2013', url: ''},
-                    {name: 'Beispiel 6', angabe: 'oop2.pdf', deadline: '19.12.2013', url: ''},
-                    {name: 'Beispiel 7', angabe: 'oop3.pdf', deadline: '09.01.2014', url: ''}
+                    {name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '15.11.2013', url: '', contributors:[]},
+                    {name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '22.11.2013', url: '', contributors:[]},
+                    {name: 'Beispiel 3', angabe: 'oop1.pdf', deadline: '29.11.2013', url: '', contributors:[]},
+                    {name: 'Beispiel 4', angabe: 'oop2.pdf', deadline: '05.12.2013', url: '', contributors:[]},
+                    {name: 'Beispiel 5', angabe: 'oop1.pdf', deadline: '12.12.2013', url: '', contributors:[]},
+                    {name: 'Beispiel 6', angabe: 'oop2.pdf', deadline: '19.12.2013', url: '', contributors:[]},
+                    {name: 'Beispiel 7', angabe: 'oop3.pdf', deadline: '09.01.2014', url: '', contributors:[]}
                 ]}
             ]}
         ]},
@@ -296,47 +301,47 @@ iidControllers.controller('SearchGlobalController', function($scope) {
                     ]}
                 ]},
                 {name: 'WS13', favorite: true, startDatum: '01.10.2013', endDatum: '30.01.2014', beispiele: [
-                    {name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '15.11.2013', url: ''},
-                    {name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '22.11.2013', url: ''},
-                    {name: 'Beispiel 3', angabe: 'oop1.pdf', deadline: '29.11.2013', url: ''},
-                    {name: 'Beispiel 4', angabe: 'oop2.pdf', deadline: '05.12.2013', url: ''},
-                    {name: 'Beispiel 5', angabe: 'oop1.pdf', deadline: '12.12.2013', url: ''},
-                    {name: 'Beispiel 6', angabe: 'oop2.pdf', deadline: '19.12.2013', url: ''},
-                    {name: 'Beispiel 7', angabe: 'oop3.pdf', deadline: '09.01.2014', url: ''}
+                    {name: 'Beispiel 1', angabe: 'oop1.pdf', deadline: '15.11.2013', url: '', contributors:[]},
+                    {name: 'Beispiel 2', angabe: 'oop2.pdf', deadline: '22.11.2013', url: '', contributors:[]},
+                    {name: 'Beispiel 3', angabe: 'oop1.pdf', deadline: '29.11.2013', url: '', contributors:[]},
+                    {name: 'Beispiel 4', angabe: 'oop2.pdf', deadline: '05.12.2013', url: '', contributors:[]},
+                    {name: 'Beispiel 5', angabe: 'oop1.pdf', deadline: '12.12.2013', url: '', contributors:[]},
+                    {name: 'Beispiel 6', angabe: 'oop2.pdf', deadline: '19.12.2013', url: '', contributors:[]},
+                    {name: 'Beispiel 7', angabe: 'oop3.pdf', deadline: '09.01.2014', url: '', contributors:[]}
                 ]}
             ]},
             {name: 'VU Interface and Interaction Design', kurzname: 'IIXD', nummer: '183.289', institut: 'Institut für Rechnergestützte Automation', website: 'http://www.inso.tuwien.ac.at/lectures/iixd/', semester: [
                 {name: 'WS14', favorite: true, startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
-                    {name: 'Übung 1', angabe: 'iixd1.pdf', deadline: '17.11.2014', url: ''},
-                    {name: 'Übung 2', angabe: 'iixd2.pdf', deadline: '02.12.2014', url: ''}
+                    {name: 'Übung 1', angabe: 'iixd1.pdf', deadline: '17.11.2014', url: '', contributors:[]},
+                    {name: 'Übung 2', angabe: 'iixd2.pdf', deadline: '02.12.2014', url: '', contributors:[]}
                 ]},
                 {name: 'WS13', favorite: false, startDatum: '01.10.2013', endDatum: '30.01.2014', beispiele: [
-                    {name: 'Übung 1', angabe: 'iixd1.pdf', deadline: '15.11.2013', url: ''},
-                    {name: 'Übung 2', angabe: 'iixd2.pdf', deadline: '30.11.2013', url: ''},
-                    {name: 'Übung 3', angabe: 'iixd3.pdf', deadline: '17.12.2013', url: ''}
+                    {name: 'Übung 1', angabe: 'iixd1.pdf', deadline: '15.11.2013', url: '', contributors:[]},
+                    {name: 'Übung 2', angabe: 'iixd2.pdf', deadline: '30.11.2013', url: '', contributors:[]},
+                    {name: 'Übung 3', angabe: 'iixd3.pdf', deadline: '17.12.2013', url: '', contributors:[]}
                 ]}
             ]},
             {name: 'VU Funktionale Programmierung', kurzname: 'FUNCPROG', nummer: '311.813', institut: 'Institut für Computersprachen', website: 'http://complang.tuwien.ac.at/funcprog', semester: [
                 {name: 'WS14', favorite: false, startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
-                    {name: 'Beispiel 1', angabe: 'fprog1.pdf', deadline: '17.11.2014', url: ''},
-                    {name: 'Beispiel 2', angabe: 'fprog2.pdf', deadline: '02.12.2014', url: ''},
-                    {name: 'Beispiel 3', angabe: 'fprog3.pdf', deadline: '19.12.2014', url: ''}
+                    {name: 'Beispiel 1', angabe: 'fprog1.pdf', deadline: '17.11.2014', url: '', contributors:[]},
+                    {name: 'Beispiel 2', angabe: 'fprog2.pdf', deadline: '02.12.2014', url: '', contributors:[]},
+                    {name: 'Beispiel 3', angabe: 'fprog3.pdf', deadline: '19.12.2014', url: '', contributors:[]}
                 ]}
             ]},
             {name: 'UE Software Engineering & Projekt Management', kurzname: 'SEPM', nummer: '346.952', institut: 'QSE', website: 'http://qse.tuwien.ac.at', semester: [
                 {name: 'WS14', favorite: false, startDatum: '01.10.2014', endDatum: '30.01.2015', beispiele: [
-                    {name: 'Einzelbeispiel', angabe: 'einzelbeispiel.pdf', deadline: '17.11.2014', url: ''},
-                    {name: 'Gruppenbeispiel', angabe: 'gruppenbeispiel.pdf', deadline: '02.01.2014', url: ''}
+                    {name: 'Einzelbeispiel', angabe: 'einzelbeispiel.pdf', deadline: '17.11.2014', url: '', contributors:[]},
+                    {name: 'Gruppenbeispiel', angabe: 'gruppenbeispiel.pdf', deadline: '02.01.2014', url: '', contributors:[]}
                 ]},
                 {name: 'SS14', favorite: false, startDatum: '01.10.2013', endDatum: '30.01.2014', beispiele: [
-                    {name: 'Einzelbeispiel', angabe: 'einzelbeispiel.pdf', deadline: '01.04.2014', url: ''},
-                    {name: 'Gruppenbeispiel', angabe: 'gruppenbeispiel.pdf', deadline: '23.06.2014', url: ''}
+                    {name: 'Einzelbeispiel', angabe: 'einzelbeispiel.pdf', deadline: '01.04.2014', url: '', contributors:[]},
+                    {name: 'Gruppenbeispiel', angabe: 'gruppenbeispiel.pdf', deadline: '23.06.2014', url: '', contributors:[]}
                 ]}
             ]}
         ]},
         {name: 'Uni Wien', lvas: [
-	    {name: 'LVA 1', kurzname: '', nummer: '', institut: '', website: '', semester:[]},
-	    {name: 'LVA 2', kurzname: '', nummer: '', institut: '', website: '', semester:[]}
+            {name: 'LVA 1', kurzname: '', nummer: '', institut: '', website: '', semester:[]},
+            {name: 'LVA 2', kurzname: '', nummer: '', institut: '', website: '', semester:[]}
         ]}
 
     ];
@@ -350,29 +355,53 @@ iidControllers.controller('SearchGlobalController', function($scope) {
             uni.lvas.forEach(function(lva) {
                 lva.semester.forEach(function(sem) {
                     sem.beispiele.forEach(function(bsp) {
-                        result2[j] = {
+                        result[i] = {
                             'uni': uni,
                             'lva': lva,
                             'sem': sem,
                             'bsp': bsp
                         };
-                        alert(j + ':' + result2[j].bsp.name);
-                        j++;
+                        i++;
 
                     });
                 });
             });
         });
-//        result2.forEach(function(obj) {
-//            alert(obj.lva);
-//        });
-        return result2;
+        return result;
+    };
+
+    $scope.getTestfiles = function() {
+
+        var result = [];
+
+        var i = 0;
+        $scope.unis.forEach(function(uni) {
+            uni.lvas.forEach(function(lva) {
+                lva.semester.forEach(function(sem) {
+                    sem.beispiele.forEach(function(bsp) {
+                        bsp.contributors.forEach(function(contr) {
+                            contr.testfiles.forEach(function(value) {
+                                result[i] = {
+                                    'uni': uni,
+                                    'lva': lva,
+                                    'sem': sem,
+                                    'bsp': bsp,
+                                    'value': value
+                                };
+                                i++;
+                            });
+                        });
+                    });
+                });
+            });
+        });
+        return result;
     };
 
     $scope.getLVAs = function() {
-        result = [];
+        var result = [];
 
-        i = 0;
+        var i = 0;
         $scope.unis.forEach(function(uni) {
             uni.lvas.forEach(function(lva) {
                 result[i] = {
