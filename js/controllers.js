@@ -15,6 +15,7 @@ iidControllers.controller('SearchGlobalController', function($scope) {
     $scope.selectedSemester = null;
     $scope.selectedLva = null;      
     $scope.selectedUni = null;
+    $scope.selectedTestfile = null;
     $scope.setSelectedLva = function(lva) {
       $scope.selectedLva = lva;
     };
@@ -24,6 +25,9 @@ iidControllers.controller('SearchGlobalController', function($scope) {
     };
     $scope.setSelectedUni = function(uni) {
       $scope.selectedUni = uni;
+    };
+    $scope.setSelectedTestfile = function(testfile) {
+        $scope.selectedTestfile = testfile;
     };
     $scope.numberOfTestFiles = function(beispiel) {
        var l = 0;
