@@ -17,14 +17,9 @@ iidControllers.controller('SearchGlobalController', function($scope) {
     $scope.selectedUni = null;
     $scope.selectedTestfile = null;
     $scope.setSelectedLva = function(lva) {
-<<<<<<< .merge_file_a38404
       $scope.selectedLva = lva; 
       $scope.selectedSemester = null; 
     };    
-=======
-      $scope.selectedLva = lva;
-    };
->>>>>>> .merge_file_a38436
     $scope.setSelectedSemester = function(sem, lva) {
       $scope.selectedSemester = sem;
       $scope.selectedLva = lva;  
@@ -46,7 +41,6 @@ iidControllers.controller('SearchGlobalController', function($scope) {
           }
        });
        return l;
-<<<<<<< .merge_file_a38404
     }
     $scope.getColorLva = function(lva, selected) {
       if(lva == selected) {
@@ -55,9 +49,6 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         return 'background-color: #FFFFFF';
       }
     }
-=======
-    };
->>>>>>> .merge_file_a38436
     $scope.hasAFavorite = function(lva) {
       var r = false;
       if(lva.semester == null) {
