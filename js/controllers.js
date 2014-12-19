@@ -64,7 +64,7 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         $scope.selectedTestfile = null;
     };
     $scope.goToBeispiel2 = function(uni, lva, semester, beispiel) {
-//        alert(uni.name);
+        alert(uni.name + ', ' + lva.name + ', ' + semester.name + ', ' + beispiel.name);
 //        alert(lva.name);
 //        alert(semester.name);
 //        alert(beispiel.name);
