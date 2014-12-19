@@ -203,7 +203,7 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         confirm("'" + newUser.username + "' registered! An email will be sent to your email address in order to verify its validity.", "", function(ret) {
 //            window.location.href = '#/home';
         });
-        
+
     };
 
     $scope.login = function(username, password) {

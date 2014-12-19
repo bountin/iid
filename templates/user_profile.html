@@ -29,19 +29,25 @@
 </div>
 <div class="row-fluid">
 	<div class="col-md-12">
-		<hr>		
+		<hr>
+        user.notifications.type.push: {{user.notifications.type.push}} <br>
+        user.notifications.type.email: {{user.notifications.type.email}} <br>
+        user.notifications.trigger.newTestfiles: {{user.notifications.trigger.newTestfiles}} <br>
+        user.notifications.trigger.comments: {{user.notifications.trigger.comments}} <br>
+        user.notifications.trigger.answer: {{user.notifications.trigger.answer}} <br>
+
 		<h4 class="text-center">Change Notification Settings</h4>
 		<div class="col-md-6 col-md-offset-3">
 			<form class="form-horizontal" role="form">
 				<div class="checkbox">
 					<label>
-						<input ng-model="user.notifications.type.push" type="checkbox" value="">
+						<input ng-model="user.notifications.type.push" type="checkbox" checked="{{user.notifications.type.push}}" value="">
 							Push Notifications
 					</label>
 				</div>
 				<div class="checkbox">
 					<label>
-						<input ng-model="user.notifications.type.email" type="checkbox" value="">
+						<input ng-model="user.notifications.type.email" ng-checked="user.notifications.type.email" type="checkbox">
 							E-Mail Notifications
 					</label>
 				</div>
@@ -49,19 +55,19 @@
 				Notify my when ...
 				<div class="checkbox">
 					<label>
-						<input ng-model="user.notifications.trigger.newTestfiles" type="checkbox" value="">
+						<input ng-model="user.notifications.trigger.newTestfiles" type="checkbox">
 							there are new Testfiles for one of my favourites
 					</label>
 				</div>
 				<div class="checkbox">
 					<label>
-						<input ng-model="user.notifications.trigger.comments" type="checkbox" value="">
+						<input ng-model="user.notifications.trigger.comments" ng-checked="user.notifications.trigger.comments" type="checkbox" value="">
 							someone commented on my testfile
 					</label>
 				</div>
 				<div class="checkbox">
 					<label>
-						<input ng-model="user.notifications.trigger.answer" type="checkbox" value="">
+						<input ng-model="user.notifications.trigger.answer" ng-checked="user.notifications.trigger.answer" checked="{{user.notifications.trigger.answer}}" type="checkbox" value="">
 							someone answered my comment
 					</label>
 				</div>
