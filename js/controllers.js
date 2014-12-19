@@ -178,10 +178,6 @@ iidControllers.controller('SearchGlobalController', function($scope) {
             $scope.loginFailureMessage = null;
         }
 
-        if ($scope.loginFailureMessage == null) {
-            return;
-        }
-
         $scope.user = foundUser;
 
     };
