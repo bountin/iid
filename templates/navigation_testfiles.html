@@ -26,7 +26,7 @@
 					<tr>
 						<th><font size="5"> Testfiles for "{{selectedBeispiel.name}}" </font></th>
 					</tr>
-					<tbody ng-repeat="contributor in selectedBeispiel.contributors | orderBy:{{getAvgVotesForContributor(contributor)}">
+					<tbody ng-repeat="contributor in selectedBeispiel.contributors | orderBy:getAvgVotesForContributor(contributor)">
 						<tr class="treegrid-{{$index+1}}" style="{{getColorContributor(contributor, selectedContributor)}}">   
 							<td><font size="4"><a href="#/nav/testfiles" ng-click="setSelectedContributor(contributor)">{{contributor.user}}</a></font></td>
 							<td><font size="4">{{getAvgVotesForContributor(contributor)}}</font></td>
