@@ -13,6 +13,9 @@ iid.config(function($routeProvider) {
         when('/testfile/add', {
             templateUrl: 'templates/testfile_add.html',
         }).
+        when('/testfile/update', {
+            templateUrl: 'templates/testfile_update.html',
+        }).
         when('/testfile/details', {
             templateUrl: 'templates/testfile_details.html',
         }).

@@ -3,7 +3,7 @@
 
     <div class="row-fluid">
         <span class="col-md-12 text-center">
-            <h2>New Testfile</h2>
+            <h2>Update Testfile</h2>
         </span>
     </div>
 
@@ -18,7 +18,7 @@
             <div class="form-group">
                 <label class="control-label col-md-2" for="uni">University:</label>
                 <div class="col-md-8">
-                    <select ng-model="selectedUni" ng-options="uni.name for uni in unis" class="form-control" id="uni"/>
+                    <select ng-model="selectedUni" ng-options="uni.name for uni in unis" class="form-control" id="uni" disabled="disabled"/>
                 </div>
                 <div class="col-md-2" />
             </div>
@@ -29,7 +29,7 @@
                         <!--<option ng-repeat="lva in lvas">{{lva.name}}</option>-->
                         <!--<option>{{newLVA}}</option>-->
                     <!--</select>-->
-                    <select ng-disabled="selectedUni == null" ng-model="selectedLva" ng-options="lva.name for lva in getLVAsForSelectedUni(selectedUni)" class="form-control disabled" id="lva" />
+                    <select disabled="disabled" ng-model="selectedLva" ng-options="lva.name for lva in getLVAsForSelectedUni(selectedUni)" class="form-control disabled" id="lva" />
                         <!--<option ng-repeat="l in selectedUni.lvas">{{ l.name }}</option>-->
                         <!--<option onclick="$('#new_lva').removeClass('hidden'); $('#semester').removeAttr('disabled');">&lt;neue Lehrveranstaltung&gt;</option>-->
                     <!--</select>-->
@@ -78,7 +78,7 @@
                         <!--<option ng-repeat="sem in semester" ng-hide="selectedLva == newLVA">{{ sem.name }}</option>-->
                         <!--<option ng-select="selectedLva == newLVA">{{newSemester}}</option>-->
                     <!--</select>-->
-                    <select ng-disabled="selectedLva == null" ng-model="selectedSemester" ng-options="semester.name for semester in getSemesterForSelectedLVA(selectedLva)" class="form-control" id="semester" />
+                    <select disabled="disabled" ng-model="selectedSemester" ng-options="semester.name for semester in getSemesterForSelectedLVA(selectedLva)" class="form-control" id="semester" />
                 </div>
                 <div class="col-md-2" />
             </div>
@@ -112,7 +112,7 @@
                         <!--<option ng-repeat="beispiel in beispiele" ng-hide="selectedSemester == newSemester">{{ beispiel.name }}</option>-->
                         <!--<option ng-select="selectedSemester == newSemester">{{newBeispiel}}</option>-->
                     <!--</select>-->
-                    <select ng-disabled="selectedSemester == null" ng-model="selectedBeispiel" ng-options="beispiel.name for beispiel in getBeispieleForSelectedSemester(selectedSemester)" class="form-control" id="beispiel" />
+                    <select disabled="disabled" ng-model="selectedBeispiel" ng-options="beispiel.name for beispiel in getBeispieleForSelectedSemester(selectedSemester)" class="form-control" id="beispiel" />
                 </div>
                 <div class="col-md-2" />
             </div>
@@ -152,7 +152,7 @@
                     <label for="upload_button">Test file:</label>
                 </div>
                 <div class="row">
-                    <img class="img-thumbnail" id="preview" src="images/no_image_thumbnail.png" alt="Test file preview">
+                    <img class="img-thumbnail" id="preview" src="images/testcase_preview_thumbnail.png" alt="Test file preview">
                 </div>
                 <!--<div class="text-center">-->
                 <div class="row">
@@ -165,23 +165,38 @@
                 <div class="row">
                     <label class="control-label" for="description">Description:</label>
                 </div>
-                <div class="row">
-                    <textarea class="form-control" rows="12" ng-model="description" id="description"></textarea>
+                <div class="row"><!-- ng-model="description" -->
+                    <textarea class="form-control" rows="12" id="description">The testfile contains the following testcases:
+
+1) eatOrange_shouldMakePHappy() tests if an orange makes a person happy when eating it (positive test)
+                    </textarea>
                 </div>
             </div>
         </div>
 
+        <!--<div class="row-fluid">-->
+            <!--<div class="form-group">-->
+                <!--<div class="pull-right">-->
+                    <!--<button type="submit" class="btn btn-default glyphicon glyphicon-trash" ng-click="doDelete()"> Delete</button>-->
+                    <!--<button type="submit" class="btn btn-primary glyphicon glyphicon-floppy-disk" ng-click="doSave()"> Save</button>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row-fluid">-->
+            <!--<div class="alert alert-success" ng-show="saved" role="alert">{{savedTime}} <b>Successfully saved!</b></div>-->
+            <!--<div class="alert alert-info" ng-show="deleted" role="alert">{{deletedTime}} <b>Successfully deleted!</b></div>-->
+        <!--</div>-->
         <div class="row-fluid">
             <div class="form-group">
                 <div class="pull-right">
-                    <button type="submit" class="btn btn-default glyphicon glyphicon-trash" ng-click="doDelete()" ng-show="saved"> Delete</button>
-                    <button type="submit" class="btn btn-primary glyphicon glyphicon-floppy-disk" ng-click="doSave()" ng-disabled="selectedUni == null || selectedLva == null || selectedSemester == null || selectedBeispiel == null || fileSelected == false"> Save</button>
+                    <button type="submit" class="btn btn-default glyphicon glyphicon-trash" ng-click="doDelete_upd()" ng-hide="upd_deleted"> Delete</button>
+                    <button type="submit" class="btn btn-primary glyphicon glyphicon-floppy-disk" ng-click="doSave_upd()"> Save</button>
                 </div>
             </div>
         </div>
         <div class="row-fluid">
-            <div class="alert alert-success" ng-show="saved" role="alert">{{savedTime}} <b>Successfully saved!</b></div>
-            <div class="alert alert-info" ng-show="deleted" role="alert">{{deletedTime}} <b>Successfully deleted!</b></div>
+            <div class="alert alert-success" ng-show="upd_saved" role="alert">{{savedTime}} <b>Successfully saved!</b></div>
+            <div class="alert alert-info" ng-show="upd_deleted" role="alert">{{deletedTime}} <b>Successfully deleted!</b></div>
         </div>
 
     </form>
