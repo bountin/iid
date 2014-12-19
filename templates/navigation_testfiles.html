@@ -32,8 +32,13 @@
 					</tr>
 					<tbody ng-repeat="contributor in selectedBeispiel.contributors | orderBy:getAvgVotesForContributor:true">
 						<tr class="treegrid-{{$index+1}}" style="{{getColorContributor(contributor, selectedContributor)}}">   
-							<td class="col-md-7"><font size="4"><a href="#/nav/testfiles" ng-click="setSelectedContributor(contributor)">{{contributor.user}}</font><font size="2">  ({{contributor.testfiles.length}} Testfiles)</font></a></td>
-							<td class="col-md-1"><font size="3" color="{{getAvgVotesColorForContributor(contributor)}}" class="pull-right">{{getAvgVotesForContributor(contributor)}}</font></td>
+							<td class="col-md-7"><font size="4"><a href="#/nav/testfiles" ng-click="setSelectedContributor(contributor)">{{contributor.user}}</a></font><font size="2">  ({{contributor.testfiles.length}} Testfiles)</font></a></td>
+							<td> 
+                <div ng-show="user != null">
+                    <span ng-show="getNumNotiCont(contributor) != 0" class="badge pull-right">{{getNumNotiCont(contributor)}}</span>
+                </div>
+              </td>     
+              <td class="col-md-1"><font size="3" color="{{getAvgVotesColorForContributor(contributor)}}" class="pull-right">{{getAvgVotesForContributor(contributor)}}</font></td>
 							<td class="col-md-1">
 								<div ng-show="user != null" class="col-md-12">
 									<img ng-hide="contributor.votedAll==1" src="images/arrow_up_grey.png" ng-click="allVoted(contributor, 1)" class="img-responsive pull-left" alt="Vote up or down" vspace="1">
@@ -53,7 +58,12 @@
 						</tr>
 						<tr ng-show="selectedContributor == contributor" class="treegrid-parent-{{$parent.$index+1}}" ng-repeat="testfile in contributor.testfiles">
 							<td class="col-md-7"><a class="col-md-offset-1" href="#/testfile/details" ng-click="setSelectedTestfile(testfile)"><font size="3">{{testfile.filename}}</font><font size="2">  ({{testfile.comments}} Comments / {{testfile.downloads}} Downloads)</font></a></td>
-							<td class="col-md-1"><font color="{{getColorVotes(testfile)}}" class="pull-right">{{getVotesForTestfile(testfile)}}</font></td>
+							<td> 
+                <div ng-show="user != null">
+                    <span ng-show="testfile.notificate == true" class="badge pull-right">new</span>
+                </div>
+              </td>    
+              <td class="col-md-1"><font color="{{getColorVotes(testfile)}}" class="pull-right">{{getVotesForTestfile(testfile)}}</font></td>
 							<td class="col-md-1">
 								<div ng-show="user != null"  class="col-md-12">
 									<img ng-hide="testfile.voted==1" src="images/arrow_up_grey.png" ng-click="fileVoted(contributor, testfile, 1, true)" class="img-responsive pull-left" alt="Vote up or down" vspace="1">
