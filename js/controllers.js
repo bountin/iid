@@ -290,6 +290,10 @@ iidControllers.controller('SearchGlobalController', function($scope) {
 
     };
 
+    $scope.isLoggedIn = function() {
+        return $scope.user != null;
+    };
+
     $scope.login = function(username, password) {
         var foundUser = null;
         angular.forEach($scope.users, function(user) {

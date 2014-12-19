@@ -13,17 +13,18 @@
 	<div class="row-fluid">
 		<div class="col-md-12">
 			<div class="col-md-6">
-				<div class="col-md-4">
-					<div class="checkbox pull-left">
+                <div class="col-md-8">
+                    <input type="text" class="form-control" ng-model="filterCourseString" id="local_filter" placeholder="Filter">
+                </div>
+                <div class="col-md-4">
+					<div ng-show="user != null" class="checkbox pull-left">
 						<label>
 							<input type="checkbox" ng-model="favoriteFilterEnabled"/>
-								Filter Favorite
+								Filter Favorites
 						</label>
 					</div>
 				</div>
-				<div class="col-md-8">
-					<input type="text" class="form-control" ng-model="filterCourseString" id="local_filter" placeholder="Filter">
-				</div>		
+
 			</div>
   		<div class="col-md-4"/>
   			<div class="col-md-2">
@@ -43,15 +44,19 @@
 					  <tr class="treegrid-{{$index+1}}" style="{{getColorLva(lva, selectedLva)}}">   
   						<td><font size="4"><a href="#/nav/beispiele" ng-click="setSelectedLva(lva)">{{lva.name}}</a></font></td>
   						<td>
-                <img ng-show="hasAFavorite(lva)" src="images/star_full_disabled.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
-                <img ng-hide="hasAFavorite(lva)" src="images/star_empty_disabled.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
+                <div ng-show="user != null">
+                    <img ng-show="hasAFavorite(lva)" src="images/star_full_disabled.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
+                    <img ng-hide="hasAFavorite(lva)" src="images/star_empty_disabled.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite">
+                </div>
               </td>
   					</tr>
             <tr ng-show="selectedLva == lva" class="treegrid-parent-{{$parent.$index+1}}" ng-repeat="sem in lva.semester">
   						<td class="row-fluid"><a class="col-md-offset-1" href="#/nav/beispiele" ng-click="setSelectedSemester(sem, lva)">{{sem.name}}</a></td>
   						<td>
-                <a href="#/nav/beispiele" ng-click="toggleFavorite(sem)"><img ng-show="sem.favorite" src="images/star_full.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite"></a>
-                <a href="#/nav/beispiele" ng-click="toggleFavorite(sem)"><img ng-hide="sem.favorite" src="images/star_empty.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite"></a>
+                            <div ng-show="user != null">
+                                <a href="#/nav/beispiele" ng-click="toggleFavorite(sem)"><img ng-show="sem.favorite" src="images/star_full.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite"></a>
+                                <a href="#/nav/beispiele" ng-click="toggleFavorite(sem)"><img ng-hide="sem.favorite" src="images/star_empty.png" class="img-responsive pull-right" width="32" height="32" alt="Favorite"></a>
+                            </div>
               </td>
   				  </tr>	
   				</tbody>                                                           
