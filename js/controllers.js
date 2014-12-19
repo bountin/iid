@@ -197,7 +197,7 @@ iidControllers.controller('SearchGlobalController', function($scope) {
         if ($scope.registerFailureMessage != null) {
             return;
         }
-        var newUser = {username: username, email: email, password: password};
+        var newUser = {username: username, email: email, password: password, notifications: { type: {push: 'true', email:'false'}, trigger: { newTestfiles: 'true', comments: 'false', answer: 'true'}}};
         $scope.users.push(newUser);
 //        $scope.userRegistered = true;
         confirm("'" + newUser.username + "' registered! An email will be sent to your email address in order to verify its validity.", "", function(ret) {
@@ -218,6 +218,11 @@ iidControllers.controller('SearchGlobalController', function($scope) {
             $scope.loginFailureMessage = null;
         }
 
+        if ($scope.loginFailureMessage != null) {
+            $scope.user = null;
+            return;
+        }
+
         $scope.user = foundUser;
         if ($scope.user != null) {
             window.location.href = '#/home';
@@ -225,11 +230,46 @@ iidControllers.controller('SearchGlobalController', function($scope) {
 
     };
 
+    $scope.logout = function() {
+        $scope.user = null;
+        window.location.href = '#/home';
+    };
+
+    $scope.cpw_old_pw = '';
+    $scope.cpw_new_pw_1 = '';
+    $scope.cpw_new_pw_2 = '';
+
+    $scope.changePasswordFailureMessage = null;
+    $scope.changePassword = function(user, old_pw, new_pw_1, new_pw_2) {
+        console.info(user.password + ", " + old_pw);
+        if (user.password != old_pw) {
+            $scope.changePasswordFailureMessage = 'Wrong password, please try again!';
+        } else if (new_pw_1 == undefined || new_pw_1.length < 7) {
+            $scope.changePasswordFailureMessage = 'The password must be at least 7 characters long!';
+        } else if (new_pw_1 != new_pw_2) {
+            $scope.changePasswordFailureMessage = 'The passwords do not match!';
+        } else {
+            $scope.changePasswordFailureMessage = null;
+        }
+
+        if ($scope.changePasswordFailureMessage != null) {
+            return;
+        }
+
+        $scope.user.password = new_pw_1;
+        $scope.cpw_old_pw = '';
+        $scope.cpw_new_pw_1 = '';
+        $scope.cpw_new_pw_2 = '';
+
+        alert('Password successfully changed!');
+
+    };
+
     $scope.users = [
-        {username:'Martin', password:'password', email:'e1234567@student.tuwien.ac.at'},
-        {username:'Floff', password:'password', email:'e9876543@student.tuwien.ac.at'},
-        {username:'Jotschi', password:'password', email:'e5647382@student.tuwien.ac.at'},
-        {username:'Micc', password:'password', email:'e1946243@student.tuwien.ac.at'},
+        {username:'Martin', password:'password', email:'e1234567@student.tuwien.ac.at', notifications: { type: {push: 'true', email:'false'}, trigger: { newTestfiles: 'true', comments: 'false', answer: 'true'}}},
+        {username:'Floff', password:'password', email:'e9876543@student.tuwien.ac.at', notifications: { type: {push: 'false', email:'false'}, trigger: { newTestfiles: 'false', comments: 'false', answer: 'false'}}},
+        {username:'Jotschi', password:'password', email:'e5647382@student.tuwien.ac.at', notifications: { type: {push: 'false', email:'true'}, trigger: { newTestfiles: 'false', comments: 'false', answer: 'true'}}},
+        {username:'Micc', password:'password', email:'e1946243@student.tuwien.ac.at', notifications: { type: {push: 'true', email:'true'}, trigger: { newTestfiles: 'true', comments: 'true', answer: 'true'}}}
     ];
 
     $scope.unis = [
@@ -367,24 +407,6 @@ iidControllers.controller('SearchGlobalController', function($scope) {
             });
         });
 
-        console.info('');
-        console.info('Unis');
-        result.forEach(function(elem) {
-            console.info(elem.uni);
-        });
-        console.info('LVAs');
-        result.forEach(function(elem) {
-            console.info(elem.lva);
-        });
-        console.info('Semester');
-        result.forEach(function(elem) {
-            console.info(elem.sem);
-        });
-        console.info('Beispiele');
-        result.forEach(function(elem) {
-            console.info(elem.bsp);
-        });
-
         return result;
     };
 
@@ -414,28 +436,6 @@ iidControllers.controller('SearchGlobalController', function($scope) {
                 });
             });
         });
-//        console.info('');
-//        console.info('Unis');
-//        result.forEach(function(elem) {
-//           console.info(elem.uni);
-//        });
-//        console.info('LVAs');
-//        result.forEach(function(elem) {
-//            console.info(elem.lva);
-//        });
-//        console.info('Semester');
-//        result.forEach(function(elem) {
-//            console.info(elem.sem);
-//        });
-//        console.info('Beispiele');
-//        result.forEach(function(elem) {
-//            console.info(elem.bsp);
-//        });
-//        console.info('Contributors');
-//        result.forEach(function(elem) {
-//            console.info(elem.contr);
-//        });
-
 
         return result;
     };
